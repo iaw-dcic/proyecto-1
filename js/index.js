@@ -1,10 +1,18 @@
 $(document).ready(function() {
   var selectedId = -1;
+  let seconds = 0;
+  let minutoes = 0;
   let imgArray = [];
-  let array = generateMemo();
+  let array = localStorage.getItem("array")
+    ? localStorage.getItem("array")
+    : generateMemo();
+  //let array = generateMemo();
+  let timer = setInterval(myTimer, 1000);
   console.log("El array generado es : ", array);
-
-  //Tengo que inicializar un mapeo...
+  var myVar = setInterval(myTimer, 1000);
+  function myTimer() {
+    document.getElementById("demo").innerHTML = seconds++;
+  }
 
   //Función que chequea que pasa cada vez que hago click en una carta
   $(".card").click(function() {
@@ -17,21 +25,19 @@ $(document).ready(function() {
         selectedId = -1;
       } else selectedId = clicked;
     }
-
-    //me guardo el id del elemento seleccionado
-    /*
-    let clicked = $(this).attr("id");
-    const img = "m" + clicked;
-    //busco la imagen asociada al id...
-    const aux = generateImage(clicked, array);
-    console.log("El indice de la posicion : " + clicked + "es :" + aux);
-    console.log("La ruta es : " + `images/m${aux}.jpeg`);
-    $(`#${img}`).hide();
-    $(`#${img}`).attr("src", `images/m${aux}.jpeg`);
-    $(`#${img}`).fadeIn(500);
-    console.log(document.getElementById(img));
-    */
   });
+
+  function checkImageArray() {
+    console.log(
+      "el valor leido en el local storage es : ",
+      localStorage.getItem("imgArray")
+    );
+    console.log(JSON.parse(localStorage.getItem("imgArray")));
+    let toR = JSON.parse(localStorage.getItem("imgArray"));
+    if (toR) toR.forEach(element => element.hide());
+    else toR = [];
+    return toR;
+  }
 
   function check(id1, id2) {
     console.log("Estoy aqui borracho y loco");
@@ -46,6 +52,7 @@ $(document).ready(function() {
       imgArray.push($(`#m${id2}`));
       $(`#m${id1}`).hide();
       $(`#m${id2}`).hide();
+      //tengo que actualizar el local storage
     }
   }
 
@@ -58,6 +65,7 @@ $(document).ready(function() {
 
   $("#reset").click(function restartGame() {
     array = generateMemo();
+    //todos los que tenia escondido ahora son restaurados
     imgArray.forEach(element => {
       element.attr("src", `images/default.png`);
       element.fadeIn(500);
@@ -83,7 +91,9 @@ $(document).ready(function() {
       //inserto el elemento en la posicion a insertar
       toR[pos] = element;
     });
-
+    //Remuevo si hay elementos previos en el localSTORAGE Y PROCEDO A CREARLOS DE NUEVO
+    localStorage.removeItem("array");
+    localStorage.setItem("array", toR);
     return toR;
   }
 

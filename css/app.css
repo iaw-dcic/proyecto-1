@@ -4,3 +4,19 @@ img {
   height: 120px;
   background-size: cover;
 }
+
+body {
+  background: rgb(1, 0, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(1, 0, 1, 1) 0%,
+    rgba(201, 236, 227, 1) 0%,
+    rgba(191, 251, 232, 1) 45%,
+    rgba(199, 232, 237, 1) 70%,
+    rgba(245, 246, 246, 1) 100%
+  );
+}
+
+.nav-wrapper {
+  background-color: #428176;
+}
