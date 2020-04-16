@@ -1,8 +1,6 @@
 $(document).ready(function() {
   var selectedId = -1;
-  var defaultImage;
-  var hideComponent;
-  var cont = 0;
+  let imgArray = [];
   let array = generateMemo();
   console.log("El array generado es : ", array);
 
@@ -11,13 +9,14 @@ $(document).ready(function() {
   //Función que chequea que pasa cada vez que hago click en una carta
   $(".card").click(function() {
     let clicked = $(this).attr("id");
-    console.log("Estoy haciendo click en : ", clicked);
-    showSelected(clicked);
-    if (selectedId > -1 && clicked != selectedId) {
-      //Estoy en el caso de que hay dos seleccionados
-      window.setTimeout(check, 500, selectedId, clicked);
-      selectedId = -1;
-    } else selectedId = clicked;
+    if (clicked != selectedId) {
+      showSelected(clicked);
+      if (selectedId > -1) {
+        //Estoy en el caso de que hay dos seleccionados
+        window.setTimeout(check, 500, selectedId, clicked);
+        selectedId = -1;
+      } else selectedId = clicked;
+    }
 
     //me guardo el id del elemento seleccionado
     /*
@@ -43,8 +42,10 @@ $(document).ready(function() {
       backToDefault(id2);
     } else {
       //deberia aumentar un contador
-      delayHide(id1);
-      delayHide(id2);
+      imgArray.push($(`#m${id1}`));
+      imgArray.push($(`#m${id2}`));
+      $(`#m${id1}`).hide();
+      $(`#m${id2}`).hide();
     }
   }
 
@@ -55,9 +56,13 @@ $(document).ready(function() {
     $(`#m${img1}`).fadeIn(500);
   }
 
-  function delayHide(img1) {
-    $(`#m${img1}`).hide();
-  }
+  $("#reset").click(function restartGame() {
+    array = generateMemo();
+    imgArray.forEach(element => {
+      element.attr("src", `images/default.png`);
+      element.fadeIn(500);
+    });
+  });
 
   function generateMemo() {
     //arreglo con los elementos a insertar
