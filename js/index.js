@@ -11,8 +11,9 @@ $(document).ready(function() {
   //Función que chequea que pasa cada vez que hago click en una carta
   $(".card").click(function() {
     let clicked = $(this).attr("id");
+    console.log("Estoy haciendo click en : ", clicked);
     showSelected(clicked);
-    if (selectedId > -1) {
+    if (selectedId > -1 && clicked != selectedId) {
       //Estoy en el caso de que hay dos seleccionados
       window.setTimeout(check, 500, selectedId, clicked);
       selectedId = -1;
@@ -35,8 +36,16 @@ $(document).ready(function() {
 
   function check(id1, id2) {
     console.log("Estoy aqui borracho y loco");
-    backToDefault(id1);
-    backToDefault(id2);
+    const x = generateImage(id1);
+    const y = generateImage(id2);
+    if (x !== y) {
+      backToDefault(id1);
+      backToDefault(id2);
+    } else {
+      //deberia aumentar un contador
+      delayHide(id1);
+      delayHide(id2);
+    }
   }
 
   //vuelve a los valores por defecto
@@ -44,6 +53,10 @@ $(document).ready(function() {
     $(`#m${img1}`).hide();
     $(`#m${img1}`).attr("src", `images/default.png`);
     $(`#m${img1}`).fadeIn(500);
+  }
+
+  function delayHide(img1) {
+    $(`#m${img1}`).hide();
   }
 
   function generateMemo() {
@@ -93,7 +106,7 @@ $(document).ready(function() {
   }
 
   //A veces hay que castear el elemento a int, aunque ya sea de tipo int...
-  function generateImage(element, array) {
+  function generateImage(element) {
     //Modulo 8 así le asigna la misma imagen a dos posiciones
     x = array.indexOf(element * 1) % 8;
     console.log("el x que estoy calculando es : " + x);
