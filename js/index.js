@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var aux = "";
+  var selectedId = -1;
   var defaultImage;
   var hideComponent;
   var cont = 0;
@@ -10,16 +10,41 @@ $(document).ready(function() {
 
   //Función que chequea que pasa cada vez que hago click en una carta
   $(".card").click(function() {
+    let clicked = $(this).attr("id");
+    showSelected(clicked);
+    if (selectedId > -1) {
+      //Estoy en el caso de que hay dos seleccionados
+      window.setTimeout(check, 500, selectedId, clicked);
+      selectedId = -1;
+    } else selectedId = clicked;
+
     //me guardo el id del elemento seleccionado
+    /*
     let clicked = $(this).attr("id");
     const img = "m" + clicked;
     //busco la imagen asociada al id...
     const aux = generateImage(clicked, array);
     console.log("El indice de la posicion : " + clicked + "es :" + aux);
     console.log("La ruta es : " + `images/m${aux}.jpeg`);
-    document.getElementById(img).src = `images/m${aux}.jpeg`;
+    $(`#${img}`).hide();
+    $(`#${img}`).attr("src", `images/m${aux}.jpeg`);
+    $(`#${img}`).fadeIn(500);
     console.log(document.getElementById(img));
+    */
   });
+
+  function check(id1, id2) {
+    console.log("Estoy aqui borracho y loco");
+    backToDefault(id1);
+    backToDefault(id2);
+  }
+
+  //vuelve a los valores por defecto
+  function backToDefault(img1) {
+    $(`#m${img1}`).hide();
+    $(`#m${img1}`).attr("src", `images/default.png`);
+    $(`#m${img1}`).fadeIn(500);
+  }
 
   function generateMemo() {
     //arreglo con los elementos a insertar
@@ -42,6 +67,16 @@ $(document).ready(function() {
     });
 
     return toR;
+  }
+
+  function showSelected(id) {
+    const img = "m" + id;
+    //busco la imagen asociada al id...
+    const aux = generateImage(id, array);
+
+    $(`#${img}`).hide();
+    $(`#${img}`).attr("src", `images/m${aux}.jpeg`);
+    $(`#${img}`).fadeIn(500);
   }
 
   //Genera la posicion en base a un arreglo que le es pasado por parametros
