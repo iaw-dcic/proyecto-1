@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  //primero inserto el estílo
+  let style = $("head").append(loadStyle());
   var selectedId = -1;
   let seconds = 0;
   let minutes = 0;
@@ -11,6 +13,17 @@ $(document).ready(function() {
   function myTimer() {
     document.getElementById("demo").innerHTML = seconds++;
   }
+
+  $("#style").click(function(e) {
+    e.preventDefault();
+    setStyle();
+  });
+
+  $("#original").click(function(e) {
+    e.preventDefault();
+    $("#cSel").remove();
+    localStorage.removeItem("style");
+  });
 
   //Función que chequea que pasa cada vez que hago click en una carta
   $(".card").click(function() {
@@ -28,6 +41,24 @@ $(document).ready(function() {
       } else selectedId = clicked;
     }
   });
+
+  function setStyle() {
+    localStorage.setItem("style", true);
+    $("head").append(
+      '<link id="cSel" rel="stylesheet" href="css/app.css" type="text/css" />'
+    );
+  }
+
+  function avoidStyle() {
+    localStorage.removeItem("style");
+  }
+
+  function loadStyle() {
+    let aux = localStorage.getItem("style");
+    if (aux)
+      return '<link rel="stylesheet" href="css/app.css" type="text/css" />';
+    return;
+  }
 
   function checkImageArray() {
     console.log(
