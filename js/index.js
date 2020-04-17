@@ -1,21 +1,23 @@
 $(document).ready(function() {
   var selectedId = -1;
   let seconds = 0;
-  let minutoes = 0;
+  let minutes = 0;
   let imgArray = [];
-  let array = localStorage.getItem("array")
-    ? localStorage.getItem("array")
-    : generateMemo();
+  let myVar;
+  let startGame = false;
+  let array = generateMemo();
   //let array = generateMemo();
-  let timer = setInterval(myTimer, 1000);
   console.log("El array generado es : ", array);
-  var myVar = setInterval(myTimer, 1000);
   function myTimer() {
     document.getElementById("demo").innerHTML = seconds++;
   }
 
   //Función que chequea que pasa cada vez que hago click en una carta
   $(".card").click(function() {
+    //Setea el contador si el juego todavia no empezo
+    if (!startGame) myVar = setInterval(myTimer, 1000);
+    startGame = true;
+
     let clicked = $(this).attr("id");
     if (clicked != selectedId) {
       showSelected(clicked);
@@ -65,6 +67,7 @@ $(document).ready(function() {
 
   $("#reset").click(function restartGame() {
     array = generateMemo();
+    seconds = minutes = 0;
     //todos los que tenia escondido ahora son restaurados
     imgArray.forEach(element => {
       element.attr("src", `images/default.png`);
@@ -73,11 +76,17 @@ $(document).ready(function() {
   });
 
   function generateMemo() {
+    let local = localStorage.getItem("array");
+    if (local) {
+      console.log("Estoy en este grandioso caso de leer el arreglo");
+      console.log("El arreglo leido es : ", local);
+      return JSON.parse(local);
+    }
     //arreglo con los elementos a insertar
     let arrayToIns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     //arreglo con las posiciones libres
     let posiciones = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    let toR = [];
+    let toR = new Array();
 
     console.log("Testeando el arreglo de posiciones");
     let aux = getPosicion(posiciones);
@@ -93,7 +102,7 @@ $(document).ready(function() {
     });
     //Remuevo si hay elementos previos en el localSTORAGE Y PROCEDO A CREARLOS DE NUEVO
     localStorage.removeItem("array");
-    localStorage.setItem("array", toR);
+    localStorage.setItem("array", JSON.stringify(toR));
     return toR;
   }
 
@@ -123,8 +132,17 @@ $(document).ready(function() {
   //A veces hay que castear el elemento a int, aunque ya sea de tipo int...
   function generateImage(element) {
     //Modulo 8 así le asigna la misma imagen a dos posiciones
-    x = array.indexOf(element * 1) % 8;
+    console.log("-------------------------------------");
+    console.log("el array es : ", array);
+    console.log(
+      "El array leido del local storage es : ",
+      localStorage.getItem("array")
+    );
+    console.log("el elemento tiene id : " + element);
+    console.log("el indice es : ", array.indexOf(parseInt(element, 10)));
+    x = array.indexOf(parseInt(element, 10)) % 8;
     console.log("el x que estoy calculando es : " + x);
+    console.log("-------------------------------------");
     return x;
   }
 });

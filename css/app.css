@@ -17,6 +17,11 @@ body {
   );
 }
 
+.timer {
+  font-size: 22px;
+  text-align: center;
+}
+
 .nav-wrapper {
   background-color: #428176;
 }
