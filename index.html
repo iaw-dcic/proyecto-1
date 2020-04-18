@@ -14,7 +14,98 @@
     <!-- JavaScript -->
     <script src="js/app.js"></script>
 
-    <input type="text" placeholder="Ingrese contraseña" oninput="verificar()"/>
+    <div>
+	    <input type="text" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
+
+	    <button type="button" id="ver" onclick="visibilidad()">mostrar/ocultar</button>
+
+	    <!--
+	    <a>Puntaje total: (Porcentaje)</a>
+
+	    <a>Complejidad: (complejidad)</a>-->
+	</div>
+
+	<div> 
+	<!--	<a>Requerimientos mínimos: (ACA VAN LOS REQUERIMIENTOS)</a>
+	-->
+	</div>
+
+    <hr>
+
+    <!--tabla para ver los resultados-->
+
+    <table id="tabla">
+	  <tr>
+	    <th>Características</th>
+	    <th>Tipo</th>
+	    <th>Rate</th>
+	    <th>Cantidad</th>
+	    <th>Puntos</th>
+	  </tr>
+
+	<!--aca poner todo lo de la tabla-->
+
+	  <tr>
+	    <td>Numero de caracteres</td>
+	    <td id=>Plano</td>
+	    <td>+(n*4)</td>
+	    <td id="cantCaracteres"></td>
+	    <td id="puntosLongitud"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Letras mayusculas</td>
+	    <td id=>Incremental?!?!?!</td>
+	    <td>+((len-n)*2)</td>
+	    <td id="cantMayusculas"></td>
+	    <td id="puntosMayusculas"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Letras minusculas</td>
+	    <td id=>Incremental?!?!?!</td>
+	    <td>+((len-n)*2)</td>
+	    <td id="cantMinusculas"></td>
+	    <td id="puntosMinusculas"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Numeros</td>
+	    <td id=>Condicional</td>
+	    <td>+(n*4)</td>
+	    <td id="cantNumeros"></td>
+	    <td id="puntosNumeros"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Simbolos</td>
+	    <td id=>Plana</td>
+	    <td>+(n*6)</td>
+	    <td id="cantSimbolos"></td>
+	    <td id="puntosSimbolos"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Numeros o simbolos entre caracteres</td>
+	    <td id=>Plana</td>
+	    <td>+(n*2)</td>
+	    <td id="cantSYN"></td>
+	    <td id="puntosSYN"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Requerimientos</td>
+	    <td id=>Plana</td>
+	    <td>+(n*2)</td>
+	    <td id="cantRequerimientos"></td>
+	    <td id="puntosRequerimientos"></td>
+	  </tr>
+
+
+
+
+	</table>
+
 
   </body>
 </html>

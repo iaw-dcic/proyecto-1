@@ -1,32 +1,124 @@
 
-function verificar() {
-  //acá tengo que verificar completamente la contraseña
-  //puedo devolver un arrego con todos los valores que necesito
-  console.log("probando");
+
+function actualizar() {
+
+	var pass = null;
+
+	pass = document.getElementById("password").value;
+
+	var longitud = pass.length;
+
+	procesar(longitud, longitud*4,"cantCaracteres","puntosLongitud");
+
+	var cant = contarMayusculas(pass);
+	procesar(cant,(longitud-cant)*2,"cantMayusculas","puntosMayusculas");
+
+	cant = contarMinusculas(pass);
+	procesar(cant,(longitud-cant)*2,"cantMinusculas","puntosMinusculas");
+
+	cant = contarNumeros(pass);
+	procesar(cant,puntosNumeros(pass)*cant*4,"cantNumeros","puntosNumeros");
+
+	cant = contarSimbolos(pass);
+	procesar(cant,cant*6,"cantSimbolos","puntosSimbolos");
+
+
+}
+
+function procesar(cantidad, puntos, idCantidad, idPuntos) {
+	var celda = document.getElementById(idCantidad);
+	celda.innerHTML = cantidad;
+
+	celda = document.getElementById(idPuntos);
+	if(cantidad>0)
+		celda.innerHTML = puntos;
+	else celda.innerHTML = 0;
+}
+
+
+function puntosNumeros(pass) {
+	for(var i = 0; i<pass.length; i++) {
+		if(isNaN(pass[i]))
+			return 1;
+	}
+	return 0;
+}
+
+// HASTA ACÁ LAS FUNCIONES IMPORTANTES xd
+
+function contarLetras(text) {
+	var cant =  contarMayusculas(text) + contarMinusculas(text);
+	return cant;
 }
 
 function contarMinusculas(text) {
 
+ 	var minusculas = "abcdefghijklmnopqrstuvwxyz";
+ 	var cant = 0;
+	for (var i = 0; i < minusculas.length; i++) {
+ 		for (var x = 0; x < text.length; x++) {
+ 			if(text[x]==minusculas[i]){
+ 				cant++;
+     		}
+   		}
+ 	}
+
+ 	return cant;
 }
 
 function contarMayusculas(text) {
 
-}
+	var mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-function contarLetras(text) {
-
+	var cant = 0;
+	for (var i = 0; i < mayusculas.length; i++) {
+ 		for (var x = 0; x < text.length; x++) {
+ 			if(text[x]==mayusculas[i]){
+ 				cant++;
+     		}
+   		}
+ 	}
+	return cant;
 }
 
 function contarNumeros(text) {
-
+	var cant = 0;
+	for(var i = 0; i<text.length; i++) {
+		if(!isNaN(text[i]))
+			cant++;
+	}
+	return cant;
 }
 
 function contarSimbolos(text) {
 
+	var cant = 0;
+	for(var i = 0; i<text.length; i++) {
+		if(isNaN(text[i]))
+			cant++;
+	}
+	return cant - contarLetras(text);
 }
 
-function cumpleRequisitosMinimos(text) {
+function contarSYNmedio(text) {
+	var cant = 0;
 
+	for(var i = 1; i<text.length-1; i++){
+		if(isNaN(text[i])){
+			cant++;
+		}//NO SE COMO HACER ESTO
+	}
+
+	return cant;
+}
+
+function visibilidad() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
 }
 
 
