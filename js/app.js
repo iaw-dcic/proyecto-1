@@ -1,10 +1,11 @@
 
 
+const MINCHAR = 8;
+const MINITEMS = 3;
+
 function actualizar() {
 
-	var pass = null;
-
-	pass = document.getElementById("password").value;
+	var pass = document.getElementById("password").value;
 
 	var longitud = pass.length;
 
@@ -21,6 +22,9 @@ function actualizar() {
 
 	cant = contarSimbolos(pass);
 	procesar(cant,cant*6,"cantSimbolos","puntosSimbolos");
+
+	cant = minReq(pass);
+	procesar(cant,cant*2,"cantRequerimientos","puntosRequerimientos");
 
 
 }
@@ -44,7 +48,28 @@ function puntosNumeros(pass) {
 	return 0;
 }
 
-// HASTA ACÁ LAS FUNCIONES IMPORTANTES xd
+function minReq(pass){
+	var cant = 0;
+	
+	if(pass.length>=8){
+		cant++;
+		if(contarMinusculas(pass)>0)
+			cant++;
+		if(contarMayusculas(pass)>0)
+			cant++;
+		if(contarSimbolos(pass)>0)
+			cant++;
+		if(contarNumeros(pass)>0)
+			cant++;
+	}
+
+	if(cant < 4) 
+		return 0;
+
+	return cant;
+}
+
+// HASTA ACÁ LAS FUNCIONES IMPORTANTES 
 
 function contarLetras(text) {
 	var cant =  contarMayusculas(text) + contarMinusculas(text);
