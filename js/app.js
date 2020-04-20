@@ -1,11 +1,52 @@
+/*
+	Quiero guardar los datos en algún 
+	para no estar haciendo consultas todo el tiempo
+	PREGUNTAR!
+
+*/
+
+//LocalStorage
+
+let pass = '';
+
+let score = 0;
+
+const resultado = {
+	puntaje : 0,
+	complejidad : 0
+}
+
+function guardarContra(){
 
 
-const MINCHAR = 8;
-const MINITEMS = 3;
+	const storage = localStorage.getItem('GUARDADAS');
+
+	const guardar = {
+		pass,
+		resultado
+	};
+
+	if (storage == null){
+		const guardadas = [];
+		guardadas.push(guardar);
+		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
+	}
+
+	else{
+		const guardadas = JSON.parse(storage);
+		if(guardadas.length === 5){
+			guardadas.shift();
+		}
+		guardadas.push(guardar);
+		localStorage.removeItem('GUARDADAS');
+		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
+	}
+}
+
 
 function actualizar() {
 
-	var pass = document.getElementById("password").value;
+	pass = document.getElementById("password").value;
 
 	var longitud = pass.length;
 
@@ -36,7 +77,10 @@ function procesar(cantidad, puntos, idCantidad, idPuntos) {
 	celda = document.getElementById(idPuntos);
 	if(cantidad>0)
 		celda.innerHTML = puntos;
-	else celda.innerHTML = 0;
+
+	else celda.innerHTML = 0;	
+
+	console.log(puntos);
 }
 
 
@@ -50,7 +94,7 @@ function puntosNumeros(pass) {
 
 function minReq(pass){
 	var cant = 0;
-	
+
 	if(pass.length>=8){
 		cant++;
 		if(contarMinusculas(pass)>0)
@@ -72,7 +116,7 @@ function minReq(pass){
 // HASTA ACÁ LAS FUNCIONES IMPORTANTES 
 
 function contarLetras(text) {
-	var cant =  contarMayusculas(text) + contarMinusculas(text);
+	const cant =  contarMayusculas(text) + contarMinusculas(text);
 	return cant;
 }
 

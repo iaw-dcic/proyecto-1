@@ -17,11 +17,12 @@
     <div>
 	    <input type="text" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
 
-	    <input type="checkbox" id="ver" onclick="visibilidad()">ocultar</button>
+	    <input type="checkbox" id="ver" onclick="visibilidad()">ocultar</input>
 
-	    <!--
-	    <a>Puntaje total: (Porcentaje)</a>
+	    <button onclick="guardarContra()">guardar</button>
 
+	    <a id="puntaje">Puntaje total:</a>
+<!--
 	    <a>Complejidad: (complejidad)</a>-->
 	</div>
 
@@ -36,17 +37,17 @@
 
     <table id="tabla">
 	  <tr>
-	    <th>Características</th>
+	    <th>Características positivas</th>
 	    <th>Tipo</th>
-	    <th>Rate</th>
+	    <th>Medición</th>
 	    <th>Cantidad</th>
-	    <th>Puntos</th>
+	    <th>Puntuación</th>
 	  </tr>
 
 	<!--aca poner todo lo de la tabla-->
 
 	  <tr>
-	    <td>Numero de caracteres</td>
+	    <td>Número de caracteres</td>
 	    <td id=>Plano</td>
 	    <td>+(n*4)</td>
 	    <td id="cantCaracteres"></td>
@@ -54,7 +55,7 @@
 	  </tr>
 
 	  <tr>
-	    <td>Letras mayusculas</td>
+	    <td>Letras mayúsculas</td>
 	    <td id=>Incremental?!?!?!</td>
 	    <td>+((len-n)*2)</td>
 	    <td id="cantMayusculas"></td>
@@ -62,7 +63,7 @@
 	  </tr>
 
 	  <tr>
-	    <td>Letras minusculas</td>
+	    <td>Letras minúsculas</td>
 	    <td id=>Incremental?!?!?!</td>
 	    <td>+((len-n)*2)</td>
 	    <td id="cantMinusculas"></td>
@@ -86,7 +87,7 @@
 	  </tr>
 
 	  <tr>
-	    <td>Numeros o simbolos entre caracteres</td>
+	    <td>Numeros o simbolos intermedios</td>
 	    <td id=>Plana</td>
 	    <td>+(n*2)</td>
 	    <td id="cantSYN"></td>
@@ -101,11 +102,62 @@
 	    <td id="puntosRequerimientos"></td>
 	  </tr>
 
-
-
-
 	</table>
 
+	<hr>
+
+	<table>
+	  <tr>
+	    <th>Características Negativas</th>
+	    <th>Tipo</th>
+	    <th>Medición</th>
+	    <th>Cantidad</th>
+	    <th>Puntuación</th>
+	  </tr>
+
+	<!--aca poner todo lo de la tabla-->
+
+	  <tr>
+	    <td>Solo letras</td>
+	    <td id=>Plano</td>
+	    <td>-n</td>
+	    <td id="cantLetras"></td>
+	    <td id="puntosLetras"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Solo números</td>
+	    <td id=>Plano</td>
+	    <td>-n</td>
+	    <td id="cantNumeros"></td>
+	    <td id="puntosMayusculas"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Caracteres repetidos (no sensible a mayúsculas y minúsculas)</td>
+	    <td id=>Hay que ver esto</td>
+	    <td></td>
+	    <td id="cantRepetidos"></td>
+	    <td id="puntosRepetidos"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Letras mayúsculas consecutivas</td>
+	    <td id=>Plana</td>
+	    <td>-(n*2)</td>
+	    <td id="cantMayusculasConsecutivas"></td>
+	    <td id="puntosMayusculasConsecutivas"></td>
+	  </tr>
+
+	  <tr>
+	    <td>Letras minúsculas consecutivas</td>
+	    <td id=>Plana</td>
+	    <td>-(n*2)</td>
+	    <td id="cantMinúsculasConsecutivas"></td>
+	    <td id="puntosMinúsculasConsecutivas"></td>
+	  </tr>
+
+	</table>
 
   </body>
 </html>
