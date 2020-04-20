@@ -87,9 +87,17 @@ $(document).ready(function() {
       contFinish++;
       imgArray.push($(`#m${id1}`));
       imgArray.push($(`#m${id2}`));
+      $(`#m${id1} `)
+        .parent()
+        .append('<div class="imgAux"/></div>');
+      $(`#m${id2} `)
+        .parent()
+        .append('<div class="imgAux"/></div>');
       $(`#m${id1} `).hide();
       $(`#m${id2}`).hide();
       if (contFinish === 8) {
+        $(".card").hide();
+        document.getElementById("demo").innerHTML = "";
         clearInterval(myVar);
         alert(
           "terminaste el juego en : " +
@@ -112,7 +120,9 @@ $(document).ready(function() {
 
   $("#reset").click(function restartGame() {
     array = generateMemo();
+    startGame = false;
     seconds = cantFinish = _errores = 0;
+    $(".imgAux").hide();
     //todos los que tenia escondido ahora son restaurados
     imgArray.forEach(element => {
       element.attr("src", `images/default.png`);

@@ -1,7 +1,7 @@
 img {
   position: relative;
   width: 120px;
-  height: 120px;
+  height: 150px;
   background-size: cover;
 }
 
@@ -24,4 +24,9 @@ body {
 
 .nav-wrapper {
   background-color: #428176;
+}
+
+.imgAux {
+  width: 120px;
+  height: 150px;
 }
