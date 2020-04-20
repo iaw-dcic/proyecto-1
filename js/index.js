@@ -4,6 +4,8 @@ $(document).ready(function() {
   var selectedId = -1;
   let seconds = 0;
   let minutes = 0;
+  let _errores = 0;
+  let contFinish = 0;
   let imgArray = [];
   let myVar;
   let startGame = false;
@@ -79,12 +81,24 @@ $(document).ready(function() {
     if (x !== y) {
       backToDefault(id1);
       backToDefault(id2);
+      _errores++;
     } else {
       //deberia aumentar un contador
+      contFinish++;
       imgArray.push($(`#m${id1}`));
       imgArray.push($(`#m${id2}`));
-      $(`#m${id1}`).hide();
+      $(`#m${id1} `).hide();
       $(`#m${id2}`).hide();
+      if (contFinish === 8) {
+        clearInterval(myVar);
+        alert(
+          "terminaste el juego en : " +
+            (seconds - 1) +
+            " segundos y :" +
+            _errores +
+            " errores"
+        );
+      }
       //tengo que actualizar el local storage
     }
   }
@@ -98,7 +112,7 @@ $(document).ready(function() {
 
   $("#reset").click(function restartGame() {
     array = generateMemo();
-    seconds = minutes = 0;
+    seconds = cantFinish = _errores = 0;
     //todos los que tenia escondido ahora son restaurados
     imgArray.forEach(element => {
       element.attr("src", `images/default.png`);
@@ -107,12 +121,6 @@ $(document).ready(function() {
   });
 
   function generateMemo() {
-    let local = localStorage.getItem("array");
-    if (local) {
-      console.log("Estoy en este grandioso caso de leer el arreglo");
-      console.log("El arreglo leido es : ", local);
-      return JSON.parse(local);
-    }
     //arreglo con los elementos a insertar
     let arrayToIns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     //arreglo con las posiciones libres
@@ -122,6 +130,7 @@ $(document).ready(function() {
     console.log("Testeando el arreglo de posiciones");
     let aux = getPosicion(posiciones);
     console.log("La posicion seleccionada es : " + aux);
+    //esto se podría hacer tranquilamente con un for
     arrayToIns.forEach(element => {
       //obteno la posicion a insertar
       console.log("El arreglo de posiciones ahora es  ", posiciones);
