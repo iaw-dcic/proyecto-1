@@ -3,6 +3,32 @@ h1 {
     color: black;
 }
 
+#resultados {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    justify-content: center;
+}
+
+#input_dif {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#input_cant {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#targets {
+    height: 38px;
+}
+
 .grid-container {
     display: grid;
     width: 500px;

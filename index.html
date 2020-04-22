@@ -30,7 +30,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="cant_objetivos">Cantidad de Objetivos: </span>
             </div>
-            <input id="targets" type="number" value="15" class="form-control" placeholder="cantidad" aria-label="cantidad" aria-describedby="cant_objetivos">
+            <input id="targets" type="number" min="25" max="50" value="30" onkeydown="return false" class="form-control" placeholder="cantidad" aria-label="cantidad" aria-describedby="cant_objetivos">
             <button type="button" class="btn btn-primary" id="boton_comienzo" onclick="comienzoJuego()">Comenzar!</button>
         </div>
 
@@ -38,7 +38,7 @@
 
         </div>
         <div id="cronometro">0.00</div>
-
+        <button type="button" class="btn btn-primary" id="resultados" onclick="mostrarResultados()">Mostrar Resultados</button>
 
     </div>
 

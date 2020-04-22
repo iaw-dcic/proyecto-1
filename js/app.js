@@ -4,27 +4,42 @@ var cantidad_targets_actual
 var cantidad_seleccionados
 var timer_cronometro
 var timer_generacion
+var colores = ["#ff1100", "#eeff00", "#26ff00", "#00ffd0", "#0011ff", "#ff00bf"]
+var cantidad_errores
 
 function pressedButton() {
+
+    if (cantidad_seleccionados == cantidad_targets_max) {
+        return false
+    }
+
     cell_id = event.target.id
     var boton = document.getElementById(cell_id);
 
 
+    //Dado un id "c12-12"
     //Recupero el indice de la matriz
-    var i = parseInt(cell_id.charAt(1)) - 1
-    var j = parseInt(cell_id.charAt(3)) - 1
+    var id_recortado = cell_id.substring(1, cell_id.length).split("-")
+
+    var i = parseInt(id_recortado[0]) - 1
+    var j = parseInt(id_recortado[1]) - 1
     if (matriz_juego[i][j] == 1) {
         boton.style.backgroundColor = '#cccbc8'
         matriz_juego[i][j] = 0
         cantidad_seleccionados++
-        console.log("Aprete el target:" + i + "-" + j)
+    } else {
+        cantidad_errores++;
     }
 
 
     if (cantidad_seleccionados == cantidad_targets_max) {
         clearInterval(timer_cronometro)
+            //Aca finalizo el juego.
+        console.log("Errores cometidos:" + cantidad_errores)
+        console.log("Tiempo total: " + cronometro.textContent)
+        document.getElementById("resultados").style.visibility = "visible"
+       // document.getElementById("cronometro").style.display = "none"
     }
-
 
 }
 
@@ -57,17 +72,15 @@ function comienzoJuego() {
     cantidad_targets_max = parseInt(document.getElementById("targets").value)
     cantidad_targets_actual = 0
     cantidad_seleccionados = 0
+    cantidad_errores = 0
         //Creo la grid
     var lim
     var dificultad = document.getElementById("dificultad_juego").value
     if (dificultad == "1") {
-        console.log("Dificultad facil")
         lim = 6
     } else if (dificultad == "2") {
-        console.log("Dificultad media")
         lim = 11
     } else if (dificultad == "3") {
-        console.log("Dificultad dificil")
         lim = 16
     }
     crear_grid(lim)
@@ -88,8 +101,17 @@ function comienzoJuego() {
     document.getElementById("cronometro").style.visibility = "visible"
         //Inicializo el cronometro.
     timer_cronometro = setInterval(actualizar_timer, 10)
-        //Inicio la generacion de elementos
-    timer_generacion = setInterval(actualizar_elementos, 1000)
+        //Inicio la generacion de elementos segun dificultad elegida.
+    if (dificultad == "1") {
+        timer_generacion = setInterval(actualizar_elementos, 1000)
+    } else if (dificultad == "2") {
+        timer_generacion = setInterval(actualizar_elementos, 600)
+    } else if (dificultad == "3") {
+        timer_generacion = setInterval(actualizar_elementos, 400)
+    }
+
+
+
 }
 
 function actualizar_timer() {
@@ -101,21 +123,22 @@ function actualizar_timer() {
 
 function actualizar_elementos() {
 
-    if (cantidad_targets_actual >= cantidad_targets_max || cantidad_seleccionados >= cantidad_targets_max) {
-        clearInterval(timer_generacion)
-    }
 
     //Elijo un elemento random
     var i_rand = Math.floor(Math.random() * (matriz_juego.length - 1))
     var j_rand = Math.floor(Math.random() * (matriz_juego.length - 1))
-    console.log(i_rand + " " + j_rand)
 
     if (matriz_juego[i_rand][j_rand] == 0) {
         //Si la celda esta libre, le pongo un cuadradito
         matriz_juego[i_rand][j_rand] = 1;
-        document.getElementById("c" + (i_rand + 1) + "-" + (j_rand + 1)).style.backgroundColor = "blue";
+        var color_rand = Math.floor(Math.random() * (colores.length - 1))
+        document.getElementById("c" + (i_rand + 1) + "-" + (j_rand + 1)).style.backgroundColor = colores[color_rand];
         cantidad_targets_actual++;
-        console.log("Puse un cuadrado en:" + i_rand + "-" + j_rand)
+    }
+
+
+    if (cantidad_targets_actual >= cantidad_targets_max) {
+        clearInterval(timer_generacion)
     }
 
 }
