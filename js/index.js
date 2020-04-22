@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  //primero inserto el estílo
+  $(".finish").hide();
   let style = $("head").append(loadStyle());
-  var selectedId = -1;
+  let selectedId = -1;
   let seconds = 0;
   let minutes = 0;
   let _errores = 0;
@@ -10,18 +10,20 @@ $(document).ready(function() {
   let myVar;
   let startGame = false;
   let array = generateMemo();
-  //let array = generateMemo();
+  const deletedArray = [];
   console.log("El array generado es : ", array);
   function myTimer() {
     document.getElementById("demo").innerHTML = seconds++;
   }
 
   $("#style").click(function(e) {
+    console.log("Hola me estan haciendo click");
     e.preventDefault();
     setStyle();
   });
 
   $("#original").click(function(e) {
+    console.log("Hola me estan haciendo click");
     e.preventDefault();
     $("#cSel").remove();
     localStorage.removeItem("style");
@@ -34,7 +36,10 @@ $(document).ready(function() {
     startGame = true;
 
     let clicked = $(this).attr("id");
-    if (clicked != selectedId) {
+
+    console.log("El arreglo de elementos eliminados es : ", deletedArray);
+    console.log("el id seleccionado es :", clicked);
+    if (clicked != selectedId && !deletedArray.includes(clicked)) {
       showSelected(clicked);
       if (selectedId > -1) {
         //Estoy en el caso de que hay dos seleccionados
@@ -84,9 +89,13 @@ $(document).ready(function() {
       _errores++;
     } else {
       //deberia aumentar un contador
+      deletedArray.push(id1);
+      deletedArray.push(id2);
       contFinish++;
       imgArray.push($(`#m${id1}`));
       imgArray.push($(`#m${id2}`));
+      $(`#${id1}`).css("background-color", "transparent !important");
+      $(`#${id2}`).css("background-color", "transparent !important");
       $(`#m${id1} `)
         .parent()
         .append('<div class="imgAux"/></div>');
@@ -96,9 +105,10 @@ $(document).ready(function() {
       $(`#m${id1} `).hide();
       $(`#m${id2}`).hide();
       if (contFinish === 8) {
-        $(".card").hide();
-        document.getElementById("demo").innerHTML = "";
         clearInterval(myVar);
+        winGame();
+        //$(".card").hide();
+        //document.getElementById("demo").innerHTML = "";
         alert(
           "terminaste el juego en : " +
             (seconds - 1) +
@@ -118,10 +128,16 @@ $(document).ready(function() {
     $(`#m${img1}`).fadeIn(500);
   }
 
+  //Que hago cuando termino un nuevo juego...
+  function winGame() {
+    $(".game").hide();
+    $(".finish").show();
+  }
+
   $("#reset").click(function restartGame() {
     array = generateMemo();
     startGame = false;
-    seconds = cantFinish = _errores = 0;
+    seconds = contFinish = _errores = 0;
     $(".imgAux").hide();
     //todos los que tenia escondido ahora son restaurados
     imgArray.forEach(element => {
