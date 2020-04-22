@@ -1,5 +1,8 @@
 $(document).ready(function() {
   $(".finish").hide();
+  //Si no existe arreglo con las posiciones más altas lo creo
+  if (!localStorage.getItem("array"))
+    localStorage.setItem("array", JSON.stringify(new Array()));
   let style = $("head").append(loadStyle());
   let selectedId = -1;
   let seconds = 0;
@@ -15,6 +18,12 @@ $(document).ready(function() {
   function myTimer() {
     document.getElementById("demo").innerHTML = seconds++;
   }
+
+  $("#win").click(function(e) {
+    e.preventDefault();
+    clearInterval(myVar);
+    winGame();
+  });
 
   $("#style").click(function(e) {
     console.log("Hola me estan haciendo click");
@@ -130,7 +139,25 @@ $(document).ready(function() {
 
   //Que hago cuando termino un nuevo juego...
   function winGame() {
+    console.log("Bienvenido a la función win game ");
     $(".game").hide();
+    let arrayAux = JSON.parse(localStorage.getItem("array"));
+    console.log("El array del localStorage es : ", arrayAux);
+    if (arrayAux.length < 10) {
+      insertInLocalStorate(arrayAux);
+    } else {
+      //Estoy en el caso de que el arreglo tiene al menos 10 elmentos
+      //Entonces chequeo que este dentro de las mejores posicones
+      if (checkArrayAux(arrayAux)) insertInLocalStorate(arrayAux);
+    }
+    console.log("El arrayAux ordenado es  : ", arrayAux);
+    let i;
+    for (i = 0; i < arrayAux.length; i++) {
+      $("#scores").append(
+        `<tr> <td>${arrayAux[i].name}</td> <td>${arrayAux[i].time}</td><td>${arrayAux[i].errors}</td> </tr>`
+      );
+    }
+
     $(".finish").show();
   }
 
@@ -145,6 +172,16 @@ $(document).ready(function() {
       element.fadeIn(500);
     });
   });
+
+  function checkArrayAux(arrayAux) {
+    let toR = false;
+    const element = arrayAux[9];
+    console.log("El elemento seleccionado es : ", element);
+    if (element.time == seconds) if (element.errors > _errores) toR = true;
+    if (element.time > seconds) toR = true;
+    console.log("Estoy retornado : ", toR);
+    return toR;
+  }
 
   function generateMemo() {
     //arreglo con los elementos a insertar
@@ -166,9 +203,7 @@ $(document).ready(function() {
       //inserto el elemento en la posicion a insertar
       toR[pos] = element;
     });
-    //Remuevo si hay elementos previos en el localSTORAGE Y PROCEDO A CREARLOS DE NUEVO
-    localStorage.removeItem("array");
-    localStorage.setItem("array", JSON.stringify(toR));
+
     return toR;
   }
 
@@ -193,6 +228,23 @@ $(document).ready(function() {
     });
 
     return min;
+  }
+
+  function insertInLocalStorate(arrayAux) {
+    let person = prompt(
+      "Felicitaciones, estas dentro de las mejores puntuaciones,ingresa tu nombre:"
+    );
+    let toIns = { name: person, time: seconds - 1, errors: _errores };
+    if (arrayAux.length == 10) arrayAux[9] = toIns;
+    else arrayAux.push(toIns);
+    //Ordeno el arreglo y Actualizo el local Storage
+    let sortedArray = arrayAux.sort(function(a, b) {
+      if (a.time > b.time) return 1;
+      if (a.time === b.time) if (a.errors > b.errors) return 1;
+      return -1;
+    });
+    //actualizo el localStorage
+    localStorage.setItem("array", JSON.stringify(sortedArray));
   }
 
   //A veces hay que castear el elemento a int, aunque ya sea de tipo int...
