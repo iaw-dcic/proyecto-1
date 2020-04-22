@@ -3,15 +3,35 @@ h1 {
     color: black;
 }
 
-#tabla_juego {
+.grid-container {
+    display: grid;
+    width: 500px;
+    height: 500px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #7d89a1;
-    border: 1px solid black;
-    height: 100px;
-    width: 100px;
+    background-color: #cccbc8;
+    justify-content: space-around;
 }
 
-tbody {
-    align-content: center;
+.grid-container .grid-row {
+    width: 100%;
+    float: left;
+    clear: both;
+}
+
+.grid-container .grid-row .grid-cell {
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    float: left;
+    text-align: center;
+}
+
+#cronometro {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 40px;
+    color: #878684;
+    visibility: hidden;
 }

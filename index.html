@@ -15,17 +15,32 @@
 <body>
     <div class="container">
         <h1> Reflex and accuracy test </h1>
-        <div class="input-group input-group-sm  mb-3 ">
+
+        <div class="input-group mb-3" id="input_dif">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Cantidad de Objetivos: </span>
+                <label class="input-group-text" for="inputGroupSelect01">Dificultad</label>
             </div>
-            <input type="number" value="15" class="form-control" placeholder="cantidad" aria-label="cantidad" aria-describedby="basic-addon1">
-            <button type="button" class="btn btn-primary">Comenzar!</button>
+            <select class="custom-select" id="dificultad_juego">
+              <option value="1">Facil</option>
+              <option value="2">Medio</option>
+              <option value="3">Dificil</option>
+            </select>
+        </div>
+        <div class="input-group input-group-sm  mb-3 " id="input_cant">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="cant_objetivos">Cantidad de Objetivos: </span>
+            </div>
+            <input id="targets" type="number" value="15" class="form-control" placeholder="cantidad" aria-label="cantidad" aria-describedby="cant_objetivos">
+            <button type="button" class="btn btn-primary" id="boton_comienzo" onclick="comienzoJuego()">Comenzar!</button>
         </div>
 
-        <table id="tabla_juego" class="table">
+        <div class="grid-container" id="tabla_juego">
 
-        </table>
+        </div>
+        <div id="cronometro">0.00</div>
+
+
+    </div>
 
 
 
