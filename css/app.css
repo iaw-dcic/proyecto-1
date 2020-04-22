@@ -2,3 +2,13 @@ body
 {
     background-color: black;
 }
+
+h1
+{
+    font-family: Courier, monospace, 'Courier New';
+    text-align: center;
+    font-size: 72px;
+    padding-top: 10px;
+    letter-spacing: 12px;
+    color: darkgrey;
+}
