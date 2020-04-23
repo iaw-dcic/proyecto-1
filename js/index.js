@@ -59,6 +59,7 @@ $(document).ready(function() {
   });
 
   function setStyle() {
+    console.log("están haciendo click en setStyle");
     localStorage.setItem("style", true);
     $("head").append(
       '<link id="cSel" rel="stylesheet" href="css/app.css" type="text/css" />'

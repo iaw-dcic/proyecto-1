@@ -5,7 +5,7 @@ img {
   background-size: cover;
 }
 
-body {
+.light {
   background: rgb(1, 0, 1);
   background: linear-gradient(
     90deg,
@@ -17,13 +17,21 @@ body {
   );
 }
 
+.centered {
+  text-align: center;
+}
+
 .timer {
   font-size: 22px;
   text-align: center;
 }
 
-.nav-wrapper {
-  background-color: #428176;
+nav .brand-logo {
+  color: black;
+}
+
+nav ul a {
+  color: black;
 }
 
 .imgAux {
