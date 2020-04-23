@@ -9,8 +9,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
     justify-content: center;
+    visibility: hidden;
 }
 
 #input_dif {
@@ -43,6 +43,17 @@ h1 {
     width: 100%;
     float: left;
     clear: both;
+}
+
+#tooltip-tiempo,
+#tooltip-promedio,
+#tooltip-puntaje,
+#tooltip-errores,
+#tiempo_a_mostrar,
+#errores_a_mostrar,
+#promedio_a_mostrar,
+#puntaje_a_mostrar {
+    display: inline-block;
 }
 
 .grid-container .grid-row .grid-cell {

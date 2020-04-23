@@ -16,6 +16,43 @@
     <div class="container">
         <h1> Reflex and accuracy test </h1>
 
+        <div class="modal fade" id="modal_resultados" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Resultados Obtenidos</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <a id="tooltip_tiempo" href="#" class="tooltip-test" title="Tiempo en completar la secuencia de botones.">Tiempo Transcurrido: </a>
+                            <p id="tiempo_a_mostrar">T</p>
+                        </div>
+
+                        <div>
+                            <a id="tooltip_errores" href="#" class="tooltip-test" title="Cantidad de clicks errados.">Errores cometidos: </a>
+                            <p id="errores_a_mostrar">E</p>
+                        </div>
+
+                        <div>
+                            <a id="tooltip_promedio" href="#" class="tooltip-test" title="Tiempo promedio entre apuntado de un boton a otro">Tiempo promedio de apuntado: </a>
+                            <p id="promedio_a_mostrar">Pr</p>
+                        </div>
+
+                        <div>
+                            <a id="tooltip_puntaje" href="#" class="tooltip-test" title="Puntaje final teniendo en cuenta las variables anteriores.">Puntaje final: </a>
+                            <p id="puntaje_a_mostrar">P</p>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="reinicio_juego()">Reiniciar Partida</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="input-group mb-3" id="input_dif">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Dificultad</label>

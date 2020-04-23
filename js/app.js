@@ -5,7 +5,13 @@ var cantidad_seleccionados
 var timer_cronometro
 var timer_generacion
 var colores = ["#ff1100", "#eeff00", "#26ff00", "#00ffd0", "#0011ff", "#ff00bf"]
+
+//Variables resultados.
 var cantidad_errores
+var deespawn_time
+var promedio_diferencias
+var puntaje_final
+var tiempo_transcurrido
 
 function pressedButton() {
 
@@ -20,12 +26,12 @@ function pressedButton() {
     //Dado un id "c12-12"
     //Recupero el indice de la matriz
     var id_recortado = cell_id.substring(1, cell_id.length).split("-")
-
     var i = parseInt(id_recortado[0]) - 1
     var j = parseInt(id_recortado[1]) - 1
     if (matriz_juego[i][j] == 1) {
         boton.style.backgroundColor = '#cccbc8'
         matriz_juego[i][j] = 0
+        deespawn_time[cantidad_seleccionados] = document.getElementById("cronometro").textContent
         cantidad_seleccionados++
     } else {
         cantidad_errores++;
@@ -33,12 +39,7 @@ function pressedButton() {
 
 
     if (cantidad_seleccionados == cantidad_targets_max) {
-        clearInterval(timer_cronometro)
-            //Aca finalizo el juego.
-        console.log("Errores cometidos:" + cantidad_errores)
-        console.log("Tiempo total: " + cronometro.textContent)
-        document.getElementById("resultados").style.visibility = "visible"
-       // document.getElementById("cronometro").style.display = "none"
+        fin_de_juego();
     }
 
 }
@@ -93,7 +94,8 @@ function comienzoJuego() {
             matriz_juego[i][j] = 0;
         }
     }
-
+    //Creo el listado de clickeos
+    deespawn_time = []
 
     //Hago desaparecer las partes de input y hago aparecer el cronometro:
     document.getElementById("input_cant").style.display = "none"
@@ -103,9 +105,9 @@ function comienzoJuego() {
     timer_cronometro = setInterval(actualizar_timer, 10)
         //Inicio la generacion de elementos segun dificultad elegida.
     if (dificultad == "1") {
-        timer_generacion = setInterval(actualizar_elementos, 1000)
+        timer_generacion = setInterval(actualizar_elementos, 500)
     } else if (dificultad == "2") {
-        timer_generacion = setInterval(actualizar_elementos, 600)
+        timer_generacion = setInterval(actualizar_elementos, 450)
     } else if (dificultad == "3") {
         timer_generacion = setInterval(actualizar_elementos, 400)
     }
@@ -122,8 +124,6 @@ function actualizar_timer() {
 
 
 function actualizar_elementos() {
-
-
     //Elijo un elemento random
     var i_rand = Math.floor(Math.random() * (matriz_juego.length - 1))
     var j_rand = Math.floor(Math.random() * (matriz_juego.length - 1))
@@ -141,4 +141,45 @@ function actualizar_elementos() {
         clearInterval(timer_generacion)
     }
 
+}
+
+function mostrarResultados() {
+    $('#modal_resultados').modal('show')
+}
+
+function reinicio_juego() {
+
+}
+
+function fin_de_juego() {
+    //Aca finalizo el juego.
+    clearInterval(timer_cronometro)
+    document.getElementById("resultados").style.visibility = "visible"
+    document.getElementById("cronometro").style.display = "none"
+    tiempo_transcurrido = document.getElementById("cronometro").textContent
+    promedio_diferencias = promedio_apuntado()
+
+    //Actualizo el modal con los puntajes.
+    document.getElementById("tiempo_a_mostrar").textContent = tiempo_transcurrido + " seg."
+    document.getElementById("errores_a_mostrar").textContent = cantidad_errores
+    document.getElementById("promedio_a_mostrar").textContent = promedio_diferencias + " seg."
+
+}
+
+
+//La funcion calcula el promedio de las diferencias en el apuntado de un objetivo a otro
+function promedio_apuntado() {
+    //Genero un arreglo de diferencias
+    var diff = []
+    for (i = 0; i < deespawn_time.length - 1; i++) {
+        var elem_i = parseFloat(deespawn_time[i])
+        var elem_i1 = parseFloat(deespawn_time[i + 1])
+        diff.push(parseFloat((elem_i1 - elem_i).toFixed(2)))
+    }
+    var suma = 0
+    for (i = 0; i < diff.length; i++) {
+        suma += diff[i]
+    }
+
+    return (suma / diff.length).toFixed(2)
 }
