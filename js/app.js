@@ -32,6 +32,7 @@ function pressedButton() {
         boton.style.backgroundColor = '#cccbc8'
         matriz_juego[i][j] = 0
         deespawn_time[cantidad_seleccionados] = document.getElementById("cronometro").textContent
+
         cantidad_seleccionados++
     } else {
         cantidad_errores++;
@@ -47,7 +48,9 @@ function pressedButton() {
 
 function crear_grid(lim) {
     var anc_alt = 500 / (lim - 1) + "px"
-    var grid_container = document.getElementById("tabla_juego");
+    var grid_container = document.createElement("div")
+    grid_container.setAttribute("class", "grid-container")
+    grid_container.setAttribute("id", "tabla_juego")
     for (i = 1; i < lim; i++) {
         var grid_row = document.createElement('div');
         grid_row.className = "grid-row"
@@ -65,6 +68,7 @@ function crear_grid(lim) {
         grid_container.appendChild(grid_row);
         grid_row = null
     }
+    document.getElementById("container-tabla").appendChild(grid_container)
 
 
 }
@@ -98,10 +102,11 @@ function comienzoJuego() {
     deespawn_time = []
 
     //Hago desaparecer las partes de input y hago aparecer el cronometro:
-    document.getElementById("input_cant").style.display = "none"
-    document.getElementById("input_dif").style.display = "none"
+    document.getElementById("container_inputs").style.display = "none"
+    document.getElementById("cronometro").style.display = "block"
     document.getElementById("cronometro").style.visibility = "visible"
         //Inicializo el cronometro.
+    document.getElementById("cronometro").textContent = "0.00"
     timer_cronometro = setInterval(actualizar_timer, 10)
         //Inicio la generacion de elementos segun dificultad elegida.
     if (dificultad == "1") {
@@ -125,8 +130,8 @@ function actualizar_timer() {
 
 function actualizar_elementos() {
     //Elijo un elemento random
-    var i_rand = Math.floor(Math.random() * (matriz_juego.length - 1))
-    var j_rand = Math.floor(Math.random() * (matriz_juego.length - 1))
+    var i_rand = Math.floor(Math.random() * (matriz_juego.length))
+    var j_rand = Math.floor(Math.random() * (matriz_juego.length))
 
     if (matriz_juego[i_rand][j_rand] == 0) {
         //Si la celda esta libre, le pongo un cuadradito
@@ -145,9 +150,31 @@ function actualizar_elementos() {
 
 function mostrarResultados() {
     $('#modal_resultados').modal('show')
+        //Muestro los elementos de a uno.
+    setTimeout(() => { document.getElementById("item-modal-tiempo").style.visibility = "visible"; }, 2000);
+    setTimeout(() => { document.getElementById("item-modal-errores").style.visibility = "visible"; }, 3000);
+    setTimeout(() => { document.getElementById("item-modal-promedio").style.visibility = "visible"; }, 4000);
+    setTimeout(() => { document.getElementById("item-modal-puntaje").style.visibility = "visible"; }, 6000);
+
+
+
 }
 
 function reinicio_juego() {
+    //Vuelvo a habilitar todo lo de la pantalla principal
+    document.getElementById("container_inputs").style.display = "block"
+        //Saco el Modal y el boton de mostrar resultados.
+    $('#modal_resultados').modal("hide")
+    document.getElementById("resultados").style.visibility = "hidden"
+    document.getElementById("item-modal-tiempo").style.visibility = "hidden";
+    document.getElementById("item-modal-errores").style.visibility = "hidden";
+    document.getElementById("item-modal-promedio").style.visibility = "hidden";
+    document.getElementById("item-modal-puntaje").style.visibility = "hidden";
+
+
+    //Vuelvo a habilitar los valores por defecto
+    document.getElementById("tabla_juego").remove()
+
 
 }
 

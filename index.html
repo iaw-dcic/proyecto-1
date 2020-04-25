@@ -23,22 +23,22 @@
                         <h5 class="modal-title" id="exampleModalLongTitle">Resultados Obtenidos</h5>
                     </div>
                     <div class="modal-body">
-                        <div>
+                        <div id="item-modal-tiempo">
                             <a id="tooltip_tiempo" href="#" class="tooltip-test" title="Tiempo en completar la secuencia de botones.">Tiempo Transcurrido: </a>
                             <p id="tiempo_a_mostrar">T</p>
                         </div>
 
-                        <div>
+                        <div id="item-modal-errores">
                             <a id="tooltip_errores" href="#" class="tooltip-test" title="Cantidad de clicks errados.">Errores cometidos: </a>
                             <p id="errores_a_mostrar">E</p>
                         </div>
 
-                        <div>
+                        <div id="item-modal-promedio">
                             <a id="tooltip_promedio" href="#" class="tooltip-test" title="Tiempo promedio entre apuntado de un boton a otro">Tiempo promedio de apuntado: </a>
                             <p id="promedio_a_mostrar">Pr</p>
                         </div>
 
-                        <div>
+                        <div id="item-modal-puntaje">
                             <a id="tooltip_puntaje" href="#" class="tooltip-test" title="Puntaje final teniendo en cuenta las variables anteriores.">Puntaje final: </a>
                             <p id="puntaje_a_mostrar">P</p>
                         </div>
@@ -52,35 +52,35 @@
             </div>
         </div>
 
-
-        <div class="input-group mb-3" id="input_dif">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Dificultad</label>
+        <div id="container_inputs">
+            <div class="input-group mb-3" id="input_dif">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Dificultad</label>
+                </div>
+                <select class="custom-select" id="dificultad_juego">
+                  <option value="1">Facil</option>
+                  <option value="2">Medio</option>
+                  <option value="3">Dificil</option>
+                </select>
             </div>
-            <select class="custom-select" id="dificultad_juego">
-              <option value="1">Facil</option>
-              <option value="2">Medio</option>
-              <option value="3">Dificil</option>
-            </select>
-        </div>
-        <div class="input-group input-group-sm  mb-3 " id="input_cant">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="cant_objetivos">Cantidad de Objetivos: </span>
+            <div class="input-group input-group-sm  mb-3 " id="input_cant">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="cant_objetivos">Cantidad de Objetivos: </span>
+                </div>
+                <input id="targets" type="number" min="25" max="50" value="30" onkeydown="return false" class="form-control" placeholder="cantidad" aria-label="cantidad" aria-describedby="cant_objetivos">
+                <button type="button" class="btn btn-primary" id="boton_comienzo" onclick="comienzoJuego()">Comenzar!</button>
             </div>
-            <input id="targets" type="number" min="25" max="50" value="30" onkeydown="return false" class="form-control" placeholder="cantidad" aria-label="cantidad" aria-describedby="cant_objetivos">
-            <button type="button" class="btn btn-primary" id="boton_comienzo" onclick="comienzoJuego()">Comenzar!</button>
         </div>
 
-        <div class="grid-container" id="tabla_juego">
+        <div id="container-tabla">
 
         </div>
-        <div id="cronometro">0.00</div>
-        <button type="button" class="btn btn-primary" id="resultados" onclick="mostrarResultados()">Mostrar Resultados</button>
 
     </div>
+    <div id="cronometro">0.00</div>
+    <button type="button" class="btn btn-primary" id="resultados" onclick="mostrarResultados()">Mostrar Resultados</button>
 
-
-
+    </div>
 
     </div>
 

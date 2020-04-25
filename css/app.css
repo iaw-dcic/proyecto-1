@@ -39,6 +39,16 @@ h1 {
     justify-content: space-around;
 }
 
+#container-tabla {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #cccbc8;
+    justify-content: space-around;
+}
+
 .grid-container .grid-row {
     width: 100%;
     float: left;
@@ -54,6 +64,13 @@ h1 {
 #promedio_a_mostrar,
 #puntaje_a_mostrar {
     display: inline-block;
+}
+
+#item-modal-tiempo,
+#item-modal-errores,
+#item-modal-promedio,
+#item-modal-puntaje {
+    visibility: hidden;
 }
 
 .grid-container .grid-row .grid-cell {
