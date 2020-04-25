@@ -1,11 +1,4 @@
-/*
-	Quiero guardar los datos en algún 
-	para no estar haciendo consultas todo el tiempo
-	PREGUNTAR!
 
-*/
-
-//LocalStorage
 
 let pass = '';
 
@@ -13,40 +6,14 @@ let score = 0;
 
 const resultado = {
 	puntaje : 0,
-	complejidad : 0
+	complejidad : "Baja"
 }
-
-function guardarContra(){
-
-
-	const storage = localStorage.getItem('GUARDADAS');
-
-	const guardar = {
-		pass,
-		resultado
-	};
-
-	if (storage == null){
-		const guardadas = [];
-		guardadas.push(guardar);
-		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
-	}
-
-	else{
-		const guardadas = JSON.parse(storage);
-		if(guardadas.length === 5){
-			guardadas.shift();
-		}
-		guardadas.push(guardar);
-		localStorage.removeItem('GUARDADAS');
-		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
-	}
-}
-
 
 function actualizar() {
 
 	pass = document.getElementById("password").value;
+
+	score = 0;
 
 	var longitud = pass.length;
 
@@ -67,7 +34,6 @@ function actualizar() {
 	cant = minReq(pass);
 	procesar(cant,cant*2,"cantRequerimientos","puntosRequerimientos");
 
-
 }
 
 function procesar(cantidad, puntos, idCantidad, idPuntos) {
@@ -75,14 +41,20 @@ function procesar(cantidad, puntos, idCantidad, idPuntos) {
 	celda.innerHTML = cantidad;
 
 	celda = document.getElementById(idPuntos);
-	if(cantidad>0)
+	if(cantidad>0){
 		celda.innerHTML = puntos;
+		score+=puntos;
+	}
+	else {
+		celda.innerHTML = 0;
+		
+	}
 
-	else celda.innerHTML = 0;	
+	celda = document.getElementById("puntaje");
+	celda.innerHTML = score;
 
 	console.log(puntos);
 }
-
 
 function puntosNumeros(pass) {
 	for(var i = 0; i<pass.length; i++) {
@@ -121,7 +93,6 @@ function contarLetras(text) {
 }
 
 function contarMinusculas(text) {
-
  	var minusculas = "abcdefghijklmnopqrstuvwxyz";
  	var cant = 0;
 	for (var i = 0; i < minusculas.length; i++) {
@@ -136,7 +107,6 @@ function contarMinusculas(text) {
 }
 
 function contarMayusculas(text) {
-
 	var mayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	var cant = 0;
@@ -160,7 +130,6 @@ function contarNumeros(text) {
 }
 
 function contarSimbolos(text) {
-
 	var cant = 0;
 	for(var i = 0; i<text.length; i++) {
 		if(isNaN(text[i]))
@@ -188,6 +157,32 @@ function visibilidad() {
   } else {
     x.type = "password";
   }
+}
+
+function guardarContra(){
+
+	const storage = localStorage.getItem('GUARDADAS');
+
+	const guardar = {
+		pass,
+		resultado
+	};
+
+	if (storage == null){
+		const guardadas = [];
+		guardadas.push(guardar);
+		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
+	}
+
+	else{
+		const guardadas = JSON.parse(storage);
+		if(guardadas.length === 5){
+			guardadas.shift();
+		}
+		guardadas.push(guardar);
+		localStorage.removeItem('GUARDADAS');
+		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
+	}
 }
 
 
