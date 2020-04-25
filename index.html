@@ -21,6 +21,8 @@
   </head>
 
   <body class="light">
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v6.0"></script>
                 <div class="navbar-fixed">
                                 <nav>
                                   <div class="nav-wrapper light">
@@ -33,10 +35,11 @@
                                 </nav>
                               </div>
 
-                              <h1 class="centered">Memotest</h1>
                                     
 <div class="container">
   <div class="game">
+      <h1 class="centered">Memotest</h1>
+
  
     <p class="timer" id="demo">Haga click en una ficha para comenzar</p>
 
@@ -212,15 +215,18 @@
 </div>
 
 </div>
+<div class="container">
 <div class="finish">
-  <h2>Tabla de puntuaciones más altas</h2>
-  <table id="scores">
+  <h4>Posiciones : </h4>
+  <table class="positions" id="scores">
       <tr>
           <th>Nombre</th>
           <th>Tiempo</th>
           <th>Errores</th>
         </tr>
   </table>
+  <div class="fb-share-button" data-href="https://ajavieralejandro.github.io/proyecto-1/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fajavieralejandro.github.io%2Fproyecto-1%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+</div>
 </div>
 </div>
 

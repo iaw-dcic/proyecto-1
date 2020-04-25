@@ -1,7 +1,7 @@
 img {
   position: relative;
-  width: 120px;
-  height: 150px;
+  width: 100px;
+  height: 120px;
   background-size: cover;
 }
 
@@ -22,7 +22,7 @@ img {
 }
 
 .timer {
-  font-size: 22px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -35,6 +35,34 @@ nav ul a {
 }
 
 .imgAux {
-  width: 120px;
-  height: 150px;
+  width: 100px;
+  height: 120px;
+}
+
+.positions {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.positions td,
+.positions th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.positions tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.positions tr:hover {
+  background-color: #ddd;
+}
+
+.positions th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ffff99;
+  color: black;
 }
