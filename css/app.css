@@ -10,5 +10,16 @@ h1
     font-size: 72px;
     padding-top: 10px;
     letter-spacing: 12px;
-    color: darkgrey;
+    color: grey;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.shape-drawer {
+    flex-grow: 4;
 }
