@@ -12,7 +12,9 @@
   <body>
     <h1>Medidor de la seguridad de su contraseña</h1>
     <!-- JavaScript -->
-    <script src="js/app.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/calculo.js"></script>
+	<script src="js/actualizar.js"></script>
 
     <div>
 	    <input type="text" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
@@ -22,8 +24,7 @@
 	    <button onclick="guardarContra()">guardar</button>
 
 	    <a id="puntaje">Puntaje total:</a>
-<!--
-	    <a>Complejidad: (complejidad)</a>-->
+		<a id="complejidad">Complejidad:</a>
 	</div>
 
 	<div> 
@@ -121,16 +122,16 @@
 	    <td>Solo letras</td>
 	    <td>Plano</td>
 	    <td>-n</td>
-	    <td id="cantLetras"></td>
-	    <td id="puntosLetras"></td>
+	    <td id="cantSoloLetras"></td>
+	    <td id="puntosSoloLetras"></td>
 	  </tr>
 
 	  <tr>
 	    <td>Solo números</td>
 	    <td>Plano</td>
 	    <td>-n</td>
-	    <td id="cantNumeros"></td>
-	    <td id="puntosMayusculas"></td>
+	    <td id="cantSoloNumeros"></td>
+	    <td id="puntosSoloNumeros"></td>
 	  </tr>
 
 	  <tr>
