@@ -155,6 +155,7 @@ function mostrarResultados() {
     setTimeout(() => { document.getElementById("item-modal-errores").style.visibility = "visible"; }, 3000);
     setTimeout(() => { document.getElementById("item-modal-promedio").style.visibility = "visible"; }, 4000);
     setTimeout(() => { document.getElementById("item-modal-puntaje").style.visibility = "visible"; }, 6000);
+    setTimeout(() => { document.getElementById("item-modal-flavour").style.visibility = "visible"; }, 6000);
 
 
 
@@ -170,6 +171,7 @@ function reinicio_juego() {
     document.getElementById("item-modal-errores").style.visibility = "hidden";
     document.getElementById("item-modal-promedio").style.visibility = "hidden";
     document.getElementById("item-modal-puntaje").style.visibility = "hidden";
+    document.getElementById("item-modal-flavour").style.visibility = "hidden";
 
 
     //Vuelvo a habilitar los valores por defecto
@@ -190,9 +192,106 @@ function fin_de_juego() {
     document.getElementById("tiempo_a_mostrar").textContent = tiempo_transcurrido + " seg."
     document.getElementById("errores_a_mostrar").textContent = cantidad_errores
     document.getElementById("promedio_a_mostrar").textContent = promedio_diferencias + " seg."
-
+    var arr = calculoPuntaje()
+    document.getElementById("puntaje_a_mostrar").textContent = arr[0]
+    document.getElementById("item-modal-flavour").textContent = arr[1]
 }
 
+
+
+//La funcion calcula el puntaje final y el flavor text que felicita o reta al usuario.
+function calculoPuntaje() {
+    var salida = []
+        //Hago el calculo del puntaje a mapear
+    var parte_t = ((1 / 3) * (tiempo_transcurrido / cantidad_targets_max))
+    var parte_e = ((1 / 3) * (cantidad_errores / cantidad_targets_max))
+    var parte_p = ((1 / 3) * (promedio_diferencias))
+    puntaje_final = 1 / (parte_p + parte_e + parte_t)
+
+    //Hago el chequeo de dificultad y asigno el puntaje final
+    var dificultad = document.getElementById("dificultad_juego").value
+    if (dificultad == "1") {
+        //Calculo de dificultad facil
+        if (puntaje_final <= 2) {
+            salida[0] = "F"
+        } else if (puntaje_final > 2 && puntaje_final <= 2.422) {
+            salida[0] = "E"
+        } else if (puntaje_final > 2.422 && puntaje_final <= 2.535) {
+            salida[0] = "D"
+        } else if (puntaje_final > 2.535 && puntaje_final <= 2.637) {
+            salida[0] = "C"
+        } else if (puntaje_final > 2.637 && puntaje_final <= 2.836) {
+            salida[0] = "B"
+        } else if (puntaje_final > 2.836 && puntaje_final <= 2.889) {
+            salida[0] = "A"
+        } else {
+            salida[0] = "S"
+        }
+    } else if (dificultad == "2") {
+        //Calculo de dificultad media.
+        if (puntaje_final <= 2.339) {
+            salida[0] = "F"
+        } else if (puntaje_final > 2.339 && puntaje_final <= 2.533) {
+            salida[0] = "E"
+        } else if (puntaje_final > 2.533 && puntaje_final <= 2.709) {
+            salida[0] = "D"
+        } else if (puntaje_final > 2.709 && puntaje_final <= 2.817) {
+            salida[0] = "C"
+        } else if (puntaje_final > 2.817 && puntaje_final <= 2.959) {
+            salida[0] = "B"
+        } else if (puntaje_final > 2.959 && puntaje_final <= 3.101) {
+            salida[0] = "A"
+        } else {
+            salida[0] = "S"
+        }
+    } else if (dificultad == "3") {
+        //Calculo de dificultad dificil
+        if (puntaje_final <= 2.298) {
+            salida[0] = "F"
+        } else if (puntaje_final > 2.298 && puntaje_final <= 2.353) {
+            salida[0] = "E"
+        } else if (puntaje_final > 2.353 && puntaje_final <= 2.512) {
+            salida[0] = "D"
+        } else if (puntaje_final > 2.512 && puntaje_final <= 2.670) {
+            salida[0] = "C"
+        } else if (puntaje_final > 2.670 && puntaje_final <= 2.762) {
+            salida[0] = "B"
+        } else if (puntaje_final > 2.762 && puntaje_final <= 3.219) {
+            salida[0] = "A"
+        } else {
+            salida[0] = "S"
+        }
+    }
+    console.log(salida[0])
+
+
+    //Defino el flavour text en base al puntaje que consiguio
+    switch (salida[0]) {
+        case "F":
+            salida[1] = "No man que desastre, necesitas que llame a un medico?"
+            break
+        case "E":
+            salida[1] = "Ay ay ay, con esos reflejos deshonras a tu familia."
+            break
+        case "D":
+            salida[1] = "Bueno, puede ser peor. No te alegres demasiado igual."
+            break
+        case "C":
+            salida[1] = "Felicitaciones, tenes reflejos mediocres."
+            break
+        case "B":
+            salida[1] = "Muy bien! Se podria mejorar, pero al menos podes esquivar un pelotazo."
+            break
+        case "A":
+            salida[1] = "Con esos reflejos, casi que podrias esquivar un disparo... Casi."
+            break
+        case "S":
+            salida[1] = "El dev se pone de pie, y te nombra 'Dios de los cuadraditos'"
+            break
+    }
+
+    return salida
+}
 
 //La funcion calcula el promedio de las diferencias en el apuntado de un objetivo a otro
 function promedio_apuntado() {

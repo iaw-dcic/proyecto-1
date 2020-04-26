@@ -73,6 +73,11 @@ h1 {
     visibility: hidden;
 }
 
+#item-modal-flavour {
+    visibility: hidden;
+    text-align: center;
+}
+
 .grid-container .grid-row .grid-cell {
     width: 100px;
     height: 100px;
