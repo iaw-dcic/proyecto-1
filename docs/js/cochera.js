@@ -3,12 +3,17 @@ class Cochera{
 		this.cocheraAzul1=cocherasAzules.length > 0 ? cocherasAzules[0] : null;
 		this.cocheraAzul2=cocherasAzules.length > 1 ? cocherasAzules[1] : null;
 		this.cocheraAzul3=cocherasAzules.length > 2 ? cocherasAzules[2] : null;
+		this.cocheraAzul4=cocherasAzules.length > 3 ? cocherasAzules[3] : null;
+		this.cocheraAzul5=cocherasAzules.length > 4 ? cocherasAzules[4] : null;
 		this.cocheraRoja1=cocherasRojas.length > 0 ? cocherasRojas[0] : null;
 		this.cocheraRoja2=cocherasRojas.length > 1 ? cocherasRojas[1] : null;
 		this.cocheraRoja3=cocherasRojas.length > 2 ? cocherasRojas[2] : null;
+		this.cocheraRoja4=cocherasRojas.length > 3 ? cocherasRojas[3] : null;
+		this.cocheraRoja5=cocherasRojas.length > 4 ? cocherasRojas[4] : null;
 		this.cocheraAmarilla1=cocherasAmarillas.length > 0 ? cocherasAmarillas[0] : null;
 		this.cocheraAmarilla2=cocherasAmarillas.length > 1 ? cocherasAmarillas[1] : null;
 		this.cocheraAmarilla3=cocherasAmarillas.length > 2 ? cocherasAmarillas[2] : null;
+		this.cocheraAmarilla4=cocherasAmarillas.length > 3 ? cocherasAmarillas[3] : null;
 	}
 
 	pintarCochera(){
@@ -45,18 +50,23 @@ class Cochera{
 			  case this.cocheraRoja1:
 			  case this.cocheraRoja2:
 			  case this.cocheraRoja3:
+			  case this.cocheraRoja4:
+			  case this.cocheraRoja5:
 			    //Pinta el espacio donde debe estacionar un auto rojo
 			    espacios+=this.pintarCocheraRoja();
 			    break;
 			  case this.cocheraAzul1:
 			  case this.cocheraAzul2:
 			  case this.cocheraAzul3:
+			  case this.cocheraAzul4:
+			  case this.cocheraAzul5:
 			    //Pinta el espacio donde debe estacionar un auto azul
 			    espacios+=this.pintarCocheraAzul();
 			    break;
 			  case this.cocheraAmarilla1:
 			  case this.cocheraAmarilla2:
 			  case this.cocheraAmarilla3:
+			  case this.cocheraAmarilla4:
 			    //Pinta el espacio donde debe estacionar un auto amarillo
 			    espacios+=this.pintarCocheraAmarilla();
 			    break;
