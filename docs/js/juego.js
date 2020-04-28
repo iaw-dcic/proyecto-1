@@ -1,11 +1,4 @@
 class Juego{
-	#justify_content;
-	#align_items;
-	#wrap;
-	#flex_direction;
-	#align_content;
-	#order;
-	#align_self;
 	constructor(){
 		this.setTooltips();
 		this.niveles= [this.nivel1(),this.nivel2(),this.nivel3(),this.nivel4(),this.nivel5(),
@@ -15,26 +8,26 @@ class Juego{
 	}
 
 	setTooltips(){
-		this.#justify_content=new Tooltip('justify-content','Alinea los elementos a lo largo del eje principal.',
+		this.justify_content=new Tooltip('justify-content','Alinea los elementos a lo largo del eje principal.',
 			['justify-content-start','justify-content-end', 'justify-content-center', 'justify-content-between', 'justify-content-around']);
-		this.#align_items= new Tooltip('align-items','Alinea los elementos a lo largo del eje transversal.',
+		this.align_items= new Tooltip('align-items','Alinea los elementos a lo largo del eje transversal.',
 			['align-items-start','align-items-end','align-items-center','align-items-baseline','align-items-stretch']);
-		this.#wrap= new Tooltip('wrap','Especifica si los elementos son forzados a una sola linea.',
+		this.wrap= new Tooltip('wrap','Especifica si los elementos son forzados a una sola linea.',
 			['flex-wrap','flex-nowrap','flex-wrap-reverse']);
-		this.#flex_direction= new Tooltip('flex-direction','Define la dirección del eje principal.',
+		this.flex_direction= new Tooltip('flex-direction','Define la dirección del eje principal.',
 			['flex-row','flex-row-reverse','flex-column','flex-column-reverse']);
-		this.#align_content= new Tooltip('align-content','Alinea las líneas de un contenedor flex cuando exista más espacio en el eje transversal.',
+		this.align_content= new Tooltip('align-content','Alinea las líneas de un contenedor flex cuando exista más espacio en el eje transversal.',
 			['align-content-start','align-content-end','align-content-center','align-content-between','align_content-around']);
-		this.#order= new Tooltip('order','Ordena los elementos según su orden.',
+		this.order= new Tooltip('order','Ordena los elementos según su orden.',
 			['order-0','order-1','...','order-12']);
-		this.#align_self= new Tooltip('align-self','Alinea el elemento dentro del contenedor.',
+		this.align_self= new Tooltip('align-self','Alinea el elemento dentro del contenedor.',
 			['align-self-start','align-self-end','align-self-center','align-self-between','align-self-around']);
 	}
 
 	nivel1(){
 		var instrucciones='<div id="instrucciones"><p>';
         instrucciones+='Bienvenido a Bootstrap Flex Parking, un juego donde estacionaras autos utilizando Bootstrap Flex.';
-        instrucciones+='Guía al auto azul a la cochera indicada,usando la clase '+this.#justify_content.tooltip()+', la cual alinea elementos horizontalmente y acepta los siguientes valores:';
+        instrucciones+='Guía al auto azul a la cochera indicada,usando la clase '+this.justify_content.tooltip()+', la cual alinea elementos horizontalmente y acepta los siguientes valores:';
         instrucciones+='</p><ul>';
         instrucciones+='<li>justify-content-start</li>'
         instrucciones+='<li>justify-content-end</li>';
@@ -62,7 +55,7 @@ class Juego{
 
 	nivel2(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Ahora usa '+this.#align_items.tooltip()+' para reubicar el auto azul donde corresponde. Esta clase alinea los elementos verticalmente:';
+        instrucciones+='Ahora usa '+this.align_items.tooltip()+' para reubicar el auto azul donde corresponde. Esta clase alinea los elementos verticalmente:';
         instrucciones+='</p><ul>';
         instrucciones+='<li>align-items-start</li>'
         instrucciones+='<li>align-items-end</li>';
@@ -90,7 +83,7 @@ class Juego{
 
 	nivel3(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Estaciona el auto azul donde debería, usando una combinación de '+this.#justify_content.tooltip()+' y '+this.#align_items.tooltip()+'.</p>';
+        instrucciones+='Estaciona el auto azul donde debería, usando una combinación de '+this.justify_content.tooltip()+' y '+this.align_items.tooltip()+'.</p>';
         instrucciones+='<p>Si no recuerdas las opciones de alguna clase, siempre puedes pasar el cursor sobre el nombre y se mostrarán.</p>';
         instrucciones+='</div>';
 		var html='<div id="html">';
@@ -111,14 +104,14 @@ class Juego{
 
 	nivel4(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Las ranas necesitan ponerse en el mismo orden que sus hojas de lirio usando '+this.#flex_direction.tooltip()+'. Con esta clase podemos definir la dirección de los elementos en el contenedor, y acepta los siguientes valores:';
+        instrucciones+='Las ranas necesitan ponerse en el mismo orden que sus hojas de lirio usando '+this.flex_direction.tooltip()+'. Con esta clase podemos definir la dirección de los elementos en el contenedor, y acepta los siguientes valores:';
         instrucciones+='</p><ul>';
         instrucciones+='<li>flex-row</li>'
         instrucciones+='<li>flex-row-reverse</li>';
         instrucciones+='<li>flex-column</li>';
         instrucciones+='<li>flex-column-reverse</li>';
         instrucciones+='</ul><p>';
-        instrucciones+='Para poder estacionar los autos vas a tener que usar '+this.#justify_content.tooltip()+' también. Nota que cuando es una columna, justify-content cambia a vertical y align-items a horizontal.</p>';
+        instrucciones+='Para poder estacionar los autos vas a tener que usar '+this.justify_content.tooltip()+' también. Nota que cuando es una columna, justify-content cambia a vertical y align-items a horizontal.</p>';
         instrucciones+='</div>';
 		var html='<div id="html">';
 		html+='<div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>';
@@ -139,7 +132,7 @@ class Juego{
 
 	nivel5(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Es hora de estacionar los autos usando '+this.#flex_direction.tooltip()+', '+this.#justify_content.tooltip()+', y '+this.#align_items.tooltip()+'. ';
+        instrucciones+='Es hora de estacionar los autos usando '+this.flex_direction.tooltip()+', '+this.justify_content.tooltip()+', y '+this.align_items.tooltip()+'. ';
         instrucciones+='Nota que cuando estableces la dirección a una fila o columna invertida, el inicio y el final también se invierten.</p>';
         instrucciones+='</div>';
 		var html='<div id="html">';
@@ -163,7 +156,7 @@ class Juego{
 	nivel6(){
 		var instrucciones='<div id="instrucciones">';
         instrucciones+='<p>Parece que todo se da vuelta, volvamos a intentarlo con más autos.</p>';
-        instrucciones+='<p>Puedes utilizar '+this.#justify_content.tooltip()+', '+this.#align_items.tooltip()+' y '+this.#flex_direction.tooltip()+'.</p>';
+        instrucciones+='<p>Puedes utilizar '+this.justify_content.tooltip()+', '+this.align_items.tooltip()+' y '+this.flex_direction.tooltip()+'.</p>';
         instrucciones+='</div>';
 		var html='<div id="html">';
 		html+='<div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>';
@@ -187,7 +180,7 @@ class Juego{
 
 	nivel7(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='A veces, invertir el orden de una fila o columna de un contenedor no es suficiente. En esos casos, nosotros podemos ultilizar la clase '+this.#order.tooltip()+' en elementos individuales. Por defecto, los elementos tienen un valor 0, pero podemos ordenarlos con esta clase.';
+        instrucciones+='A veces, invertir el orden de una fila o columna de un contenedor no es suficiente. En esos casos, nosotros podemos ultilizar la clase '+this.order.tooltip()+' en elementos individuales. Por defecto, los elementos tienen un valor 0, pero podemos ordenarlos con esta clase.';
         instrucciones+='</p><p>El auto azul está desordenado, order-0 no es suficiente.</p>';
         instrucciones+='</div>';
 		var html='<div id="html">';
@@ -211,7 +204,7 @@ class Juego{
 
 	nivel8(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Otra clase que puedes utilizar en elementos individuales es '+this.#align_self.tooltip()+'. Esta clase toma los mismos valores de align-items y sus valores son usados para un elemento específico.';
+        instrucciones+='Otra clase que puedes utilizar en elementos individuales es '+this.align_self.tooltip()+'. Esta clase toma los mismos valores de align-items y sus valores son usados para un elemento específico.';
         instrucciones+='</p><p>La camioneta roja solo debe avanzar para llegar a su cochera.</p>';
         instrucciones+='</div>';
 		var html='<div id="html">';
@@ -235,7 +228,7 @@ class Juego{
 
 	nivel9(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Combina '+this.#order.tooltip()+' con '+this.#align_self.tooltip()+' para estacionar los autos en su cochera asignada.';
+        instrucciones+='Combina '+this.order.tooltip()+' con '+this.align_self.tooltip()+' para estacionar los autos en su cochera asignada.';
         instrucciones+='</div>';
 		var html='<div id="html">';
 		html+='<div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>';
@@ -259,7 +252,7 @@ class Juego{
 
 	nivel10(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Por defecto un contenedor que tiene la clase d-flex ajusta los elementos en una sola linea. Para modificar esto podemos usar '+this.#wrap.tooltip()+':';
+        instrucciones+='Por defecto un contenedor que tiene la clase d-flex ajusta los elementos en una sola linea. Para modificar esto podemos usar '+this.wrap.tooltip()+':';
         instrucciones+='</p><ul>';
         instrucciones+='<li>flex-nowrap</li>'
         instrucciones+='<li>flex-wrap</li>';
@@ -288,7 +281,7 @@ class Juego{
 
 	nivel11(){
 		var instrucciones='<div id="instrucciones"><p>';
-        instrucciones+='Utilicemos la clase '+this.#wrap.tooltip()+' combinada con las vistas anteriormente para ubicar estos autos en sus lugares. Recuerda que puedes usar '+this.#justify_content.tooltip()+', '+this.#align_content.tooltip()+', '+this.#wrap.tooltip()+', '+this.#flex_direction.tooltip()+' y '+this.#align_items.tooltip()+'.';
+        instrucciones+='Utilicemos la clase '+this.wrap.tooltip()+' combinada con las vistas anteriormente para ubicar estos autos en sus lugares. Recuerda que puedes usar '+this.justify_content.tooltip()+', '+this.align_content.tooltip()+', '+this.wrap.tooltip()+', '+this.flex_direction.tooltip()+' y '+this.align_items.tooltip()+'.';
         instrucciones+='</div>';
 		var html='<div id="html">';
 		html+='<div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>';
@@ -314,11 +307,11 @@ class Juego{
 		var instrucciones='<div id="instrucciones"><p>';
         instrucciones+='Organiza la cochera utilizando las clases que aprendiste:';
         instrucciones+='</p><ul>'; 
-        instrucciones+='<li>'+this.#justify_content.tooltip()+'</li>'
-        instrucciones+='<li>'+this.#align_content.tooltip()+'</li>';
-        instrucciones+='<li>'+this.#align_items.tooltip()+'</li>';
-        instrucciones+='<li>'+this.#flex_direction.tooltip()+'</li>';
-        instrucciones+='<li>'+this.#wrap.tooltip()+'</li>';
+        instrucciones+='<li>'+this.justify_content.tooltip()+'</li>'
+        instrucciones+='<li>'+this.align_content.tooltip()+'</li>';
+        instrucciones+='<li>'+this.align_items.tooltip()+'</li>';
+        instrucciones+='<li>'+this.flex_direction.tooltip()+'</li>';
+        instrucciones+='<li>'+this.wrap.tooltip()+'</li>';
         instrucciones+='</ul>';
         instrucciones+='</div>';
 		var html='<div id="html">';
