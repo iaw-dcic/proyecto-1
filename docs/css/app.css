@@ -1,0 +1,239 @@
+body{
+	display: flex;
+    min-width: 600px;
+    margin: 0;
+    background-color: var(--main-bg-color) !important;
+    color: var(--main-color) !important;
+    font-family: 'Tahoma, Geneva', sans-serif !important;
+}
+
+.hide{
+  display: none !important;
+}
+
+#barra{
+	width: 50%;
+	min-width: 300px;
+    position: relative;
+    padding: 2em;
+    background-color: var(--main-bg-color);
+    font-size: 15px;
+}
+#tablero{
+	background-color: var(--tablero-bg-color);
+	position: sticky;
+    border-bottom-left-radius: 10px;
+    top: 0;
+    width: 50vw;
+    height: 50vw;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.titulo{
+    color: white;
+    margin: 0.5rem 0 0;
+    text-transform: uppercase;
+    font-family: 'Impact', sans-serif;
+    font-size: 30px;
+}
+
+#niveles{
+    position: relative;
+    margin: 10px;
+    height: 30px;
+    font-size: 18px;
+}
+
+.nivel{
+    width: 120px;
+    display: inline-block;
+}
+
+.flecha{
+    cursor: pointer;
+}
+
+#instrucciones{
+    margin: 0;
+    padding-bottom: 1em;
+}
+
+.tooltip p{
+    font-size: 12px;
+}
+
+code{
+    display: inline-block;
+    cursor: pointer;
+    color: var(--code-color) !important;
+    background-color: var(--code-bg-color);
+}
+
+#html{
+    margin-bottom: 20px;
+    height: 240px;
+    position: relative;
+    padding: 10px 10px 10px 40px;
+    background-color: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.victoria{
+    background-color: transparent !important;
+}
+
+.line-numbers{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 10px 6px;
+    text-align: right;
+    background-color: #999;
+    color: #D5D5D5;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.codigo, #clases-input{
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: "Lucida Console", Monaco, monospace;
+    margin: 0;
+    color:#0008 !important;
+}
+
+#clases-input{
+    border:0;
+	width: 100%
+}
+
+#clases-input:focus{
+    outline: none !important;
+}
+
+
+#siguiente{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 0.4em 0.8em;
+    background-color: var(--siguiente-bg-color);
+    border: none;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+}
+#siguiente:disabled{
+    opacity: 0.5;
+}
+
+#logo{
+	display: inline-block;
+	height: 30px;
+}
+
+#logo-juego{
+    margin: 10px;
+    display: inline-block;
+    height: 50px;
+}
+
+#configuracion{
+	display: inline-flex;
+    margin: 10px;
+    padding: 1px 8px;
+    background-color: var(--configuracion-bg-color);
+    border-radius: 3px;
+    color: var(--configuracion-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.config-btn{
+    cursor: pointer;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.config-btn.active{
+    color: white;
+    background-color: var(--config-btn-bg-color);
+}
+
+.popover-body{
+    padding: 0 !important;
+}
+
+#cochera-izq{
+    width: 25%;
+}
+#cochera-der{
+    width: 25%;
+}
+
+.espacio-cochera{
+    position: relative;
+    width: 100%;
+    height: 14.25%;
+    overflow: hidden;
+}
+
+.auto{
+    position: relative;
+    width: 25%;
+    height: 14.25%;
+    overflow: hidden;
+}
+
+.auto-azul-bg{
+    background-image: url(../images/auto-azul.png);
+    background-size: 80% 70%;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.auto-amarillo-bg{
+    background-image: url(../images/auto-amarillo.png);
+    background-size: 75% 65%;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.auto-rojo-bg{
+    background-image: url(../images/auto-rojo.png);
+    background-size: 90% 80%;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#cochera,
+#autos {
+  width: 100% !important;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#autos {
+  z-index: 10;
+}
+

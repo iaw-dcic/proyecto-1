@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link id="css-style" rel="stylesheet" href="css/app-dark.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Bootstrap Flex Parking</title>
+  </head>
+  <body>
+
+    <!-- Seccion de instrucciones y comando, donde se encuentran los controles -->
+    <section id="barra">
+      <div class="header">
+          <div class="titulo-wrapper d-flex align-items-center">
+            <img src="images/logo_juego.png" id="logo-juego"/>
+            <h1 class="titulo">Bootstrap Flex Parking</h1>
+          </div>
+          <div id="niveles" class="d-flex justify-content-center align-items-center">
+            <span class="flecha flecha-izq"><i class="fas fa-chevron-left"></i></span>
+            <div class="nivel d-flex justify-content-center align-items-center">
+              <span id="nivel-label" >Nivel &nbsp;</span>
+              <span id="nivel-actual">1</span>
+            </div>
+            <span class="flecha flecha-der"><i class="fas fa-chevron-right"></i></span>
+          </div>
+      </div>
+      <div id="instrucciones">
+      </div>
+      <div id="html">
+      </div>
+      <div class="footer">
+        <span id="footer-label">
+          Bootstrap Flex Parking es un juego creado por ApredeJuegos
+        </span>
+        <img src="images/logo.png" id="logo"/>
+        <span id="configuracion" data-toggle="popover" >Configuración</span>
+      </div>
+    </section>
+
+    <!-- Seccion del tablero, donde se encuentra la cochera -->
+    <section id="juego">
+      <div id="tablero">
+        <div id="cochera">
+        </div>
+        <div id="autos">
+        </div>
+      </div>
+    </section>
+
+    <div id="menu-config" class="hide">
+        <span class="tema-oscuro config-btn active" dir="css/app-dark.css" role=".tema-oscuro">Tema oscuro</span>
+        <span class="tema-claro config-btn" dir="css/app-light.css" role=".tema-claro">Tema claro</span>
+    </div>
+    <!-- JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c10216f54d.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/autos.js"></script>
+    <script src="js/cochera.js"></script>
+    <script src="js/nivel.js"></script>
+    <script src="js/juego.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
