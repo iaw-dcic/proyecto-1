@@ -339,7 +339,7 @@ class Juego{
 		var html='<div id="html" class="victoria d-flex justify-content-center align-items-center">';
 		html+='<div class="logo-grande"><img src="images/logo.png" id="logo_grande"/></div>';
 		html+='</div>';
-		var autos=new Autos(8);
+		var autos=new Autos(14);
 		var cochera=new Cochera([1,7,12],[3,8,14],[5,10]);
 		var objetivos=[];
 
