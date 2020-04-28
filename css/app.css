@@ -1,11 +1,15 @@
-body
-{
+body {
     background-color: black;
 }
 
-h1
-{
-    font-family: Courier, monospace, 'Courier New';
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: "Courier New", Courier, monospace;
     text-align: center;
     font-size: 72px;
     padding-top: 10px;
@@ -16,10 +20,64 @@ h1
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
-.shape-drawer {
-    flex-grow: 4;
+.element-group {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    height: 50px;
+}
+
+.sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -20rem;
+}
+
+.sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+.list-group {
+    width: 20rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    vertical-align: middle;
+    line-height: 3px;
+    border-radius: 5px;
+    height: 3px;
+    outline: none;
+    opacity: 0.7;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.custom-checkbox{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }

@@ -9,14 +9,16 @@ var groups;
 
 var animating = false;
 
+var NUMBER_OF_LAYERS;
+var MAX_SHAPES_PER_LAYER;
+var MIN_SHAPES_PER_LAYER;
+
 function generate() {
     two.clear();
     startGroups();
-    createLayer(250);
-    createLayer(200);
-    createLayer(150);
-    createLayer(100);
-    createLayer(50);
+    for (let i = 0; i < NUMBER_OF_LAYERS; i++) {
+        createLayer(50 * (i + 1));
+    }
     for (let i = 0; i < groups.length; i++) {
         groups[i].translation.set(two.width / 2, two.height / 2);
     }
@@ -50,9 +52,7 @@ two.bind('update', function(_frameCount) {
 
 
 function createLayer(referenceRadius) {
-    var min = 1;
-    var max = 3;
-    var shapesPerLayer = Math.floor(Math.random() * (max - min)) + min; 
+    var shapesPerLayer = Math.floor(Math.random() * (+MAX_SHAPES_PER_LAYER + 1 - +MIN_SHAPES_PER_LAYER)) + +MIN_SHAPES_PER_LAYER; 
     var newShape;
     for (let index = 0; index < shapesPerLayer; index++) {
         newShape = createShape(referenceRadius);

@@ -14,25 +14,44 @@
   <body>
     <h1>Shapes</h1>
     <ul class="container">
-      <ul>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Layers</span>
+      <div class="bg-dark rounded text-white"  id="sidebar-wrapper">
+        <div class="sidebar-heading text-light border-bottom mt-2">Attributes</div>
+        <div class="list-group list-group-flush">
+          <div class="container border-top py-2">
+            <div class="text-light p-3 bg-dark">Layers</div>
+            <input class="slider" oninput="setNumberOfLayers(this.value)" type="range" min="1" max="5" value="1">
+            <div class="text-light p-3 bg-dark" id="layersNumber">1</div>
           </div>
-          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Shapes per layer</span>
+          <div class="container border-top py-2">
+            <div class="text-light p-3 bg-dark text-white">Shapes per layer</div>
+            <input id="minShapesPerLayerInput" oninput="setShapesPerLayer()" type="number" min="1" max="3" value="1">
+            <input id="maxShapesPerLayerInput" oninput="setShapesPerLayer()" type="number" min="1" max="3" value="2">
           </div>
-          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+          <div class="container border-top py-2">
+            <div class="text-light p-3 bg-dark text-white">Your numbers</div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">1</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">2</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck3">
+              <label class="custom-control-label" for="customCheck3">3</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck4">
+              <label class="custom-control-label" for="customCheck4">4</label>
+            </div>
+          </div>
+          <div class="container border-top py-2">
+            <button id="generate-button" type="button" class="btn btn-primary">Generate</button>
+            <button id="animate-button" type="button" class="btn btn-primary">Animate</button>
+          </div>
         </div>
-        <div class="input-group mb-3">
-          <button type="button" id="generate-button" class="btn btn-primary">Generate</button>
-          <button type="button" id="animate-button" class="btn btn-primary">Animate</button>
-        </div>
-      </ul>
+      </div>
       <div id="draw-shapes"></div>
     </ul>
 
