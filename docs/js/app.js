@@ -6,6 +6,8 @@ jQuery(document).ready(function($){
 
 	function setearTema(){
 		if(checkCSS()){
+			$('.config-btn').removeClass('active');
+			$($(this).attr('role')).addClass('active');
 			changeCSS(Storage.getTema());
 		}
 	}
@@ -18,6 +20,7 @@ jQuery(document).ready(function($){
 		$('#cochera').replaceWith($.parseHTML(nivel.cochera.pintarCochera()));
 		$('#autos').replaceWith($.parseHTML(nivel.autos.crearAutos()));
 		$('#clases-input').val(Storage.getRespuesta(nivel.numero));
+		$('#clases-input').trigger('keyup');
 		actualizarElementos();
 	}
 
