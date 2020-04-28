@@ -79,6 +79,23 @@ class Autos{
 			    autos+='<div class="auto azul" data-clases="auto azul"> <div class="auto-azul-bg"></div> </div>';
 			    autos+='<div class="auto amarillo" data-clases="auto amarillo"> <div class="auto-amarillo-bg"></div> </div>';
 			    break;
+			case 14:
+			    //Crea cinco autos azules, cinco autos rojos y cuatro autos amarillos
+			    autos+='<div class="auto amarillo" data-clases="auto amarillo"> <div class="auto-amarillo-bg"></div> </div>';
+			    autos+='<div class="auto azul" data-clases="auto azul"> <div class="auto-azul-bg"></div> </div>';
+			    autos+='<div class="auto rojo" data-clases="auto rojo"> <div class="auto-rojo-bg"></div> </div>';
+			    autos+='<div class="auto rojo" data-clases="auto rojo"> <div class="auto-rojo-bg"></div> </div>';
+			    autos+='<div class="auto azul" data-clases="auto azul"> <div class="auto-azul-bg"></div> </div>';
+			    autos+='<div class="auto amarillo" data-clases="auto amarillo"> <div class="auto-amarillo-bg"></div> </div>';
+			    autos+='<div class="auto azul" data-clases="auto azul"> <div class="auto-azul-bg"></div> </div>';
+			    autos+='<div class="auto rojo" data-clases="auto rojo"> <div class="auto-rojo-bg"></div> </div>';
+			    autos+='<div class="auto azul" data-clases="auto azul"> <div class="auto-azul-bg"></div> </div>';
+			    autos+='<div class="auto amarillo" data-clases="auto amarillo"> <div class="auto-amarillo-bg"></div> </div>';
+			    autos+='<div class="auto azul" data-clases="auto azul"> <div class="auto-azul-bg"></div> </div>';
+			    autos+='<div class="auto rojo" data-clases="auto rojo"> <div class="auto-rojo-bg"></div> </div>';
+			    autos+='<div class="auto amarillo" data-clases="auto amarillo"> <div class="auto-amarillo-bg"></div> </div>';
+			    autos+='<div class="auto rojo" data-clases="auto rojo"> <div class="auto-rojo-bg"></div> </div>';
+			    break;
 		}
 		autos+='</div>';
 		return autos;
