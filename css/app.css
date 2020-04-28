@@ -1,0 +1,8 @@
+button.botonGrilla{
+    height: 30px;
+    width: 30px;
+    text-transform: uppercase;
+    background-color: rgb(250, 2, 2);
+    border: 0;
+    font: 1em sans-serif;
+  }
