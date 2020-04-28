@@ -339,8 +339,8 @@ class Juego{
 		var html='<div id="html" class="victoria d-flex justify-content-center align-items-center">';
 		html+='<div class="logo-grande"><img src="images/logo.png" id="logo_grande"/></div>';
 		html+='</div>';
-		var autos=new Autos(14);
-		var cochera=new Cochera([1,7,12],[3,8,14],[5,10]);
+		var autos=new Autos(14,'flex-wrap flex-column align-content-between');
+		var cochera=new Cochera([2,5,7,9,11],[3,4,8,12,14],[1,6,10,13]);
 		var objetivos=[];
 
 		return new Nivel(13,instrucciones,html,autos,cochera,objetivos,'#autos');
