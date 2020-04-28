@@ -125,9 +125,13 @@ jQuery(document).ready(function($){
 
     createPopoverMenu().click(function(){
     	$(this).popover('show');
-    });    
+    });
+	
+    $(document).on('cambio-nivel', function(){
+	Storage.refreshStorage(nivel.numero, $('#css-style').attr('href'), $('#clases-input').val());
+    });
 
     $(window).on("beforeunload", function(){
     	Storage.refreshStorage(nivel.numero, $('#css-style').attr('href'), $('#clases-input').val());
-	});
+    });
 });
