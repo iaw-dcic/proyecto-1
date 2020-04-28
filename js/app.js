@@ -151,14 +151,26 @@ function actualizar_elementos() {
 function mostrarResultados() {
     $('#modal_resultados').modal('show')
         //Muestro los elementos de a uno.
-    setTimeout(() => { document.getElementById("item-modal-tiempo").style.visibility = "visible"; }, 2000);
-    setTimeout(() => { document.getElementById("item-modal-errores").style.visibility = "visible"; }, 3000);
-    setTimeout(() => { document.getElementById("item-modal-promedio").style.visibility = "visible"; }, 4000);
-    setTimeout(() => { document.getElementById("item-modal-puntaje").style.visibility = "visible"; }, 6000);
-    setTimeout(() => { document.getElementById("item-modal-flavour").style.visibility = "visible"; }, 6000);
+
+    setTimeout(() => { fadeIn(document.getElementById("item-modal-tiempo"), 3000); }, 1000);
+    setTimeout(() => { fadeIn(document.getElementById("item-modal-errores"), 3000); }, 1000);
+    setTimeout(() => { fadeIn(document.getElementById("item-modal-promedio"), 3000); }, 1000);
+    setTimeout(() => {
+        fadeIn(document.getElementById("item-modal-puntaje"), 3000);
+        fadeIn(document.getElementById("item-modal-flavour"), 3000);
+    }, 2000);
+
+}
 
 
+function fadeIn(el, i) {
 
+    var go = function(i) {
+        setTimeout(function() {
+            el.style.opacity = i;
+        }, i * 1000);
+    };
+    for (i = 0; i <= 1; i = i + 0.01) go(i);
 }
 
 function reinicio_juego() {
@@ -167,11 +179,11 @@ function reinicio_juego() {
         //Saco el Modal y el boton de mostrar resultados.
     $('#modal_resultados').modal("hide")
     document.getElementById("resultados").style.visibility = "hidden"
-    document.getElementById("item-modal-tiempo").style.visibility = "hidden";
-    document.getElementById("item-modal-errores").style.visibility = "hidden";
-    document.getElementById("item-modal-promedio").style.visibility = "hidden";
-    document.getElementById("item-modal-puntaje").style.visibility = "hidden";
-    document.getElementById("item-modal-flavour").style.visibility = "hidden";
+    document.getElementById("item-modal-tiempo").style.opacity = 0;
+    document.getElementById("item-modal-errores").style.opacity = 0;
+    document.getElementById("item-modal-promedio").style.opacity = 0;
+    document.getElementById("item-modal-puntaje").style.opacity = 0;
+    document.getElementById("item-modal-flavour").style.opacity = 0;
 
 
     //Vuelvo a habilitar los valores por defecto
@@ -268,25 +280,25 @@ function calculoPuntaje() {
     //Defino el flavour text en base al puntaje que consiguio
     switch (salida[0]) {
         case "F":
-            salida[1] = "No man que desastre, necesitas que llame a un medico?"
+            salida[1] = "Recomendamos que trabajes en tus reflejos, intente nuevamente."
             break
         case "E":
-            salida[1] = "Ay ay ay, con esos reflejos deshonras a tu familia."
+            salida[1] = "Todavia se puede mejorar, intente nuevamente."
             break
         case "D":
-            salida[1] = "Bueno, puede ser peor. No te alegres demasiado igual."
+            salida[1] = "Todavia se puede mejorar, intente nuevamente."
             break
         case "C":
-            salida[1] = "Felicitaciones, tenes reflejos mediocres."
+            salida[1] = "Todavia se puede mejorar, intente nuevamente."
             break
         case "B":
-            salida[1] = "Muy bien! Se podria mejorar, pero al menos podes esquivar un pelotazo."
+            salida[1] = "Bien! Tiene reflejos por encima de la media, intente nuevamente."
             break
         case "A":
-            salida[1] = "Con esos reflejos, casi que podrias esquivar un disparo... Casi."
+            salida[1] = "Excelente! Intente nuevamente con una mayor dificultad o mas objetivos."
             break
         case "S":
-            salida[1] = "El dev se pone de pie, y te nombra 'Dios de los cuadraditos'"
+            salida[1] = "Sus reflejos y punteria son excelentes, felicitaciones!"
             break
     }
 

@@ -70,11 +70,11 @@ h1 {
 #item-modal-errores,
 #item-modal-promedio,
 #item-modal-puntaje {
-    visibility: hidden;
+    opacity: 0;
 }
 
 #item-modal-flavour {
-    visibility: hidden;
+    opacity: 0;
     text-align: center;
 }
 
