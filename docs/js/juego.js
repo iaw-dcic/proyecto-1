@@ -97,7 +97,7 @@ class Juego{
 		html+='</div>';
 		var autos=new Autos(1);
 		var cochera=new Cochera([11]);
-		var objetivos=['justify-content-end', 'align-items-end'];
+		var objetivos=['justify-content-end', 'align-items-center'];
 
 		return new Nivel(3,instrucciones,html,autos,cochera,objetivos,'#autos');
 	}
