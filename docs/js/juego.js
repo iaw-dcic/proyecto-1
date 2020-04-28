@@ -272,9 +272,9 @@ class Juego{
 		html+='</div>';
 		html+='<button id="siguiente" disabled="true" class="animated animation">Siguiente</button>';
 		html+='</div>';
-		var autos=new Autos(8);
-		var cochera=new Cochera([1,3,7],[2,4,6],[5,8]);
-		var objetivos=['flex-wrap', 'flex-column', 'align-content-between'];
+		var autos=new Autos(7);
+		var cochera=new Cochera([1,2],[3,4,5],[6,7]);
+		var objetivos=['flex-wrap', 'flex-column'];
 
 		return new Nivel(10,instrucciones,html,autos,cochera,objetivos,'#autos');
 	}
