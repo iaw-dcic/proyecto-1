@@ -20,8 +20,8 @@ jQuery(document).ready(function($){
 		$('#cochera').replaceWith($.parseHTML(nivel.cochera.pintarCochera()));
 		$('#autos').replaceWith($.parseHTML(nivel.autos.crearAutos()));
 		$('#clases-input').val(Storage.getRespuesta(nivel.numero));
-		$('#clases-input').trigger('keyup');
 		actualizarElementos();
+		$('#clases-input').trigger('keyup');
 	}
 
 	function setearGanador(){
