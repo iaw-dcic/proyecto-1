@@ -7,7 +7,7 @@ jQuery(document).ready(function($){
 	function setearTema(){
 		if(checkCSS()){
 			$('.config-btn').removeClass('active');
-			$($(this).attr('role')).addClass('active');
+			$($("[href="+Storage.getTema()+"]")).addClass('active');
 			changeCSS(Storage.getTema());
 		}
 	}
