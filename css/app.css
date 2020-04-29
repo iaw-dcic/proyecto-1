@@ -1,0 +1,36 @@
+.vertical-center {
+  min-height: 90%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 90vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+button {
+  height: 100px;
+  width: 100px;
+}
+
+.col_custom_padding{
+  padding: 2px;
+}
+
+
+.color_black{
+background-color: #151515
+}
+.color_red{
+background-color: #A63D40
+}
+.color_yellow{
+background-color: #E9B872
+}
+.color_green{
+background-color: #90A959
+}
+.color_blue{
+background-color: #6494AA
+}
+.color_white{
+background-color: #FFFCF2
+}
