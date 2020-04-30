@@ -3,7 +3,7 @@ $(document).ready(function() {
   //Si no existe arreglo con las posiciones más altas lo creo
   if (!localStorage.getItem("array"))
     localStorage.setItem("array", JSON.stringify(new Array()));
-  let style = $("head").append(loadStyle());
+  setInitialState();
   let selectedId = -1;
   let seconds = 0;
   let minutes = 0;
@@ -26,7 +26,8 @@ $(document).ready(function() {
   });
 
   $("#style").click(function(e) {
-    console.log("Hola me estan haciendo click");
+    $("#cSel").remove();
+    localStorage.setItem("style", true);
     e.preventDefault();
     setDarkStyle();
   });
@@ -60,16 +61,29 @@ $(document).ready(function() {
   });
 
   function setDarkStyle() {
-    console.log("están haciendo click en setStyle");
-    localStorage.setItem("style", true);
     $("head").append(
       '<link id="cSel" rel="stylesheet" href="css/dark.css" type="text/css" />'
     );
     if (contFinish === 8) location.reload();
   }
 
-  function setSyle() {
-    localStorage.setItem("style", true);
+  function setInitialState() {
+    console.log("Hola estoy cargando el estado inicial...");
+    let aux = JSON.parse(localStorage.getItem("style"));
+    console.log("El estado inicial es : ", aux);
+    if (aux === true) {
+      console.log("Entonces no tengo que entrar aqui");
+      //Tengo que remover el css que estoy trayendo por defecto
+      $("#cSel").remove();
+      //Tengo que insertar el nuevo css
+      $("head").append(
+        '<link id="cSel" rel="stylesheet" href="css/dark.css" type="text/css" />'
+      );
+    }
+  }
+
+  function setStyle() {
+    localStorage.setItem("style", false);
     $("head").append(
       '<link id="cSel" rel="stylesheet" href="css/app.css" type="text/css" />'
     );
@@ -78,13 +92,6 @@ $(document).ready(function() {
 
   function avoidStyle() {
     localStorage.removeItem("style");
-  }
-
-  function loadStyle() {
-    let aux = localStorage.getItem("style");
-    if (aux)
-      return '<link rel="stylesheet" href="css/app.css" type="text/css" />';
-    return;
   }
 
   function checkImageArray() {
