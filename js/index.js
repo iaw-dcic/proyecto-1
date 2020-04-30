@@ -135,7 +135,7 @@ $(document).ready(function() {
   function backToDefault(img1) {
     $(`#m${img1}`).hide();
     $(`#m${img1}`).attr("src", `images/default.png`);
-    $(`#m${img1}`).fadeIn(500);
+    $(`#m${img1}`).fadeIn(200);
   }
 
   //Que hago cuando termino un nuevo juego...
