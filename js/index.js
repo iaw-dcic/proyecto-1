@@ -28,14 +28,15 @@ $(document).ready(function() {
   $("#style").click(function(e) {
     console.log("Hola me estan haciendo click");
     e.preventDefault();
-    setStyle();
+    setDarkStyle();
   });
 
   $("#original").click(function(e) {
-    console.log("Hola me estan haciendo click");
     e.preventDefault();
+    //remuevo el estilo que tengo por defecto
     $("#cSel").remove();
     localStorage.removeItem("style");
+    setStyle();
   });
 
   //Función que chequea que pasa cada vez que hago click en una carta
@@ -58,12 +59,21 @@ $(document).ready(function() {
     }
   });
 
-  function setStyle() {
+  function setDarkStyle() {
     console.log("están haciendo click en setStyle");
+    localStorage.setItem("style", true);
+    $("head").append(
+      '<link id="cSel" rel="stylesheet" href="css/dark.css" type="text/css" />'
+    );
+    if (contFinish === 8) location.reload();
+  }
+
+  function setSyle() {
     localStorage.setItem("style", true);
     $("head").append(
       '<link id="cSel" rel="stylesheet" href="css/app.css" type="text/css" />'
     );
+    if (contFinish === 8) location.reload();
   }
 
   function avoidStyle() {

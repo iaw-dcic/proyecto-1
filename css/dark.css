@@ -1,0 +1,75 @@
+img {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  background-size: cover;
+}
+
+.light {
+  background: rgb(32, 30, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(32, 30, 32, 1) 0%,
+    rgba(51, 54, 53, 1) 0%,
+    rgba(78, 85, 84, 1) 45%,
+    rgba(109, 114, 115, 1) 70%,
+    rgba(188, 201, 201, 1) 100%
+  );
+}
+
+.centered {
+  text-align: center;
+}
+
+.timer {
+  font-size: 22px;
+  text-align: center;
+  color: whitesmoke;
+  font-family: "Indie Flower", cursive;
+}
+
+nav .brand-logo {
+  color: whitesmoke;
+}
+
+h1 {
+  color: whitesmoke;
+  font-family: "Indie Flower", cursive;
+}
+
+nav ul a {
+  color: whitesmoke;
+}
+
+.imgAux {
+  width: 100px;
+  height: 120px;
+}
+
+.positions {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.positions td,
+.positions th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.positions tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.positions tr:hover {
+  background-color: #ddd;
+}
+
+.positions th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ffff99;
+  color: black;
+}
