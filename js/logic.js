@@ -97,8 +97,12 @@
     var mouseMove = function() { 
       select(this);
     };
-
-    
+    var touchMove = function(e) {
+      var xPos = e.originalEvent.touches[0].pageX;
+      var yPos = e.originalEvent.touches[0].pageY;
+      var targetElement = document.elementFromPoint(xPos, yPos);
+      select(targetElement)
+    };
     var contarCelda = function (celda) {
 
       // nos aseguramos que sigamos contando una palabra valida

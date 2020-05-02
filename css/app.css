@@ -95,4 +95,14 @@ body.dark {
   background: none;
   color: #FFF;
 }
+
+body.dark .list-group-item {
+  background: rgba(16, 33, 39, 0.884);
+  color: #BB86FC;
+  border-color: #3700B3;
+}
+
+a.nav-item {
+  color: #BB86FC;
+}
 /*# sourceMappingURL=app.css.map */

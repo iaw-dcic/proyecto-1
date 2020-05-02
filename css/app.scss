@@ -8,48 +8,56 @@ $celeste: rgb(97, 203, 238);
 $azul:rgba(11, 11, 247, 0.815);
 $back:rgba(16, 33, 39, 0.884);
 $grisOcuro:#222222;
+$pIntenso: #3700B3;
+$pSuave:#BB86FC;
 
 .botonGrilla{
     height: 30px;
     width: 30px;
     text-transform: uppercase;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255); 
     border: 0;
     font: 1em sans-serif;
-  }
-  .selected {
-    background-color: $naranja;
-  }
+}
+.selected {
+  background-color: $naranja;
+}
 
-  #found0{
-    background-color: $rojo;
-  }
-  #found1{
-    background-color: $violeta;
-  }
-  #found2{
-    background-color: $amarillo;
-  }
-  #found3{
-    background-color: $verde;
-  }
-  #found4{
-    background-color: $celeste;
-  }
-  li.disabled {
-    text-decoration: line-through;
-    color: gray;
-  }
-  body{
-    background: #F1F1F1;
-    font-family: 'Roboto', sans-serif;
-    transition: .3s ease all;
-    &.dark{
-      background: $back;
-    }
-  }
+#found0{
+  background-color: $rojo; 
+}
 
-  .switch{
+#found1{   
+  background-color: $violeta;
+}
+
+#found2{
+  background-color: $amarillo;
+}
+
+#found3{
+  background-color: $verde;
+}
+
+#found4{
+  background-color: $celeste;
+}
+
+li.disabled {
+  text-decoration: line-through;
+  color: gray;
+}
+
+body{
+  background: #F1F1F1;
+  font-family: 'Roboto', sans-serif;
+  transition: .3s ease all;
+  &.dark{
+    background: $back;
+  }
+}
+
+.switch{
     background: #343D5B;
     border-radius: 100px;
     border: none;
@@ -88,5 +96,15 @@ $grisOcuro:#222222;
       background: none;
       color: #FFF;
     }
+}
 
+.list-group-item{
+  body.dark &{
+    background: $back;
+    color: $pSuave;
+    border-color: $pIntenso;
   }
+}
+a.nav-item{
+    color: $pSuave;
+}
