@@ -64,6 +64,12 @@ function cargarDatos() {
     }
 }
 
+function redireccionar(pagina){
+
+  window.location.href = pagina;
+
+}
+
 function borrar(){}
 
 

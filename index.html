@@ -19,17 +19,14 @@
   <body>
 
   	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Medidor de contraseña</a>
+		<a class="navbar-brand" href="#" onclick="redireccionar('index.html')">Medidor de contraseña</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 		</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 			  <ul class="navbar-nav">
-			    <li class="nav-item active">
-			        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			    </li>
 			    <li class="nav-item">
-			        <a class="nav-link" href="#" onclick="obtenerDatos()">Contraseñas guardadas</a>
+			        <a class="nav-link" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas</a>
 			   	</li>
 			</ul>
 		</div>
@@ -101,7 +98,7 @@
 
 		  <tr>
 		    <td>Letras mayúsculas</td>
-		    <td id=>Incremental?!?!?!</td>
+		    <td id=>Incremental</td>
 		    <td>+((len-n)*2)</td>
 		    <td id="cantMayusculas"></td>
 		    <td id="puntosMayusculas"></td>
@@ -109,7 +106,7 @@
 
 		  <tr>
 		    <td>Letras minúsculas</td>
-		    <td id=>Incremental?!?!?!</td>
+		    <td id=>Incremental</td>
 		    <td>+((len-n)*2)</td>
 		    <td id="cantMinusculas"></td>
 		    <td id="puntosMinusculas"></td>
@@ -180,14 +177,6 @@
 		  </tr>
 
 		  <tr>
-		    <td>Caracteres repetidos (no sensible a mayúsculas y minúsculas)</td>
-		    <td>Hay que ver esto</td>
-		    <td></td>
-		    <td id="cantRepetidos"></td>
-		    <td id="puntosRepetidos"></td>
-		  </tr>
-
-		  <tr>
 		    <td>Letras mayúsculas consecutivas</td>
 		    <td>Plana</td>
 		    <td>-(n*2)</td>
@@ -199,8 +188,8 @@
 		    <td>Letras minúsculas consecutivas</td>
 		    <td>Plana</td>
 		    <td>-(n*2)</td>
-		    <td id="cantMinúsculasConsecutivas"></td>
-		    <td id="puntosMinúsculasConsecutivas"></td>
+		    <td id="cantMinusculasConsecutivas"></td>
+		    <td id="puntosMinusculasConsecutivas"></td>
 		  </tr>
 
 		  <tr>

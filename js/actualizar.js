@@ -19,6 +19,9 @@ function actualizar() {
     procesar(registroContadores.reqMin, registroContadores.reqMin * 2, "cantRequerimientos", "puntosRequerimientos");
     procesar(registroContadores.soloLetras, (0-registroContadores.soloLetras)*longitud,"cantSoloLetras","puntosSoloLetras");
     procesar(registroContadores.soloNumeros,(0-registroContadores.soloNumeros)*longitud,"cantSoloNumeros","puntosSoloNumeros");
+    procesar(registroContadores.mayusConsec,(0-registroContadores.mayusConsec)*2,"cantMayusculasConsecutivas","puntosMayusculasConsecutivas");
+    procesar(registroContadores.minConsec,(0-registroContadores.minConsec)*2,"cantMinusculasConsecutivas","puntosMinusculasConsecutivas");
+    procesar(registroContadores.numConsec,(0-registroContadores.numConsec)*2,"cantNumerosConsecutivos","puntosNumerosConsecutivos");
 }
 
 function procesar(cantidad, puntos, idCantidad, idPuntos) {
