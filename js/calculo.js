@@ -9,7 +9,8 @@ function contarTodo(text, longitud) {
         reqMin: 0,
 
         soloLetras : 0,
-        soloNumeros : 0
+        soloNumeros : 0,
+        repetidos : 0
     }
 
     //RECORRO UNA UNICA VEZ
@@ -60,13 +61,27 @@ function contarTodo(text, longitud) {
         registroContadores.reqMin = cant;
     }
 
-    //CHEQUEO SI SOLO TENGO LETRAS
+    //SI SOLO TENGO LETRAS
     if(registroContadores.cantMayusculas + registroContadores.cantMinusculas == longitud && longitud>0)
     	registroContadores.soloLetras = longitud;
 
     //SI SOLO TENGO NUMEROS
     if(registroContadores.cantNumeros == longitud && longitud>0)
     	registroContadores.soloNumeros=longitud;
+
+    //CARACTERES REPETIDOS
+
+    //MAYUSCULAS CONSECUTIVAS
+
+    //MINUSCULAS CONSECUTIVAS
+
+    //NUMEROS CONSECUTIVOS
+
+    //SECUENCIA DE LETRAS
+
+    //SECUENCIA DE NUMEROS
+
+    //SECUENCIA DE SIMBOLOS
 
 
 
