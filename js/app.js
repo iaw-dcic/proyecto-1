@@ -12,15 +12,13 @@ function guardarDatos(){
 
 	const storage = localStorage.getItem('GUARDADAS');
 
-	var resultado = {
-		puntaje : document.getElementById("puntaje"),
-		complejidad : document.getElementById("complejidad")
-	}
-
 	var guardar = {
 		pass : document.getElementById("password").value,
-		resultado
+		puntaje : document.getElementById("resultados").rows[1].cells[0].innerHTML,
+    complejidad : document.getElementById("resultados").rows[1].cells[1].innerHTML
 	};
+
+  console.log();
 
 	if (storage == null){
 		const guardadas = [];
@@ -39,17 +37,17 @@ function guardarDatos(){
 	}
 }
 
-function generarTabla() {
+function cargarDatos() {
 
-   const tabla = document.getElementById('tablaGuardadas');
+   const tabla = document.getElementById('tabla-guardadas');
     const guardadas = JSON.parse(window.localStorage.getItem('GUARDADAS'));
     if (guardadas != null){
         for(i=0; i<guardadas.length; i++) {
             const trOpen = '<tr>';
             const fCell = '<td>' + parseInt(i+1, 10) + '</td>';
             const sCell = '<td>' + guardadas[i].pass + '</td>';
-            const tCell = '<td>' + guardadas[i].resultado.puntaje + '</td>';
-            const cCell = '<td>' + guardadas[i].resultado.complejidad + '</td>';
+            const tCell = '<td>' + guardadas[i].puntaje + '</td>';
+            const cCell = '<td>' + guardadas[i].complejidad + '</td>';
             const trClose = '</tr>';
             const celdas = fCell + sCell + tCell + cCell;
             tabla.innerHTML += trOpen + celdas + trClose;
