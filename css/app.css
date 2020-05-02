@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico|Roboto);
+
+body{
+    font-family: 'Roboto', serif;
+    font-size: 20px;
+    color: green;
+}
+
+#textoLista a:hover{
+    color:orange;
+}
+
+.headerFont{ 
+    font-family: 'Pacifico', serif;
+    color: #FFAAAA;
+   }
+
+.nav-item{
+    text-align: right;
+}

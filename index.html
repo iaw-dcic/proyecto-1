@@ -4,42 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Números Primos</title>
 
-    <title>Prime Numbers</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
     
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    
+    <!-- JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>   
+
   </head>
   <body>
 
     <!-- Navegacion -->
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="index.html"><img src="img/logo-uns.png" class="w-25"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-collapse bg-dark navbar-dark">
 
-      <div class="collapse navbar-collapse" id="navbarDefault">
-        <ul class="navbar-nav mr-auto">
+      <a class="navbar-brand" href="index.html"><img alt="logo" src="img/logo-uns.png" width="100px"></a>
+      <h1 class="headerFont">Números primos</h1>  
+      <button class="navbar-toggler"  type="button" data-toggle="collapse"
+      data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse nav-item navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav" id="textoLista">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Chequear Primo</a>
+            <a class="nav-link" href="#">Chequear Primo<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Anterior Primo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Siguiente Primo</a>
-          </li>
+          </li>    
         </ul>
-      </div>
+      </div>  
+
     </nav>
 
-
-    <!--h1 class="display-4">Prime Numbers</h1-->
-
-    <!-- JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
