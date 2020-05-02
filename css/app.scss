@@ -7,6 +7,7 @@ $verde:rgba(8, 105, 8, 0.788);
 $celeste: rgb(97, 203, 238);
 $azul:rgba(11, 11, 247, 0.815);
 $back:rgba(16, 33, 39, 0.884);
+$grisOcuro:#222222;
 
 .botonGrilla{
     height: 30px;
@@ -40,5 +41,52 @@ $back:rgba(16, 33, 39, 0.884);
     color: gray;
   }
   body{
-    background-color: $back;
+    background: #F1F1F1;
+    font-family: 'Roboto', sans-serif;
+    transition: .3s ease all;
+    &.dark{
+      background: $back;
+    }
+  }
+
+  .switch{
+    background: #343D5B;
+    border-radius: 100px;
+    border: none;
+    position: relative;
+    margin-top: 7px;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    &::after{
+      content: "";
+      display: block;
+      width: 27.5px;
+      height: 27.5px;
+      position: absolute;
+      background: #F1F1F1;
+      top:0;
+      left: 0;
+      right: unset;
+      border-radius: 100px;
+      transition: .3s ease all;
+      box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+    }
+    &.active{
+      background: #ffdd0a;
+      color:#000;
+      &::after{
+        right:0;
+        left:unset;
+      }
+    }
+    span{
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      display: block;
+      background: none;
+      color: #FFF;
+    }
+
   }

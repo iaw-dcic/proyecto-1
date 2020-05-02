@@ -52,6 +52,15 @@ var seleccionarPalabra=function(palabra){
     var palabraID='#'+palabra;
     $(palabraID).toggleClass('list-group-item list-group-item disabled');
 };
+var toggleMode=function(){
+  $('body').toggleClass('dark');
+  $('#switch').toggleClass('active')
+  $('#mainNav').toggleClass('navbar-dark bg-dark');
+  var pathImgDarkMode='svg/sopaYellow.svg';
+  var pathImgLightMode='svg/sopaBlack.svg';
+  var pathCorrecto=$('body').hasClass('dark')?pathImgDarkMode:pathImgLightMode
+  $('#brandsvg').attr('src',pathCorrecto);
+}
 dibujarGrilla(ws.grid);
 dibujarPalabras(words);
 /*

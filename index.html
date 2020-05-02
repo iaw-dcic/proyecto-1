@@ -7,15 +7,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <title>Hello, world!</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Sotra de Lepas</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
+        <a class="navbar-brand" href="#">
+          <img src="svg/sopaBlack.svg" width="30" height="30" id="brandsvg" class="d-inline-block align-top" alt="">
+          Sotra de Lepas
+        </a>
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
@@ -32,7 +33,10 @@
             <a class="nav-link" href="" id="About">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Futuro Boton</a>
+            <button class="switch" id="switch">
+              <span ><i class="fas fa-sun"></i></span>
+              <span><i class="fas fa-moon"></i></span>
+            </button>
           </li>
         </ul>
       </div>
@@ -59,6 +63,7 @@
     <script src="js/htmlHandler.js"></script>
     <script src="js/logic.js"></script>
     <script src="js/bindListeners.js"></script>
+    Iconos diseñados por <a href="https://www.flaticon.es/autores/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
   </body>
 
 </html>
