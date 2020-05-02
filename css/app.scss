@@ -1,0 +1,44 @@
+
+$naranja:rgba(240, 161, 15, 0.925);
+$rojo:rgba(207, 19, 19, 0.699);
+$violeta: rgba(172, 44, 172, 0.849);
+$amarillo: rgba(228, 228, 26, 0.795);
+$verde:rgba(8, 105, 8, 0.788);
+$celeste: rgb(97, 203, 238);
+$azul:rgba(11, 11, 247, 0.815);
+$back:rgba(16, 33, 39, 0.884);
+
+.botonGrilla{
+    height: 30px;
+    width: 30px;
+    text-transform: uppercase;
+    background-color: rgb(255, 255, 255);
+    border: 0;
+    font: 1em sans-serif;
+  }
+  .selected {
+    background-color: $naranja;
+  }
+
+  #found0{
+    background-color: $rojo;
+  }
+  #found1{
+    background-color: $violeta;
+  }
+  #found2{
+    background-color: $amarillo;
+  }
+  #found3{
+    background-color: $verde;
+  }
+  #found4{
+    background-color: $celeste;
+  }
+  li.disabled {
+    text-decoration: line-through;
+    color: gray;
+  }
+  body{
+    background-color: $back;
+  }
