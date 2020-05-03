@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+	margin: 10;
+	padding: 10;
+	scroll-behavior: smooth;
+	outline: 1px solid black;
+	text-align: center;
+	font-family: cursive;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+}
+.main {
+	width: 300px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+.main button {
+	height: 100px;
+	width: 33.3%;
+  background-color: lightblue;
+	outline: 5px solid gray;
+	cursor: pointer;
+	line-height: 100px;
+	font-size: 70px;
+	display: block;
+}
+.button-style {
+	display:inline;
+	background-color: #FF9800;
+	border-radius: 100px;
+	font-size: 2em;
+    cursor: pointer;
+	font-weight: bold;
+	border: 8px solid gray;
+	margin: 5vh 0 1vh 0;
+}
