@@ -2,7 +2,7 @@
   height: 30px;
   width: 30px;
   text-transform: uppercase;
-  background-color: white;
+  background-color: #ffe0e0;
   border: 0;
   font: 1em sans-serif;
 }
@@ -33,7 +33,6 @@
 
 li.disabled {
   text-decoration: line-through;
-  color: gray;
 }
 
 body {
@@ -45,6 +44,7 @@ body {
 
 body.dark {
   background: rgba(16, 33, 39, 0.884);
+  color: #BB86FC;
 }
 
 .switch {
@@ -98,11 +98,44 @@ body.dark {
 
 body.dark .list-group-item {
   background: rgba(16, 33, 39, 0.884);
-  color: #BB86FC;
+  color: #03DAC3;
   border-color: #3700B3;
+  border: 1px solid #ccc !important;
 }
 
-a.nav-item {
-  color: #BB86FC;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+  content: '>';
+  font-size: 55px;
+  color: #222222;
+}
+
+body.dark .carousel-control-next-icon:after {
+  color: #03DAC3;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: #222222;
+}
+
+body.dark .carousel-control-prev-icon:after {
+  color: #03DAC3;
+}
+
+a.carousel-control-prev,
+a.carousel-control-next {
+  top: 50%;
+  bottom: 50%;
 }
 /*# sourceMappingURL=app.css.map */

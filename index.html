@@ -20,37 +20,74 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="" id="N1">Aesy<span class="sr-only">(current)</span></a>
+          <li class="nav-item active" id="linkNavN0">
+            <a class="nav-link" href="#" number="0">Aesy<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="" id="N2">Interdiateme</a>
+          <li class="nav-item" id="linkNavN1">
+            <a class="nav-link" href="#" number="1">Interdiateme</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="" id="N3">draH</a>
+          <li class="nav-item" id="linkNavN2">
+            <a class="nav-link" href="#" number="2">draH</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="" id="About">About</a>
+          <li class="nav-item"  id="linkNavN3">
+            <a class="nav-link" href="#" number="3">About</a>
           </li>
           <li class="nav-item">
             <button class="switch" id="switch">
-              <span ><i class="fas fa-sun"></i></span>
+              <span><i class="fas fa-sun"></i></span>
               <span><i class="fas fa-moon"></i></span>
             </button>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="container-fluid my-5">
+    <div id="carouselNivel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="cNivel1">
+          <div class="row py-5">
+            <div class="col-8" id="Grilla"></div>
+            <div class="col-2" id="Palabras">
+              
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" id="cNivel2">
+          <div class="row py-5">
+            <div class="col-8" id="Grilla"></div>
+            <div class="col-3" id="Palabras"></div>
+          </div>
+        </div>
+        <div class="carousel-item" id="cNivel3">
+          <div class="row py-5">
+            <div class="col-8" id="Grilla"></div>
+            <div class="col-3" id="Palabras"></div>
+          </div>
+        </div>
+        <div class="carousel-item" id="cNivelAbout">
+          <div class="row py-5">
+            <a>Creditos to my mom "<3" </a>
+             Iconos diseñados por <a href="https://www.flaticon.es/autores/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#" >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!--<div class="container-fluid my-5">
       <div class="row py-5">
-
         <div class="col-8" id="Grilla"></div>
         <div class="col-4" id="Palabras">
           
         </div>
         
       </div>
-    </div>
+    </div> -->
    
 
     <!-- Optional JavaScript -->
@@ -63,7 +100,7 @@
     <script src="js/htmlHandler.js"></script>
     <script src="js/logic.js"></script>
     <script src="js/bindListeners.js"></script>
-    Iconos diseñados por <a href="https://www.flaticon.es/autores/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+   
   </body>
 
 </html>

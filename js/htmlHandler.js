@@ -1,6 +1,6 @@
 
 var words = ['quique', 'tirame', 'feedback', 'todavia','falta','igual'];
-var ws = wordsearch(words, 12, 12);
+var ws = wordsearch(words, 15, 15);
 
 var dibujarGrilla=function (puzzle) {
 
@@ -60,9 +60,26 @@ var toggleMode=function(){
   var pathImgLightMode='svg/sopaBlack.svg';
   var pathCorrecto=$('body').hasClass('dark')?pathImgDarkMode:pathImgLightMode
   $('#brandsvg').attr('src',pathCorrecto);
-}
+};
+var cambiarCarousel=function(to){
+  $("#carouselNivel").carousel(parseInt(to));
+};
+var prevCarousel=function(){
+  $("#carouselNivel").carousel("prev");
+};
+var nextCarousel=function(){
+  $("#carouselNivel").carousel("next");
+};
+var carouselChangeHandler=function(event){
+  botonSelector='#linkNavN'+event.to;
+  $('li.nav-item.active').toggleClass('active');
+  $(botonSelector).toggleClass('active');
+  $("#carouselNivel").carousel("pause");
+};
+
 dibujarGrilla(ws.grid);
 dibujarPalabras(words);
+
 /*
 
 

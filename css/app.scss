@@ -10,12 +10,14 @@ $back:rgba(16, 33, 39, 0.884);
 $grisOcuro:#222222;
 $pIntenso: #3700B3;
 $pSuave:#BB86FC;
+$segundaVariante: #03DAC3;
+$colorPrueba:rgb(255, 224, 224);
 
 .botonGrilla{
     height: 30px;
     width: 30px;
     text-transform: uppercase;
-    background-color: rgb(255, 255, 255); 
+    background-color: $colorPrueba; 
     border: 0;
     font: 1em sans-serif;
 }
@@ -45,7 +47,6 @@ $pSuave:#BB86FC;
 
 li.disabled {
   text-decoration: line-through;
-  color: gray;
 }
 
 body{
@@ -54,6 +55,7 @@ body{
   transition: .3s ease all;
   &.dark{
     background: $back;
+    color:$pSuave;
   }
 }
 
@@ -101,10 +103,41 @@ body{
 .list-group-item{
   body.dark &{
     background: $back;
-    color: $pSuave;
+    color: $segundaVariante;
     border-color: $pIntenso;
+    border:1px solid #ccc !important;
   }
 }
-a.nav-item{
-    color: $pSuave;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: $grisOcuro;
+  body.dark &{
+    color:$segundaVariante;
+  }
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: $grisOcuro;
+  body.dark &{
+    color:$segundaVariante;
+  }
+}
+a.carousel-control-prev,
+a.carousel-control-next {
+  top: 50%;
+    bottom: 50%;
 }
