@@ -6,14 +6,15 @@ body{
     color: green;
 }
 
+.headerFont{ 
+    font-family: 'Pacifico', serif;
+    font-size: 50px;
+    color: #FFF;
+}
+
 #textoLista a:hover{
     color:orange;
 }
-
-.headerFont{ 
-    font-family: 'Pacifico', serif;
-    color: #FFF;
-   }
 
 .nav-item{
     text-align: right;
