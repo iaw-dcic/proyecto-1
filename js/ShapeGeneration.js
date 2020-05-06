@@ -17,7 +17,7 @@ function generate() {
     two.clear();
     startGroups();
     for (let i = 0; i < NUMBER_OF_LAYERS; i++) {
-        createLayer(50 * (i + 1));
+        createLayer(centerX, centerY, 50 * (i + 1));
     }
     for (let i = 0; i < groups.length; i++) {
         groups[i].translation.set(two.width / 2, two.height / 2);
@@ -38,49 +38,46 @@ function toggleAnimation() {
 // Bind a function to scale and rotate the group
 // to the animation loop.
 two.bind('update', function(_frameCount) {
-    var centered = false;
-    if (animating && !centered) {
+    if (animating) {
         groups[0].rotation += Math.PI * .002;
         groups[1].rotation -= Math.PI * .001;
         groups[2].rotation -= Math.PI * .002;
         groups[3].rotation += Math.PI * .001;
         groups[4].rotation -= Math.PI * .0005;
         groups[5].rotation += Math.PI * .0005;
-        centered = groups[5].rotation % Math.PI == 0;
     }
 }).play();  // Finally, start the animation loop
 
 
-function createLayer(referenceRadius) {
+function createLayer(xValue, yValue, referenceRadius) {
     var shapesPerLayer = Math.floor(Math.random() * (+MAX_SHAPES_PER_LAYER + 1 - +MIN_SHAPES_PER_LAYER)) + +MIN_SHAPES_PER_LAYER; 
     var newShape;
-    for (let index = 0; index < shapesPerLayer; index++) {
-        newShape = createShape(referenceRadius);
-        assignToGroup(newShape);
+    for (let i = 0; i < shapesPerLayer; i++) {
+        newShape = createShape(xValue, yValue, referenceRadius);
         if (Math.random() > .5) {
-            createTwinShape(newShape, .9); 
+            createTwinShape(newShape, .97); 
         }
         if (Math.random() > .5) {
-            createTwinShape(newShape, 1.1); 
+            createTwinShape(newShape, 1.03); 
         }
     }
-    if (Math.random() > .7) {
+    if (Math.random() > .8) {
         createOrbitShapes(referenceRadius);
     }
 }
 
-function createShape(referenceRadius) {
+function createShape(xValue, yValue, referenceRadius) {
     var shapeType = Math.floor(Math.random() * (4 - 1)) + 1; 
     var newShape;
     switch (shapeType) {
         case 1:
-            newShape = createCircle(referenceRadius);
+            newShape = createCircle(xValue, yValue, referenceRadius);
             break;
         case 2:
-            newShape = createTriangle(referenceRadius);
+            newShape = createPolygon(xValue, yValue, referenceRadius, 3);
             break;
         case 3:
-            newShape = createHexagon(referenceRadius);
+            newShape = createPolygon(xValue, yValue, referenceRadius, 6);
             break;
         default:
             break;
@@ -88,54 +85,50 @@ function createShape(referenceRadius) {
         return newShape;
     }
             
-function createCircle(referenceRadius) {
-    var circle = two.makeCircle(centerX, centerY, referenceRadius);
+function createCircle(xValue, yValue, referenceRadius) {
+    var circle = two.makeCircle(xValue, yValue, referenceRadius);
     addStyle(circle);
+    assignToGroup(circle);
     return circle;
 }
             
-function createTriangle(referenceRadius) {
-    var triangle = two.makePolygon(centerX, centerY, referenceRadius, 3);
-    if (Math.random() > .5) {
-        triangle.rotation += Math.PI;
+function createPolygon(xValue, yValue, referenceRadius, sides) {
+    var polygonGroup = two.makeGroup();
+    if (Math.random() > .9) {
+        var angle = 2 * Math.PI / sides; 
+        var offsetAngle = Math.PI / sides;
+        for (let i = 0; i < sides; i++) {
+            var newLine = new Two.Line(centerX - referenceRadius * Math.sin(offsetAngle + angle * i), centerY + referenceRadius * Math.cos(offsetAngle + angle * i), centerX, centerY);
+            two.add(newLine);
+            polygonGroup.add(newLine);
+        }
     }
-    addStyle(triangle);
-    return triangle;
-}
-            
-function createHexagon(referenceRadius) {
-    var hexagon = two.makePolygon(centerX, centerY, referenceRadius, 6);
+    var polygon = two.makePolygon(xValue, yValue, referenceRadius, sides);
+    polygonGroup.add(polygon);
     if (Math.random() > .5) {
-        hexagon.rotation += Math.PI / 6;
+        polygonGroup.rotation += Math.PI / sides;
     }
-    addStyle(hexagon);
-    return hexagon;
+    addStyle(polygonGroup);
+    assignToGroup(polygonGroup);
+    return polygon;
 }
 
-function createOrbitShapes(referenceRadius) {
+function createOrbitShapes(orbitRadius) {
     var numberOfShapes;
     numberOfShapes = (Math.random() > .5) ? 3 : 6;
-    createCircles(numberOfShapes, referenceRadius);
-    
+    createCircles(numberOfShapes, orbitRadius);
 }
 
 function createCircles(n, radius) {
     var angle = 2 * Math.PI / n;
     var circles = new Array(n);
-    for (var i = 0 ; i < n; i++) {     
+    var circlesGroup = two.makeGroup();
+    for (let i = 0 ; i < n; i++) {     
         circles[i] = two.makeCircle(centerX + radius * Math.sin(angle * i), centerY + radius * Math.cos(angle * i), radius * .1);
-        addStyle(circles[i]);
+        circlesGroup.add(circles[i]);
     }
-    assignToGroup(circles);
-}
-
-function createTriangles(n, radius) {
-    var angle = 2 * Math.PI / n;
-    var triangles = new Array(n);
-    for (var i = 0 ; i < n; i++) {     
-        triangles[i] = two.makePolygon(centerX + radius * Math.sin(angle * i), centerY + radius * Math.cos(angle * i), radius * .1, 3);
-        addStyle(triangles[i]);
-    }
+    addStyle(circlesGroup);
+    assignToGroup(circlesGroup);
 }
 
 function createTwinShape(shape, scale) {
@@ -143,15 +136,16 @@ function createTwinShape(shape, scale) {
     newShape.scale = shape.scale * scale;
     two.add(newShape);
     assignToGroup(newShape);
+    return newShape;
 }
 
 function addStyle(shape) {
-    shape.fill = 'rgba(255, 255, 255, .1)';
+    shape.fill = 'rgba(255, 255, 255, .07)';
     shape.stroke = 'rgba(255,255,255,1)';
-    shape.linewidth = .5;
+    shape.linewidth = (Math.floor(Math.random() * (3)) + 1) / 3;
 }
 
 function assignToGroup(shape) {
-    var group = Math.floor(Math.random() * groups.length); 
-    groups[group].add(shape);
+    var groupIndex = Math.floor(Math.random() * groups.length); 
+    groups[groupIndex].add(shape);
 }

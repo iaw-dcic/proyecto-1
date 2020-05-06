@@ -17,6 +17,10 @@ function animateShapes() {
     toggleAnimation();
 }
 
+function changeTheme(theme) {
+    document.getElementById('theme').href = theme;
+}
+
 function setNumberOfLayers(value) {
     layersNumber.textContent = value;
     NUMBER_OF_LAYERS = value;
