@@ -110,6 +110,7 @@ $(document).ready(function() {
     console.log("Estoy aqui borracho y loco");
     const x = generateImage(id1);
     const y = generateImage(id2);
+    setTimeout(function() {}, 500); //delay is in milliseconds
     if (x !== y) {
       backToDefault(id1);
       backToDefault(id2);
