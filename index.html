@@ -5,14 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/app.css">
+  
 
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/sticky-menu.css" rel="stylesheet">
     <title>Proyecto 1</title>
-  </head>
-  <body>
-    <h1>Proyecto 1</h1>
 
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
-  </body>
+</head>
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll">INICIO</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#analizador">Analizador</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#repeticiones">Contador</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#proporciones">Proporciones</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#quienessomos">¿Quienes somos?</a>
+                    </li>
+                </ul>
+            </div>	
+        </div>		
+    </nav>
+
+    <section id="analizador" class="analizador-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Analizador:</h1> 
+                    <textarea id="texto" placeholder="Escribe aquí el texto..."   autocomplete="on" cols="80" rows="10"></textarea>
+                   <!-- <p>&nbsp;</p>-->
+                    <p>
+                    <a class="btn btn-primary page-scroll" onclick="fun()">Analizar!</a>
+                    </p>
+                    <p id="Cantidad parrafos"></p>
+                    <p id="Cantidad oraciones"></p>
+                    <p id="Cantidad palabras"></p>
+                    <p id="Cantidad caracteres"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="repeticiones" class="repeticiones-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contador de repeticiones:</h1>
+                    <p>Ingrese palabra a buscar:</p>
+                    <input type="text" size="15" maxlength="30" id="palabra" autocomplete="on">
+                    <p>
+                        <a class="btn btn-primary page-scroll" onclick="buscar()">Buscar</a>
+                    </p>
+                    <p id="Resaltado"></p>
+                    <p>&nbsp;</p>
+                    <p id="Repeticiones"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proporciones" class="proporciones-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Proporción de oraciones:</h1>
+                    <p>
+                        <a class="btn btn-primary page-scroll" onclick="proporciones()">Proporciones</a>
+                    </p>
+                    <p id="Proporciones"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="quienessomos" class="quienessomos-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Lemon Pie</h1>
+                   <p>Somos una empresa compuesta por profesionales especializados en diversas áreas, y nos encargamos de brindar ayuda integral a nuestros clientes en la redacción de documentos importantes para su trabajo, así como en el análisis de los resultados obtenidos y la aplicación de reglas de formato concretas. Si no estás seguro de lo que necesitas nuestros asesores te guiarán. No dudes en contactarnos. 
+                       
+                    </p>
+					<p>&nbsp;</p>
+                    <p>
+                        <p1>  contacto@lemponpieweb.com</p1>
+                    </p>
+                    <p>
+                        <p1>  Av. Siempre Viva 742</p1>
+                    </p>
+                    <p>
+                        <p1>  @lemonPie</p1>
+                    </p>
+                    <p>
+                        © 2020 LemonPie Inc.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src="js/app.js"></script>
+</body>
+
 </html>
