@@ -14,7 +14,7 @@ $(document).ready(function() {
   let startGame = false;
   let array = generateMemo();
   const deletedArray = [];
-  console.log("El array generado es : ", array);
+
   function myTimer() {
     document.getElementById("demo").innerHTML = seconds++;
   }
@@ -52,6 +52,7 @@ $(document).ready(function() {
     console.log("el id seleccionado es :", clicked);
     if (clicked != selectedId && !deletedArray.includes(clicked)) {
       showSelected(clicked);
+      setTimeout(function() {}, 500); //delay is in milliseconds
       if (selectedId > -1) {
         //Estoy en el caso de que hay dos seleccionados
         window.setTimeout(check, 500, selectedId, clicked);
@@ -59,6 +60,8 @@ $(document).ready(function() {
       } else selectedId = clicked;
     }
   });
+
+  $("#goback").click(() => location.reload());
 
   function setDarkStyle() {
     $("head").append(
@@ -158,6 +161,7 @@ $(document).ready(function() {
 
   //Que hago cuando termino un nuevo juego...
   function winGame() {
+    winGame = true;
     console.log("Bienvenido a la función win game ");
     $(".game").hide();
     let arrayAux = JSON.parse(localStorage.getItem("array"));
