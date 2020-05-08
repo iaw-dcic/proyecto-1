@@ -1,65 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <!-- Two library -->
     <script src="js/Two.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/app.css">
-    <link id="theme" rel="stylesheet" href="css/lightTheme.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+    <link id="theme" rel="stylesheet" href="css/lightTheme.css" />
     <title>Shapes</title>
   </head>
   <body class="w3-theme-dark">
-    <h1>Shapes</h1>
-    <ul class="container">
-      <div class="w3-theme rounded"  id="sidebar-wrapper">
-        <div class="sidebar-heading text-light border-bottom mt-2">Attributes</div>
-        <div class="list-group list-group-flush">
+    <h1 class="w3-theme-header m-0 border-bottom shadow" style="position: relative; z-index: 2;">Shapes</h1>
+    <ul class="container" style="position: relative; z-index: 1;">
+      <div class="w3-theme-sidebar rounded shadow border-right border-bottom" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom mt-4">
+          Attributes
+        </div>
+        <div class="list-group">
           <div class="element-group border-top">
-            <div class="text-light">Layers</div>
-            <input class="slider" oninput="setNumberOfLayers(this.value)" type="range" min="1" max="5" value="1">
-            <div class="text-light" id="layersNumber">1</div>
+            <div>Layers</div>
+            <input
+              class="slider"
+              id="layersSlider"
+              oninput="setNumberOfLayers(this.value)"
+              type="range"
+              min="1"
+              max="7"
+              value="1"
+            />
+            <div id="layersNumber">1</div>
           </div>
           <div class="element-group border-top">
-            <div class="text-light">Shapes per layer</div>
-            <input id="minShapesPerLayerInput" oninput="setShapesPerLayer()" type="number" min="1" max="3" value="1">
-            <input id="maxShapesPerLayerInput" oninput="setShapesPerLayer()" type="number" min="1" max="3" value="2">
+            <div>Shapes per layer</div>
+            <input
+              id="minShapesPerLayerInput"
+              oninput="setShapesPerLayer()"
+              type="number"
+              min="1"
+              max="3"
+              value="1"
+            />
+            <input
+              id="maxShapesPerLayerInput"
+              oninput="setShapesPerLayer()"
+              type="number"
+              min="1"
+              max="3"
+              value="2"
+            />
           </div>
           <div class="element-group border-top">
-            <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseTwo">
-              <div class="text-light">Generation numbers</div>
+            <a
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseTwo"
+            >
+              <div>Generation numbers</div>
             </a>
           </div>
           <div id="collapseTwo" class="collapse">
             <div class="py-2 collapse-inner rounded">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck1"
+                />
                 <label class="custom-control-label" for="customCheck1">1</label>
               </div>
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck2"
+                />
                 <label class="custom-control-label" for="customCheck2">2</label>
               </div>
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck3">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck3"
+                />
                 <label class="custom-control-label" for="customCheck3">3</label>
               </div>
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck4">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck4"
+                />
                 <label class="custom-control-label" for="customCheck4">4</label>
               </div>
             </div>
           </div>
+
+          <div class="element-group border-top">
+            <button id="generate-button" type="button" class="btn btn-primary">
+              Generate
+            </button>
           </div>
           <div class="element-group border-top">
-            <button id="generate-button" type="button" class="btn btn-primary">Generate</button>
-            <button id="animate-button" type="button" class="btn btn-primary">Animate</button>
+            <div>Animation speed</div>
+            <input
+              class="slider"
+              oninput="setAnimationSpeed(this.value)"
+              type="range"
+              min="0"
+              max="50"
+              value="0"
+            />
+            <div id="animationSpeedNumber">0</div>
           </div>
           <div class="element-group border-top">
-            <button onclick="changeTheme('css/lightTheme.css')" type="button" class="btn btn-primary">Light</button>
-            <button onclick="changeTheme('css/darkTheme.css')" type="button" class="btn btn-primary">Dark</button>
+            <button
+              onclick="changeTheme('css/lightTheme.css')"
+              type="button"
+              class="btn btn-primary"
+            >
+              Light
+            </button>
+            <button
+              onclick="changeTheme('css/darkTheme.css')"
+              type="button"
+              class="btn btn-primary"
+            >
+              Dark
+            </button>
           </div>
         </div>
       </div>
@@ -69,8 +147,15 @@
     <!-- JavaScript -->
     <script src="js/app.js"></script>
     <script src="js/ShapeGeneration.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
