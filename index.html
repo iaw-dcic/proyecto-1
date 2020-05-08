@@ -32,24 +32,40 @@
       <div class="collapse nav-item navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav" id="textoLista">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Chequear Primo<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" onclick="mostrar('chequear')">Chequear Primo<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Anterior Primo</a>
+            <a class="nav-link" href="#" onclick="mostrar('anterior')">Anterior Primo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Siguiente Primo</a>
+            <a class="nav-link" href="#" onclick="mostrar('siguiente')">Siguiente Primo</a>
           </li>    
         </ul>
       </div>  
     </nav>
 
-    <div class="bg-secondary">
-    <br>
-    <input class="bg-dark" placeholder="Ingrese un entero" type="number" id="entrada" min="1">
-    <br>
-    <p style="text-align:center"> El número ingresado</p> <b id="resultado"></b>
-    <br>
+    <div style="text-align:center;" class="bg-secondary" id="chequearPrimo">
+      <br>
+      <input class="bg-dark" placeholder="Ingrese un entero" type="number" min="1" id="entrada">
+      <br>
+      <p style="text-align:center">chequear El número ingresado</p> <b id="resultado"></b>
+      <br>
+    </div>
+
+    <div style="text-align:center; display: none;" class="bg-secondary" id="anteriorPrimo">
+      <br>
+      <input class="bg-dark" placeholder="Ingrese un entero" type="number" min="1" id="entrada">
+      <br>
+      <p style="text-align:center">anterior El número ingresado</p> <b id="resultado"></b>
+      <br>
+    </div>
+
+    <div style="text-align:center; display: none;" class="bg-secondary" id="siguientePrimo">
+      <br>
+      <input class="bg-dark" placeholder="Ingrese un entero" type="number" min="1" id="entrada">
+      <br>
+      <p style="text-align:center">siguiente El número ingresado</p> <b id="resultado"></b>
+      <br>
     </div>
   
 
