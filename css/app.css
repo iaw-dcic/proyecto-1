@@ -3,13 +3,13 @@
 body{
     font-family: 'Roboto', serif;
     font-size: 20px;
-    color: green;
+    color: white;
 }
 
 .headerFont{ 
     font-family: 'Pacifico', serif;
     font-size: 50px;
-    color: #FFF;
+    color: white;
 }
 
 #textoLista a:hover{
@@ -19,3 +19,33 @@ body{
 .nav-item{
     text-align: right;
 }
+
+#entrada{
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    color: #FFF;
+}
+
+::placeholder {
+    color: orange;
+}
+
+#resultado{
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.verdadero{
+    color: green;
+}
+
+.falso{
+    color: red;
+}
+
+
+  
