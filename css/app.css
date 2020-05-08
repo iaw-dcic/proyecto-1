@@ -1,0 +1,20 @@
+.jumbotron {
+    padding: 2rem 2rem;
+}
+
+.grid-canvas {
+	border-style: solid;
+	border-width: .3rem;
+	border-color: red;
+	border-radius: .25rem;
+	margin: .2rem;
+	padding: .04rem;
+}
+
+.btn {
+	box-shadow: none !important;
+}
+
+.btn-icon {
+	display: inline-flex;
+}
