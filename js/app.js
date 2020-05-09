@@ -1,16 +1,35 @@
-// next prime geeksforgeeks
-// previous prime algorithm
-var entrada = document.getElementById("entrada");
-var textoResultado = document.getElementById("resultado");
-var n, res;
+var inputChequear = document.getElementById("inputChequear");
+var inputAnterior = document.getElementById("inputAnterior");
+var inputSiguiente = document.getElementById("inputSiguiente");
+
+var textoResultadoChequear = document.getElementById("resultadoChequear");
+var textoResultadoAnterior = document.getElementById("resultadoAnterior");
+var textoResultadoSiguiente = document.getElementById("resultadoSiguiente");
+var n, resBool, resInt;
 var arrDivs = ["chequear", "anterior", "siguiente"];
 
-entrada.addEventListener("keydown", function (e) {
+inputChequear.addEventListener("keydown", function (e) {
     if (e.keyCode === 13){ //controla que la tecla presionada sea enter
-        n = entrada.value;
-        res = esPrimo(n);
-        asignarTextoResultado(res);
-        colorTextoResultado(res);
+        n = inputChequear.value;
+        resBool = esPrimo(n);
+        asignarTextoResChequear(resBool);
+        colorResChequear(resBool);
+    }
+});
+
+inputAnterior.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13){ 
+        n = inputAnterior.value;
+        resInt = anteriorPrimo(n);
+        asignarTextoResAnt(resInt);
+    }
+});
+
+inputSiguiente.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13){ 
+        n = inputSiguiente.value;
+        resInt = siguientePrimo(n);
+        asignarTextoResSig(resInt);
     }
 });
 
@@ -30,22 +49,64 @@ function esPrimo(n){
     return true;  
 } 
 
-function asignarTextoResultado(bool){
-    if(bool == true)
-        textoResultado.innerHTML = "es primo";
+function anteriorPrimo(n){
+        var i, j, winner;
+        var arr = [0, 0];
+
+        for(i = 2; i <= n; ++i) 
+            arr[i] = 1;
+        for(i = 2; i <= n; ++i) {
+            if(arr[i]) {
+                winner = i;
+                for(j = i+i; j <= n; j += i) 
+                    arr[j] = 0;
+            }
+        }
+        return winner;
+    }
+
+function siguientePrimo(n){
+    if (n <= 1)  
+        return 2;  
+      
+    var aux = n;  
+    var encontre = false;  
+      
+    // Loopea continuamente hasta que esPrimo devuelve  
+    // true para un número más grande que n
+
+    while (!encontre){  
+        aux++;
+        if (esPrimo(aux))  
+            encontre = true;  
+    }     
+    return aux;  
+}
+
+function asignarTextoResChequear(res){
+    if(res == true)
+        textoResultadoChequear.innerHTML = "es un número primo";
     else
-        textoResultado.innerHTML = "no es primo";
+        textoResultadoChequear.innerHTML = "no es un número primo";
 }
 
-function colorTextoResultado(bool){
+function asignarTextoResAnt(res){
+    textoResultadoAnterior.innerHTML = res;
+}
+
+function asignarTextoResSig(res){
+    textoResultadoSiguiente.innerHTML = res;
+}
+
+function colorResChequear(bool){
     if(bool == true) 
-            textoResultado.className = "verdadero";
+            textoResultadoChequear.className = "resultado verdadero";
         else
-            textoResultado.className = "falso";
+            textoResultadoChequear.className = "resultado falso";
 
 }
 
-function mostrar(str) {
+function mostrarDiv(str) {
     var divMostrar = document.getElementById(str+"Primo");
     var divOcultar;
     if (divMostrar.style.display === "none") 
@@ -59,4 +120,3 @@ function mostrar(str) {
 
     }
 }
-
