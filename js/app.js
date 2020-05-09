@@ -59,3 +59,58 @@ function fun(){
         document.getElementById("Cantidad palabras").innerHTML="Cantidad de palabras: "+cantPalabras;
     }
 }
+
+function buscar(){
+    var palabra="";
+    var palabra = document.getElementById("palabra").value;
+    var valor = document.getElementById("texto").value;
+    if(valor.lenght==0 || palabra=="")
+        document.getElementById("Repeticiones").innerHTML="Cantidad de repeticiones: 0";
+    else{
+        var re=valor;
+        numero = 0;
+        j=0;
+        posicion = valor.indexOf(palabra);
+        while ( posicion != -1 ) {
+            numero++;
+            posicion = valor.indexOf(palabra,posicion+1);
+            var re=re.replace(palabra,"<rojo>"+"°"+"</rojo>");
+        }
+        document.getElementById("Repeticiones").innerHTML="Cantidad de repeticiones: "+numero;
+        document.getElementById("Resaltado").innerHTML=re;
+    }
+}
+
+function proporciones(){
+    var valor = document.getElementById("texto").value;
+    var numeroCaracteres = valor.length;
+    if(numeroCaracteres==0){
+            document.getElementById("Proporciones").innerHTML="No hay oraciones";
+    }
+    else{
+        miCadena = valor.split(/\r?\n/);
+        j=0;
+        k=0;
+        while (j<miCadena.length){
+            k=0;
+            miC1=miCadena[j].split(".");
+            while(k<miC1.length){
+                var palabras=miC1[k].split(" ");
+                if(palabras.length <8){
+                    valor=valor.replace(miC1[k],"<verde>"+miC1[k]+"</verde>");
+                }
+                else{
+                    if(palabras.length>15){
+                        valor=valor.replace(miC1[k],"<rojo>"+miC1[k]+"</rojo>");
+                    }
+                    else{
+                        valor=valor.replace(miC1[k],"<amarillo>"+miC1[k]+"</amarillo>");
+                    }
+                }
+                k++;
+            }
+            j++;
+        }
+        document.getElementById("Proporciones").innerHTML=valor;
+    }
+}
