@@ -55,15 +55,15 @@ function anteriorPrimo(n){
 
         for(i = 2; i <= n; ++i) 
             arr[i] = 1;
-        for(i = 2; i <= n; ++i) {
+        for(i = 2; i < n; ++i) {
             if(arr[i]) {
                 winner = i;
-                for(j = i+i; j <= n; j += i) 
+                for(j = i+i; j < n; j += i) 
                     arr[j] = 0;
             }
         }
         return winner;
-    }
+}
 
 function siguientePrimo(n){
     if (n <= 1)  
@@ -107,14 +107,13 @@ function colorResChequear(bool){
 }
 
 function mostrarDiv(str) {
-    var divMostrar = document.getElementById(str+"Primo");
+    var divMostrar = document.getElementById(str + "Primo");
     var divOcultar;
-    if (divMostrar.style.display === "none") 
-        divMostrar.style.display = "block";
+    divMostrar.style.display = "block";
     
     for(i = 0; i < 3; i++){
         if(arrDivs[i] != str){
-            divOcultar = document.getElementById(arrDivs[i]+"Primo");
+            divOcultar = document.getElementById(arrDivs[i] + "Primo");
             divOcultar.style.display = "none";
         }
 
