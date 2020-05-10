@@ -1,61 +1,134 @@
 
-$naranja:rgba(240, 161, 15, 0.925);
-$rojo:rgba(207, 19, 19, 0.699);
-$violeta: rgba(172, 44, 172, 0.849);
-$amarillo: rgba(228, 228, 26, 0.795);
-$verde:rgba(8, 105, 8, 0.788);
-$celeste: rgb(97, 203, 238);
-$azul:rgba(11, 11, 247, 0.815);
+$test:#f8f9fa;
 $back:rgba(16, 33, 39, 0.884);
 $grisOcuro:#222222;
 $pIntenso: #3700B3;
 $pSuave:#BB86FC;
-$segundaVariante: #03DAC3;
+$ButtonBackgroundColor:#f8f9fa;
 $colorPrueba:rgb(255, 224, 224);
+$backlight:#CED097;
+$colorDark0:#023618;
+$colorDark1:#E54B4B;
+$colorDark2:#F56476;
+$colorDark3:#33658A;
+$colorDark4:#F6AE2D;
+$colorDark5:#008DD5;
+$colorDark6:#6B4E71;
+$colorDark7:#6B0F1A;
+$colorDark8:#A6ECE0;
+$colorDark9:#FFA987;
+$colorLight0:#2292A4;
+$colorLight1:#BDBF09;
+$colorLight2:#D96C06;
+$colorLight3:#E36397;
+$colorLight4:#17C3B2;
+$colorLight5:#1e1e1e;
+$colorLight6:#A31621;
+$colorLight7:#584B53;
+$colorLight8:#5603AD;
+$colorLight9:#FF5A5F;
 
+$backdark:$colorLight7;
+$borderColor:$back;
+$borderPixel:3px;
+$borderColorDark:#005C69;
 .botonGrilla{
     height: 30px;
     width: 30px;
     text-transform: uppercase;
-    background-color: $colorPrueba; 
-    border: 0;
+    background-color: $ButtonBackgroundColor; 
     font: 1em sans-serif;
+    body.dark &{
+      background: $back;
+    color: $backlight;
+    border-color: $pIntenso;
+    }
+    border:none;
 }
 .selected {
-  background-color: $naranja;
+  background-color: $borderColor;
+  body.dark &{
+    background-color: $borderColorDark;
+  }
+}
+.leftBordered{
+  border-left: $borderPixel solid $borderColor !important;
+  body.dark &{
+    border-left: $borderPixel solid $borderColorDark !important;
+  }
+}
+.rightBordered{
+  border-right: $borderPixel solid $borderColor !important;
+  body.dark &{
+    border-right: $borderPixel solid $borderColorDark !important;
+  }
+}
+.topBordered{
+  border-top: $borderPixel solid $borderColor !important;
+  body.dark &{
+    border-top: $borderPixel solid $borderColorDark !important;
+  }
+}
+.bottomBordered{
+  border-bottom: $borderPixel solid $borderColor !important;
+  body.dark &{
+    border-bottom: $borderPixel solid $borderColorDark !important;
+  }
+}
+.cornerBottomLeft{
+  border-bottom: $borderPixel solid $borderColor !important;
+  border-left: $borderPixel solid $borderColor !important;
+  border-radius: $borderPixel;
+  body.dark &{
+    border-bottom: $borderPixel solid $borderColorDark !important;
+    border-left: $borderPixel solid $borderColorDark !important;
+    border-radius: $borderPixel;
+  }
+}
+.cornerBottomRight{
+  border-bottom: $borderPixel solid $borderColor !important;
+  border-right: $borderPixel solid $borderColor !important;
+  border-radius: $borderPixel;
+  body.dark &{
+    border-bottom: $borderPixel solid $borderColorDark !important;
+    border-right: $borderPixel solid $borderColorDark !important;
+    border-radius: $borderPixel;
+  }
+}
+.cornerTopLeft{
+  border-top: $borderPixel solid $borderColor !important;
+  border-left: $borderPixel solid $borderColor !important;
+  border-radius: $borderPixel;
+  body.dark &{
+    border-top: $borderPixel solid $borderColorDark !important;
+    border-left: $borderPixel solid $borderColorDark !important;
+    border-radius: $borderPixel;
+  }
+}
+.cornerTopRight{
+  border-top: $borderPixel solid $borderColor !important;
+  border-right: $borderPixel solid $borderColor !important;
+  border-radius: $borderPixel;
+  body.dark &{
+    border-top: $borderPixel solid $borderColorDark !important;
+    border-right: $borderPixel solid $borderColorDark !important;
+    border-radius: $borderPixel;
+  }
 }
 
-#found0{
-  background-color: $rojo; 
-}
-
-#found1{   
-  background-color: $violeta;
-}
-
-#found2{
-  background-color: $amarillo;
-}
-
-#found3{
-  background-color: $verde;
-}
-
-#found4{
-  background-color: $celeste;
-}
 
 li.disabled {
   text-decoration: line-through;
 }
 
 body{
-  background: #F1F1F1;
+  background: $backlight;
   font-family: 'Roboto', sans-serif;
   transition: .3s ease all;
   &.dark{
-    background: $back;
-    color:$pSuave;
+    background: $colorLight5;
+    color:#ffdd0a;
+    $borderColor:#005C69;
   }
 }
 
@@ -101,11 +174,13 @@ body{
 }
 
 .list-group-item{
+  background: $test;
+  border:2px solid $borderColor !important;
   body.dark &{
     background: $back;
-    color: $segundaVariante;
-    border-color: $pIntenso;
-    border:1px solid #ccc !important;
+    color: $backlight;
+    border:2px solid $borderColorDark !important;
+    
   }
 }
 .carousel-control-prev-icon,
@@ -122,22 +197,82 @@ body{
 {
   content: '>';
   font-size: 55px;
-  color: $grisOcuro;
+  color: $borderColor;
   body.dark &{
-    color:$segundaVariante;
+    color:$borderColorDark
   }
 }
 
 .carousel-control-prev-icon:after {
   content: '<';
   font-size: 55px;
-  color: $grisOcuro;
+  color: $borderColor;
   body.dark &{
-    color:$segundaVariante;
+    color:$borderColorDark
   }
 }
 a.carousel-control-prev,
 a.carousel-control-next {
   top: 50%;
     bottom: 50%;
+}
+#found0{
+  background-color: $colorLight0;
+  body.dark &{
+    background-color: $colorDark0;
+  } 
+}
+#found1{   
+  background-color: $colorLight1;
+  body.dark &{
+    background-color: $colorDark1;
+  } 
+}
+#found2{
+  background-color: $colorLight2;
+  body.dark &{
+    background-color: $colorDark2;
+  } ;
+}
+#found3{
+  background-color: $colorLight3;
+  body.dark &{
+    background-color: $colorDark3;
+  } 
+}
+#found4{
+  background-color: $colorLight4;
+  body.dark &{
+    background-color: $colorDark4;
+  } 
+}
+#found5{
+  background-color: $colorLight5;
+  body.dark &{
+    background-color: $colorDark5;
+  } 
+}
+#found6{
+  background-color: $colorLight6;
+  body.dark &{
+    background-color: $colorDark6;
+  } 
+}
+#found7{
+  background-color: $colorLight7;
+  body.dark &{
+    background-color: $colorDark7;
+  } 
+}
+#found8{
+  background-color: $colorLight8;
+  body.dark &{
+    background-color: $colorDark8;
+  } 
+}
+#found9{
+  background-color: $colorLight9;
+  body.dark &{
+    background-color: $colorDark9;
+  } 
 }

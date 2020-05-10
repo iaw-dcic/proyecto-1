@@ -51,16 +51,6 @@ var select = function (target) {
 
 
 
-  /* 
-  * Calcula la orientacion que va a tener la palabra si es que ya no tiene una
-  
-  var newOrientation = calcOrientation(
-    $(celdaInicial).attr('x')-0,
-    $(celdaInicial).attr('y')-0,
-    $(target).attr('x')-0,
-    $(target).attr('y')-0
-      );
-  */
   var newOrientation = calcOrientation(
     getAtributo(celdaInicial, 'x') - 0,
     getAtributo(celdaInicial, 'y') - 0,
@@ -125,20 +115,20 @@ var contarCelda = function (celda) {
 var finalizaSeleccion = function () {
 
   // see if we formed a valid word
-  for (var i = 0, len = words.length; i < len; i++) {
-    if (words[i] === palabraActual) {
+  for (var i = 0; i < draftedWords.length; i++) {
+    if (draftedWords[i] === palabraActual) {
 
-      wordCount++;
       seleccionarPalabra(palabraActual);
-      words.splice(i, 1);
+      draftedWords.splice(i, 1);
       hubo = true;
       celdasSeleccionadas.forEach(function (e) {
         cambiarColor(e, wordCount);
       })
+      wordCount++;
 
     }
 
-    if (words.length === 0) {
+    if (draftedWords.length === 0) {
       showSuccess();
     }
   }

@@ -1,30 +1,72 @@
-
-var words = ['quique', 'tirame', 'feedback', 'todavia','falta','igual'];
-var ws = wordsearch(words, 15, 15);
-
-var dibujarGrilla=function (puzzle) {
-
+//there is 8 types of borders
+//4 for each side top bottom left right
+//and 4 for the corners, I make this distintion for the border-radius
+function getBorderIndicator(j,i,boundx,boundy){
+  let borderIndicator;
+  if(j==0 && i==0){
+    borderIndicator='botonGrilla cornerTopLeft';
+  }
+  else{
+    if(j==boundx-1 && i==0){
+      borderIndicator='botonGrilla cornerTopRight';
+    }
+    else{
+      if(j==0 && i==boundy-1){
+        borderIndicator='botonGrilla cornerBottomLeft';
+      }
+      else{
+        if(j==boundx-1 && i==boundy-1){
+          borderIndicator='botonGrilla cornerBottomRight';
+        }
+        else{
+          if(i==0){
+            borderIndicator='botonGrilla topBordered';
+          }
+          else{
+            if(i==boundy-1){
+              borderIndicator='botonGrilla bottomBordered';
+            }
+            else{
+              if(j==0){
+                borderIndicator='botonGrilla leftBordered';
+              }
+              else{
+                if(j==boundx-1){
+                  borderIndicator='botonGrilla rightBordered';
+                }
+                else{
+                  borderIndicator='botonGrilla';
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return borderIndicator;
+}
+var dibujarGrilla=function (puzzle,grilla) {
+  let str='#Grilla'+grilla;
+  let borderIndicator;
   var output = '';
-  // for each row in the puzzle
   for (var i = 0, height = puzzle.length; i < height; i++) {
-    // append a div to represent a row in the puzzle
     var row = puzzle[i];
     output += '<div class="row justify-content-center">';
-    // for each element in that row
     for (var j = 0, width = row.length; j < width; j++) {
+      borderIndicator=getBorderIndicator(j,i,row.length,puzzle.length);//
       output += '<div class="cols-2">';
-      // append our button with the appropriate class
-      output += '<button class="botonGrilla" x="' + j + '" y="' + i + '">';
+      output += '<button class="'+ borderIndicator +'" x="' + j + '" y="' + i + '">';
       output += row[j] || '&nbsp;';
       output += '</button></div>';
     }
-    // close our div that represents a row
     output += '</div>';
   }
-  $('#Grilla').html(output);
+  $(str).html(output);
 };
 
-var dibujarPalabras=function (palabras) {
+var dibujarPalabras=function (palabras,grilla) {
+  let str='#Palabras'+grilla;
   var palabraMayus;
   var output = '<h5>Palabras</h5><ul class="list-group">';
   for (var i = 0; i < palabras.length; i++){
@@ -32,7 +74,7 @@ var dibujarPalabras=function (palabras) {
     output += '<li class="list-group-item" id="'+palabras[i]+'">' + palabraMayus + '</li>';
   }
   output += '</ul>';
-  $('#Palabras').html(output);
+  $(str).html(output);
 };
 var agregarProp=function(clase,prop){
     $(clase).addClass(prop);
@@ -66,21 +108,22 @@ var cambiarCarousel=function(to){
 };
 var prevCarousel=function(){
   $("#carouselNivel").carousel("prev");
+  if(actualLevel==0)
+    actualLevel=3;
+  else
+    actualLevel--;
 };
 var nextCarousel=function(){
   $("#carouselNivel").carousel("next");
+  if(actualLevel==3)
+    actualLevel=0;
+  else
+    actualLevel++;
 };
 var carouselChangeHandler=function(event){
   botonSelector='#linkNavN'+event.to;
+  actualLevel=event.to;
   $('li.nav-item.active').toggleClass('active');
   $(botonSelector).toggleClass('active');
   $("#carouselNivel").carousel("pause");
 };
-
-dibujarGrilla(ws.grid);
-dibujarPalabras(words);
-
-/*
-
-
-*/
