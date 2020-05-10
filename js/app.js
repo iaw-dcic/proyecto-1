@@ -4,8 +4,10 @@ var maxShapesPerLayerInput = document.getElementById("maxShapesPerLayerInput");
 var layersNumber = document.getElementById("layersNumber");
 var layersSlider = document.getElementById("layersSlider");
 var animationSpeedNumber = document.getElementById("animationSpeedNumber");
+var exportButton = document.getElementById("exportButton");
 
 generateButton.onclick = generateShapes;
+exportButton.onclick = exportCanvas;
 loadData();
 setAnimationSpeed(0);
 
@@ -46,4 +48,9 @@ function loadData() {
   layersSlider.value = NUMBER_OF_LAYERS;
 
   document.getElementById("theme").href = localStorage.getItem("theme");
+}
+
+function exportCanvas() {
+  var dt = document.getElementById("canvas").toDataURL();
+  exportButton.href = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 }

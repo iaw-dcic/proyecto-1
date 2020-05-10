@@ -1,7 +1,9 @@
-var elem = document.getElementById("draw-shapes");
+var elem = document.getElementById("twoWrapper");
 var two = new Two({ type: Two.Types.canvas, height: 600, width: 800 }).appendTo(
   elem
 );
+
+two.renderer.domElement.id = "canvas";
 
 var centerX = 0;
 var centerY = 0;
