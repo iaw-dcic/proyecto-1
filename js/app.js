@@ -18,23 +18,24 @@ function guardarDatos(){
     complejidad : document.getElementById("resultados").rows[1].cells[1].innerHTML
 	};
 
-  console.log();
+  if(guardar.pass.length > 0 ){
 
-	if (storage == null){
-		const guardadas = [];
-		guardadas.push(guardar);
-		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
-	}
+    if (storage == null){
+      const guardadas = [];
+      guardadas.push(guardar);
+      localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
+    }
+    else{
 
-	else{
-		const guardadas = JSON.parse(storage);
-		if(guardadas.length === 5){
-			guardadas.shift();
-		}
-		guardadas.push(guardar);
-		localStorage.removeItem('GUARDADAS');
-		localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
-	}
+      const guardadas = JSON.parse(storage);
+      if(guardadas.length === 5){
+        guardadas.shift();
+      }
+      guardadas.push(guardar);
+      localStorage.removeItem('GUARDADAS');
+      localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
+    }
+  }
 }
 
 function cargarDatos() {
@@ -53,7 +54,7 @@ function cargarDatos() {
             tabla.innerHTML += trOpen + celdas + trClose;
         }
     } else {
-        const trOpen = '<tr>';
+        const trOpen = '<tr>' + "No hay contraseñas guardadas";
         const fCell = '<td>-</td>';
         const sCell = '<td>-</td>';
         const tCell = '<td>-</td>';
@@ -65,12 +66,9 @@ function cargarDatos() {
 }
 
 function redireccionar(pagina){
-
   window.location.href = pagina;
-
 }
 
-function borrar(){}
 
-
-
+function cambiarTema(){
+}

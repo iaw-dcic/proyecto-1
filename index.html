@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <!--<link rel="stylesheet" href="css/app.css">-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Medidor</title>
@@ -16,7 +15,7 @@
 
   </head>
 
-  <body>
+  <body class="bg-light">
 
   	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#" onclick="redireccionar('index.html')">Medidor de contraseña</a>
@@ -24,31 +23,25 @@
 		<span class="navbar-toggler-icon"></span>
 		</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-			  <ul class="navbar-nav">
-			    <li class="nav-item">
-			        <a class="nav-link" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas</a>
-			   	</li>
-			</ul>
-		</div>
+			  	<ul class="navbar-nav">
+			    	<li class="nav-item">
+			        	<a class="nav-link" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas</a>
+			   		</li>
+				</ul>
+			</div>
+		<button type="button" class="btn btn-light" onclick="cambiarModo()">Oscuro / Claro</button>
 	</nav>
-
-  	
-  	
-	<hr>
-    <!-- JavaScript -->
 	
-
+	<hr>
 
 	<div class="container">
 	  <div class="row">
 	    <div class="col">
-	      <input type="text" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
-
+	     	<input type="text" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
 	    	<input type="checkbox" id="ver" onclick="visibilidad()">ocultar</input>
-
 	    	<button onclick="guardarDatos()" class="btn btn-light">guardar</button>
-
 	    </div>
+
 	    <div class="col">
 	      <table id="resultados" class="table">
 		    <thead>
@@ -60,9 +53,9 @@
 			<tbody>
 			  <tr>
 			    <td id="puntaje">0</td>
-			    <td id="complejidad">
-			    	<div class="progress">
-  						<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+			    <td>
+			    	<div id="complejidad">
+			    		<div class="alert alert-danger" role="alert">Muy debil</div>
 					</div>
 			    </td>
 			  </tr>
@@ -76,7 +69,7 @@
 
     <!--tabla para ver los resultados-->
 
-    <table id="tabla" class="table">
+    <table id="tabla" class="table table-light">
 	    <thead>
 		  <tr>
 		    <th scope="col">Características positivas</th>
@@ -146,9 +139,7 @@
 		</tbody>
 	</table>
 
-	<hr>
-
-	<table class="table">
+	<table class="table table-light">
 		<thead>
 		  <tr>
 		    <th scope="col">Características Negativas</th>

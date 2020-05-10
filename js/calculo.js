@@ -1,18 +1,22 @@
 function contarTodo(text, longitud) {
     //OBJETO PARA ALMACENAR LOS VALORES
     var registroContadores = {
+
         cantMinusculas: 0,
         cantMayusculas: 0,
         cantNumeros: 0,
         cantSimbolos: 0,
         puntosNumero: 0,
+        midChar: 0,
         reqMin: 0,
-
         soloLetras : 0,
         soloNumeros : 0,
         mayusConsec : 0,
         minConsec : 0,
-        numConsec : 0
+        numConsec : 0,
+        secNumeros: 0,
+        secLetras: 0,
+        secSimbolos: 0
     }
 
     //RECORRO UNA UNICA VEZ
@@ -23,6 +27,7 @@ function contarTodo(text, longitud) {
 
     for (var i = 0; i < longitud; i++) {
         var charCode = text.charCodeAt(i);
+
         //SI EL CARACTER ES MINUSCULA
         if (97 <= charCode && charCode <= 122) {
             registroContadores.cantMinusculas = registroContadores.cantMinusculas + 1;
@@ -38,7 +43,7 @@ function contarTodo(text, longitud) {
                 if(minConsecAux>registroContadores.minConsec)
                         registroContadores.minConsec=minConsecAux;
         }
-        else {
+        else{
             //SI EL CARACTER ES MAYUSCULA
             if (65 <= charCode && charCode <= 90) {
                 registroContadores.cantMayusculas = registroContadores.cantMayusculas + 1;
@@ -59,21 +64,27 @@ function contarTodo(text, longitud) {
                 if (!isNaN(text[i])) {
                     registroContadores.cantNumeros = registroContadores.cantNumeros + 1;
 
-                //CUENTO NUMEROS CONSECUTIVOS.
-                numConsecAux++;
-                var j = i-1;
-                if(j>0 || i == 0){
-                    var anterior = text.charCodeAt(j);
-                    if(isNaN(text[j]))
-                        numConsecAux--;
-                }
-                if(numConsecAux>registroContadores.numConsec)
-                        registroContadores.numConsec=numConsecAux;
+                    //CUENTO NUMEROS EN EL MEDIO
+                    if(i>0 && i<longitud - 1 )
+                        registroContadores.midChar = registroContadores.midChar + 1;
 
+                    //CUENTO NUMEROS CONSECUTIVOS.
+                    numConsecAux++;
+                    var j = i-1;
+                    if(j>0 || i == 0){
+                        var anterior = text.charCodeAt(j);
+                        if(isNaN(text[j]))
+                            numConsecAux--;
+                    }
+                    if(numConsecAux>registroContadores.numConsec)
+                            registroContadores.numConsec=numConsecAux;
                 }
                 else {
                     //SI EL CARACTER ES UN SIMBOLO
                     registroContadores.cantSimbolos = registroContadores.cantSimbolos + 1;
+                    //CUENTO SIMBOLOS EN EL MEDIO
+                    if(i>0 && i<longitud - 1)
+                        registroContadores.midChar = registroContadores.midChar + 1;
                 }
             }
         }
@@ -111,11 +122,47 @@ function contarTodo(text, longitud) {
     	registroContadores.soloNumeros=longitud;
 
 
+    //AHORA QUIERO COMPROBAR SECUENCIAS
+
+    var letras = "abcdefghijklmnopqrstuvwxyz";
+    var numeros = "01234567890";
+    var simbolos = ")!@#$%^&*()";
+
     //SECUENCIA DE LETRAS
-
+    for (var s=0; s < 23; s++) {
+        var sFwd = letras.substring(s,parseInt(s+3));
+        var sRev = sFwd.strReverse();
+        if (text.toLowerCase().indexOf(sFwd) != -1 || text.toLowerCase().indexOf(sRev) != -1){
+            registroContadores.secLetras = registroContadores.secLetras + 1; 
+        }
+    }
+    
     //SECUENCIA DE NUMEROS
-
+    for (var s=0; s < 8; s++) {
+        var sFwd = numeros.substring(s,parseInt(s+3));
+        var sRev = sFwd.strReverse();
+        if (text.toLowerCase().indexOf(sFwd) != -1 || text.toLowerCase().indexOf(sRev) != -1) {
+            registroContadores.secNumeros = registroContadores.secNumeros + 1;
+        }
+    }
+    
     //SECUENCIA DE SIMBOLOS
+    for (var s=0; s < 8; s++) {
+        var sFwd = simbolos.substring(s,parseInt(s+3));
+        var sRev = sFwd.strReverse();
+        if (text.toLowerCase().indexOf(sFwd) != -1 || text.toLowerCase().indexOf(sRev) != -1) { 
+            registroContadores.secSimbolos = registroContadores.secSimbolos + 1;
+        }
+    }
 
     return registroContadores;
 }
+
+
+String.prototype.strReverse = function() {
+    var newstring = "";
+    for (var s=0; s < this.length; s++) {
+        newstring = this.charAt(s) + newstring;
+    }
+    return newstring;
+};
