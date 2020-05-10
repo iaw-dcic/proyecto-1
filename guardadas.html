@@ -8,13 +8,14 @@
     <script src="js/app.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dark-mode.css">
 
     <title>Medidor</title>
   </head>
 
   <body onload="cargarDatos()">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#" onclick="redireccionar('index.html')">Medidor de contraseña</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded    ="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,10 +23,15 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas<span class="sr-only">(current)</span></a>
+                <a class="navbar-brand" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas<span class="sr-only">(current)</span></a>
               </li>
             </ul>
          </div>
+         <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+            <label class="custom-control-label" for="darkSwitch">Modo Oscuro</label>
+          </div>
+          <script src="js/dark-mode-switch.min.js"></script>
     </nav>
     <hr>
 	<table class="table" id="tabla-guardadas">

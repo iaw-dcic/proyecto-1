@@ -1,0 +1,36 @@
+-[data-theme="dark"] {
+  background-color: #111 !important;
+  color: #eee;
+}
+
+[data-theme="dark"] .navbar .navbar-brand{
+  background-color: #111 !important;
+  text-decoration-color: #000 !important;
+  color: #FFF;
+}
+
+[data-theme="dark"] .table {
+  background-color: #111 !important;
+  text-decoration-color: #000 !important;
+  color:#eee;
+}
+
+[data-theme="dark"] .btn {
+  color: #FFFF;
+  border-color: #FFF;
+}
+
+[data-theme="dark"] .btn-outline-dark {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+[data-theme="dark"] .btn-outline-dark:hover {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+[data-theme="dark"] .btn-outline-dark:focus, .btn-outline-dark.focus {
+  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+}
