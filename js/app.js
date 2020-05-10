@@ -26,8 +26,8 @@ function guardarDatos(){
       localStorage.setItem('GUARDADAS',JSON.stringify(guardadas));
     }
     else{
-      const guardadas = JSON.parse(storage);
 
+      const guardadas = JSON.parse(storage);
       if(guardadas.length === 5){
         guardadas.shift();
       }
@@ -70,3 +70,5 @@ function redireccionar(pagina){
 }
 
 
+function cambiarTema(){
+}

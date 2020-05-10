@@ -6,7 +6,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  	<link rel="stylesheet" href="css/dark-mode.css">
 
     <title>Medidor</title>
 
@@ -16,9 +15,9 @@
 
   </head>
 
-  <body>
+  <body class="bg-light">
 
-  	<nav class="navbar navbar-expand-lg navbar-light">
+  	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#" onclick="redireccionar('index.html')">Medidor de contraseña</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -26,26 +25,21 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 			  	<ul class="navbar-nav">
 			    	<li class="nav-item">
-			        	<a class="navbar-brand" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas</a>
+			        	<a class="nav-link" href="#" onclick="redireccionar('guardadas.html')">Contraseñas guardadas</a>
 			   		</li>
 				</ul>
 			</div>
-		 <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="darkSwitch">
-            <label class="custom-control-label" for="darkSwitch">Modo Oscuro</label>
-          </div>
-          <script src="js/dark-mode-switch.min.js"></script>
+		<button type="button" class="btn btn-light" onclick="cambiarModo()">Oscuro / Claro</button>
 	</nav>
+	
+	<hr>
 
 	<div class="container">
 	  <div class="row">
 	    <div class="col">
-	     	<input type="password" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
-	     	<button onclick="guardarDatos()" class="btn btn-outline-dark">Guardar</button>
-	    	<div>
-            	<input type="checkbox" id="ver" onclick="visibilidad()">
-            	<label for="ver">Mostrar</label>	
-	    	</div>
+	     	<input type="text" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
+	    	<input type="checkbox" id="ver" onclick="visibilidad()">ocultar</input>
+	    	<button onclick="guardarDatos()" class="btn btn-light">guardar</button>
 	    </div>
 
 	    <div class="col">
@@ -75,10 +69,9 @@
 
     <!--tabla para ver los resultados-->
 
-    <table id="tabla" class="table">
+    <table id="tabla" class="table table-light">
 	    <thead>
 		  <tr>
-		  	<th scop="col"></th>
 		    <th scope="col">Características positivas</th>
 		    <th scope="col">Tipo</th>
 		    <th scope="col">Medición</th>
@@ -89,66 +82,59 @@
 	<!--aca poner todo lo de la tabla-->
 		<tbody>
 		  <tr>
-		  	<td></td>
 		    <td>Número de caracteres</td>
-		    <td id=>Plana</td>
+		    <td id=>Plano</td>
 		    <td>+(n*4)</td>
-		    <td id="cantCaracteres">0</td>
-		    <td id="puntosLongitud">0</td>
+		    <td id="cantCaracteres"></td>
+		    <td id="puntosLongitud"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Letras mayúsculas</td>
 		    <td id=>Incremental</td>
 		    <td>+((len-n)*2)</td>
-		    <td id="cantMayusculas">0</td>
-		    <td id="puntosMayusculas">0</td>
+		    <td id="cantMayusculas"></td>
+		    <td id="puntosMayusculas"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Letras minúsculas</td>
 		    <td id=>Incremental</td>
 		    <td>+((len-n)*2)</td>
-		    <td id="cantMinusculas">0</td>
-		    <td id="puntosMinusculas">0</td>
+		    <td id="cantMinusculas"></td>
+		    <td id="puntosMinusculas"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Numeros</td>
 		    <td id=>Condicional</td>
 		    <td>+(n*4)</td>
-		    <td id="cantNumeros">0</td>
-		    <td id="puntosNumeros">0</td>
+		    <td id="cantNumeros"></td>
+		    <td id="puntosNumeros"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Simbolos</td>
 		    <td id=>Plana</td>
 		    <td>+(n*6)</td>
-		    <td id="cantSimbolos">0</td>
-		    <td id="puntosSimbolos">0</td>
+		    <td id="cantSimbolos"></td>
+		    <td id="puntosSimbolos"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Numeros o simbolos intermedios</td>
 		    <td id=>Plana</td>
 		    <td>+(n*2)</td>
-		    <td id="cantSYN">0</td>
-		    <td id="puntosSYN">0</td>
+		    <td id="cantSYN"></td>
+		    <td id="puntosSYN"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Requerimientos</td>
 		    <td id=>Plana</td>
 		    <td>+(n*2)</td>
-		    <td id="cantRequerimientos">0</td>
-		    <td id="puntosRequerimientos">0</td>
+		    <td id="cantRequerimientos"></td>
+		    <td id="puntosRequerimientos"></td>
 		  </tr>
 		</tbody>
 	</table>
@@ -156,7 +142,6 @@
 	<table class="table table-light">
 		<thead>
 		  <tr>
-		  	<th></th>
 		    <th scope="col">Características Negativas</th>
 		    <th scope="col">Tipo</th>
 		    <th scope="col">Medición</th>
@@ -167,75 +152,67 @@
 	<!--aca poner todo lo de la tabla-->
 		<tbody>
 		  <tr>
-		  	<td></td>
 		    <td>Solo letras</td>
-		    <td>Plana</td>
+		    <td>Plano</td>
 		    <td>-n</td>
-		    <td id="cantSoloLetras">0</td>
-		    <td id="puntosSoloLetras">0</td>
+		    <td id="cantSoloLetras"></td>
+		    <td id="puntosSoloLetras"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Solo números</td>
-		    <td>Plana</td>
+		    <td>Plano</td>
 		    <td>-n</td>
-		    <td id="cantSoloNumeros">0</td>
-		    <td id="puntosSoloNumeros">0</td>
+		    <td id="cantSoloNumeros"></td>
+		    <td id="puntosSoloNumeros"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Letras mayúsculas consecutivas</td>
 		    <td>Plana</td>
 		    <td>-(n*2)</td>
-		    <td id="cantMayusculasConsecutivas">0</td>
-		    <td id="puntosMayusculasConsecutivas">0</td>
+		    <td id="cantMayusculasConsecutivas"></td>
+		    <td id="puntosMayusculasConsecutivas"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Letras minúsculas consecutivas</td>
 		    <td>Plana</td>
 		    <td>-(n*2)</td>
-		    <td id="cantMinusculasConsecutivas">0</td>
-		    <td id="puntosMinusculasConsecutivas">0</td>
+		    <td id="cantMinusculasConsecutivas"></td>
+		    <td id="puntosMinusculasConsecutivas"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Números consecutivos</td>
 		    <td>Plana</td>
 		    <td>-(n*2)</td>
-		    <td id="cantNumerosConsecutivos">0</td>
-		    <td id="puntosNumerosConsecutivos">0</td>
+		    <td id="cantNumerosConsecutivos"></td>
+		    <td id="puntosNumerosConsecutivos"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Secuencia de letras (3+)</td>
 		    <td>Plana</td>
 		    <td>-(n*3)</td>
-		    <td id="cantSecuenciaLetras">0</td>
-		    <td id="puntosSecuenciaLetras">0</td>
+		    <td id="cantSecuenciaLetras"></td>
+		    <td id="puntosSecuenciaLetras"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Secuencia de números (3+)</td>
 		    <td>Plana</td>
 		    <td>-(n*3)</td>
-		    <td id="cantSecuenciaNumeros">0</td>
-		    <td id="puntosSecuenciaNumeros">0</td>
+		    <td id="cantSecuenciaNumeros"></td>
+		    <td id="puntosSecuenciaNumeros"></td>
 		  </tr>
 
 		  <tr>
-		  	<td></td>
 		    <td>Secuencia de símbolos (3+)</td>
 		    <td>Plana</td>
 		    <td>-(n*3)</td>
-		    <td id="cantSecuenciaSimbolos">0</td>
-		    <td id="puntosSecuenciaSimbolos">0</td>
+		    <td id="cantSecuenciaSimbolos"></td>
+		    <td id="puntosSecuenciaSimbolos"></td>
 		  </tr>
 		</tbody>
 	</table>
