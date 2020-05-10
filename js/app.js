@@ -1,5 +1,5 @@
 
-function fun(){
+function analizar(){
     var valor = document.getElementById("texto").value;
     var numeroCaracteres = valor.length;
    document.getElementById("Cantidad caracteres").innerHTML="Cantidad de caracteres: "+numeroCaracteres;
@@ -112,5 +112,35 @@ function proporciones(){
             j++;
         }
         document.getElementById("Proporciones").innerHTML=valor;
+    }
+}
+
+function estilo(){
+    var elementoPrueba=document.getElementById("analizador");
+    if(elementoPrueba.style.fontFamily=='Cuprum'){
+        document.getElementById("proporciones").style.fontFamily='Galada';
+        document.getElementById("proporciones").style.backgroundColor="#EBFAFF";
+        document.getElementById("proporciones").style.color="#337ab7";
+        document.getElementById("quienessomos").style.color="#337ab7";
+        document.getElementById("quienessomos").style.fontFamily="Galada";
+        document.getElementById("repeticiones").style.color="#337ab7";
+        document.getElementById("repeticiones").style.fontFamily="Galada";
+        document.getElementById("analizador").style.fontFamily="Galada";
+        document.getElementById("analizador").style.backgroundColor="#EBFAFF";
+        document.getElementById("analizador").style.color="#337ab7";
+        document.getElementById("page-top").style.fontFamily="Galada";
+    }
+    else{
+        document.getElementById("proporciones").style.fontFamily='Cuprum';
+        document.getElementById("proporciones").style.backgroundColor="#375386";
+        document.getElementById("proporciones").style.color="#EBFAFF";
+        document.getElementById("quienessomos").style.color="#737E91";
+        document.getElementById("quienessomos").style.fontFamily="Cuprum";
+        document.getElementById("repeticiones").style.color="#737E91";
+        document.getElementById("repeticiones").style.fontFamily="Cuprum";
+        document.getElementById("analizador").style.fontFamily="Cuprum";
+        document.getElementById("analizador").style.backgroundColor="#375386";
+        document.getElementById("analizador").style.color="#EBFAFF";
+        document.getElementById("page-top").style.fontFamily="Cuprum";
     }
 }

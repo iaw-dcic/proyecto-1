@@ -3,13 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS -->
-  
-
+      
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/sticky-menu.css" rel="stylesheet">
-    <title>Proyecto 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Galada" rel="stylesheet">
+
+    <title>Lemon Pie</title>
 
 </head>
 
@@ -19,7 +18,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="page-scroll">INICIO</a>
+                        <img src="fotos/edit.gif" height="40px" width="40px" onclick="estilo()">
                     </li>
                     <li>
                         <a class="page-scroll" href="#analizador">Analizador</a>
@@ -46,7 +45,7 @@
                     <textarea id="texto" placeholder="Escribe aquí el texto..."   autocomplete="on" cols="80" rows="10"></textarea>
                    <!-- <p>&nbsp;</p>-->
                     <p>
-                    <a class="btn btn-primary page-scroll" onclick="fun()">Analizar!</a>
+                    <a class="btn btn-primary page-scroll" onclick="analizar()">Analizar!</a>
                     </p>
                     <p id="Cantidad parrafos"></p>
                     <p id="Cantidad oraciones"></p>
@@ -81,7 +80,19 @@
                 <div class="col-lg-12">
                     <h1>Proporción de oraciones:</h1>
                     <p>
-                        <a class="btn btn-primary page-scroll" onclick="proporciones()">Proporciones</a>
+                        <a class="btn btn-primary page-scroll" onclick="proporciones()">Proporciones:</a>
+                    </p>
+		    <p>
+                    <img src="fotos/caja.png" height="20px" width="20px">
+                            <p1><verde>Cantidad de palabras correcta en la oración</verde></p1>
+                        </p>
+                        <p>
+                    <img src="fotos/bombilla.png" height="20px" width="20px">
+                            <p1><amarillo>Cantidad de palabras al límite</amarillo></p1>
+                    </p>
+                    <p >
+                    <img src="fotos/cancelar.png" height="20px" width="20px">
+                        <p1><rojo>Demasiada cantidad de palabras en la oración</rojo></p1>
                     </p>
                     <p id="Proporciones"></p>
                 </div>
@@ -93,22 +104,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Lemon Pie</h1>
-                   <p>Somos una empresa compuesta por profesionales especializados en diversas áreas, y nos encargamos de brindar ayuda integral a nuestros clientes en la redacción de documentos importantes para su trabajo, así como en el análisis de los resultados obtenidos y la aplicación de reglas de formato concretas. Si no estás seguro de lo que necesitas nuestros asesores te guiarán. No dudes en contactarnos. 
+                    <img src="fotos/edit.gif" height="150px" width="150px" href="#page-top">
+		<h1>Lemon Pie</h1>
+                   <p>Somos una empresa compuesta por especialistas en diversas áreas, y nos encargamos de brindar ayuda integral a nuestros clientes en la redacción de documentos importantes para su trabajo, así como en el análisis de los resultados obtenidos y la aplicación de reglas de formato concretas. Si no estás seguro de lo que necesitas nuestros asesores te guiarán. No dudes en contactarnos. 
                        
                     </p>
 					<p>&nbsp;</p>
                     <p>
+			<img src="fotos/multimedia.png" height="20px" width="20px">
                         <p1>  contacto@lemponpieweb.com</p1>
                     </p>
                     <p>
+			<img src="fotos/mapa.png" height="20px" width="20px">
                         <p1>  Av. Siempre Viva 742</p1>
                     </p>
                     <p>
+			<img src="fotos/redes.png" height="20px" width="20px">
                         <p1>  @lemonPie</p1>
                     </p>
                     <p>
-                        © 2020 LemonPie Inc.
+                        © 2020 LemonPie Inc. Powered by Yasmin Pie.
                     </p>
                     
                 </div>

@@ -39,32 +39,52 @@ html {
     text-decoration: none;
 }
 
-.le{
-    font-size: 10px;
-}
 #back2Top:hover {
     background-color: #337AB7;
     color: #FFF;
 }
 .quienessomos-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 100px;
     text-align: center;
     background: #fff;
+    color: #337ab7;
 }
 
 .analizador-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #EFDECD;
+    background: #EBFAFF;
     display:block;
+    color: #337ab7;
 }
 .repeticiones-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
+    color: #337ab7;
+}
+
+.proporciones-section {
+    height: 100%;
+    padding-top: 70px;
+    text-align: center;
+    background: #EBFAFF;
+    color: #337ab7;
+}
+.navbar-default .navbar-nav > li > a:hover {
+	color: #333;
+	background-color: #F0F0F0;
+}
+.navbar-default {
+    background-color: #fff;
+    border-color: #e7e7e7;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #337ab7;
+    font-size: 15px;
 }
 
 rojo{
@@ -78,24 +98,4 @@ verde{
 amarillo{
     color:yellow;
 }
-
-.proporciones-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #EFDECD;
-}
-.navbar-default .navbar-nav > li > a:hover {
-	color: #333;
-	background-color: #F0F0F0;
-}
-.navbar-default {
-    background-color: #EBFAFF;
-    border-color: #e7e7e7;
-}
-.navbar-default .navbar-nav > li > a {
-    color: #000;
-}
-
-
 
