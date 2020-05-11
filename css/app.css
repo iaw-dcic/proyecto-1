@@ -38,3 +38,7 @@ background-color: #6494AA
 .color_white{
 background-color: #FFFCF2
 }
+
+#new_game:hover{
+  cursor: pointer;
+}

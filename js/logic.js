@@ -21,7 +21,9 @@ class Simon {
     this.sequence = [];
 
   }
-
+  get_sequence(){
+    return this.sequence;
+  }
   next_step(){
       // Generate next step
       let next = this._get_random_int(4);
@@ -32,7 +34,7 @@ class Simon {
 
   _get_random_int(max) {
 
-    let next = Math.floor(Math.random() * Math.floor(max))
+    let next = Math.floor(Math.random() * Math.floor(max)) + 1;
 
     return next;
   }
@@ -68,7 +70,7 @@ class Game {
   }
 
   set_game_status(simon_sequence,player_sequence){
-    if (this.turn_num < this.sequence_length && status == 0) {
+    if (this.turn_num <= this.sequence_length && status == 0) {
 
       if(simon_sequence.length != player_sequence.length){
         console.log("Las secuencia del jugador no tiene la misma cantidad de elementos que la secuencia de simon");
