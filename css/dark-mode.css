@@ -3,8 +3,16 @@
   color: #eee;
 }
 
-.transparente{
+[data-theme="dark"] .transparente{
   background-color: transparent;
+  border-color: transparent;
+  color:#FFF !important;
+}
+
+.transparente {
+  background-color: transparent;
+  border-color: transparent;
+  color:#111 !important;
 }
 
 [data-theme="dark"] .navbar .navbar-light{
@@ -57,6 +65,8 @@
 }
 
 [data-theme="dark"] .pass-input {
-  background-color: #AAA;
+  background-color: #FFF;
   border-color: #AAA;
 }
+
+

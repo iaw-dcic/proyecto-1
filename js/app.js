@@ -65,11 +65,12 @@ function cargarDatos() {
     } else {
         const trOpen = '<tr>' + "No hay contraseñas guardadas";
         const fCell = '<td>-</td>';
+        const verCell = '<td>-</td>';
         const sCell = '<td>-</td>';
         const tCell = '<td>-</td>';
         const cCell = '<td>-</td>';
         const trClose = '</tr>';
-        const celdas = fCell + sCell + tCell + cCell;
+        const celdas = fCell + verCell + sCell + tCell + cCell;
         tabla.innerHTML = trOpen + celdas + trClose;
     }
 }
