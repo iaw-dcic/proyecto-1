@@ -1,12 +1,19 @@
 
 function visibilidad() {
   var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
+  mostrar(x);
+}
+
+function mostrar(pos){
+  if(pos!= null){
+    if (pos.type === "password") {
+      pos.type = "text";
+    } else {
+      pos.type = "password";
+    }
   }
 }
+
 
 function guardarDatos(){
 
@@ -42,16 +49,18 @@ function cargarDatos() {
 
    const tabla = document.getElementById('tabla-guardadas');
     const guardadas = JSON.parse(window.localStorage.getItem('GUARDADAS'));
+    const pass = "pass";
     if (guardadas != null){
         for(i=0; i<guardadas.length; i++) {
             const trOpen = '<tr>';
             const fCell = '<td>' + parseInt(i+1, 10) + '</td>';
-            const sCell = '<td>' + guardadas[i].pass + '</td>';
+            const verCell = '<td> <input type="checkbox" onclick="mostrar('+pass+i+')"/></td>';
+            const sCell = '<td>' +'<input id="pass'+i+'" class="transparente" type="password" value="'+guardadas[i].pass+'" disabled></td>';
             const tCell = '<td>' + guardadas[i].puntaje + '</td>';
             const cCell = '<td>' + guardadas[i].complejidad + '</td>';
             const trClose = '</tr>';
-            const celdas = fCell + sCell + tCell + cCell;
-            tabla.innerHTML += trOpen + celdas + trClose;
+            const celdas = fCell + verCell + sCell + tCell + cCell;
+            tabla.innerHTML += trOpen + celdas + trClose;            
         }
     } else {
         const trOpen = '<tr>' + "No hay contraseñas guardadas";
@@ -68,5 +77,6 @@ function cargarDatos() {
 function redireccionar(pagina){
   window.location.href = pagina;
 }
+
 
 
