@@ -19,6 +19,7 @@
 
 
 	<title>Medidor</title>
+	<link rel="shortcut icon" href="iconos/favicon.ico">
 
 
   </head>
@@ -47,19 +48,19 @@
 		 
 	</nav>
 
-	<div class="container">
+	<div class="dropdown-divider m-auto p-2"></div>
+
+	<div class="container-fluid m-auto">
 	  <div class="row">
-	    <div class="col">
-	     	<input class="pass-input" type="password" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>
-	     	<button onclick="guardarDatos()" class="btn btn-outline-dark">Guardar</button>
-	    	<div>
-            	<input type="checkbox" id="ver" onclick="visibilidad()">
-            	<label for="ver">Mostrar</label>	
-	    	</div>
+	    <div class="col-sm">
+			<input class="pass-input m-3" type="password" id="password" placeholder="Ingrese contraseña" oninput="actualizar()"/>	
+			<input type="checkbox" id="ver" onclick="visibilidad()">
+			<label for="ver">Mostrar</label>	
+			<button onclick="guardarDatos()" class="btn btn-outline-dark m-3">Guardar</button>
 	    </div>
 
-	    <div class="col">
-	      <table id="resultados" class="table">
+	    <div class="col-sm">
+	      <table id="resultados" class="table table-bordered">
 		    <thead>
 			  <tr>
 			    <th scope="col">Puntaje</th>
@@ -70,7 +71,7 @@
 			  <tr>
 			    <td id="puntaje">0</td>
 			    <td>
-			    	<div id="complejidad">
+			    	<div class="text-center" id="complejidad">
 			    		<div class="alert alert-danger" role="alert">Muy debil</div>
 					</div>
 			    </td>
@@ -78,177 +79,207 @@
 			</tbody>
 		</table>
 	    </div>
-	  </div>
+	    <div class="col-sm">
+			<ul >
+				<h5>Requisitos mínimos:</h5>
+  				<li class="d-flex justify-content-between align-items-center">
+   					 Cantidad de caracteres
+    				<span class="badge">8</span>
+  				</li>
+  				<li class="d-flex justify-content-between align-items-center">
+   					 Cantidad de mayúsculas
+    				<span class="badge">1</span>
+  				</li>
+  				<li class="d-flex justify-content-between align-items-center">
+   					 Cantidad de minúsculas
+    				<span class="badge">1</span>
+  				</li>
+  				<li class="d-flex justify-content-between align-items-center">
+   					 Cantidad de números
+    				<span class="badge">1</span>
+  				</li>
+  				<li class="d-flex justify-content-between align-items-center">
+   					 Cantidad de símbolos
+    				<span class="badge">1</span>
+  				</li>
+			</ul>
+	  	</div>
 	</div>
-
-    <hr>
-
+</div>
+	
+	<div class="dropdown-divider m-auto p-2"></div>
     <!--tabla para ver los resultados-->
+    <div class="container-fluid">
+    	<div class="row">
+    		<div class="col-sm">
+			    <table id="tabla" class="table table-bordered">
+				    <thead>
+					  <tr>
+					  	<th scope="col"></th>
+					    <th scope="col">Características positivas</th>
+					    <th scope="col">Tipo</th>
+					    <th scope="col">Medición</th>
+					    <th scope="col">Cantidad</th>
+					    <th scope="col">Puntuación</th>
+					  </tr>
+					</thead>
+				<!--aca poner todo lo de la tabla-->
+					<tbody>
+					  <tr>
+					  	<td></td>
+					    <td>Número de caracteres</td>
+					    <td id=>Plana</td>
+					    <td>+(n*4)</td>
+					    <td id="cantCaracteres">0</td>
+					    <td id="puntosLongitud">0</td>
+					  </tr>
 
-    <table id="tabla" class="table">
-	    <thead>
-		  <tr>
-		  	<th scop="col"></th>
-		    <th scope="col">Características positivas</th>
-		    <th scope="col">Tipo</th>
-		    <th scope="col">Medición</th>
-		    <th scope="col">Cantidad</th>
-		    <th scope="col">Puntuación</th>
-		  </tr>
-		</thead>
-	<!--aca poner todo lo de la tabla-->
-		<tbody>
-		  <tr>
-		  	<td></td>
-		    <td>Número de caracteres</td>
-		    <td id=>Plana</td>
-		    <td>+(n*4)</td>
-		    <td id="cantCaracteres">0</td>
-		    <td id="puntosLongitud">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Letras mayúsculas</td>
+					    <td id=>Incremental</td>
+					    <td>+((len-n)*2)</td>
+					    <td id="cantMayusculas">0</td>
+					    <td id="puntosMayusculas">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Letras mayúsculas</td>
-		    <td id=>Incremental</td>
-		    <td>+((len-n)*2)</td>
-		    <td id="cantMayusculas">0</td>
-		    <td id="puntosMayusculas">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Letras minúsculas</td>
+					    <td id=>Incremental</td>
+					    <td>+((len-n)*2)</td>
+					    <td id="cantMinusculas">0</td>
+					    <td id="puntosMinusculas">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Letras minúsculas</td>
-		    <td id=>Incremental</td>
-		    <td>+((len-n)*2)</td>
-		    <td id="cantMinusculas">0</td>
-		    <td id="puntosMinusculas">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Numeros</td>
+					    <td id=>Condicional</td>
+					    <td>+(n*4)</td>
+					    <td id="cantNumeros">0</td>
+					    <td id="puntosNumeros">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Numeros</td>
-		    <td id=>Condicional</td>
-		    <td>+(n*4)</td>
-		    <td id="cantNumeros">0</td>
-		    <td id="puntosNumeros">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Simbolos</td>
+					    <td id=>Plana</td>
+					    <td>+(n*6)</td>
+					    <td id="cantSimbolos">0</td>
+					    <td id="puntosSimbolos">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Simbolos</td>
-		    <td id=>Plana</td>
-		    <td>+(n*6)</td>
-		    <td id="cantSimbolos">0</td>
-		    <td id="puntosSimbolos">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Numeros o simbolos intermedios</td>
+					    <td id=>Plana</td>
+					    <td>+(n*2)</td>
+					    <td id="cantSYN">0</td>
+					    <td id="puntosSYN">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Numeros o simbolos intermedios</td>
-		    <td id=>Plana</td>
-		    <td>+(n*2)</td>
-		    <td id="cantSYN">0</td>
-		    <td id="puntosSYN">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Requerimientos</td>
+					    <td id=>Plana</td>
+					    <td>+(n*2)</td>
+					    <td id="cantRequerimientos">0</td>
+					    <td id="puntosRequerimientos">0</td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm">
+				<table class="table table-bordered">
+					<thead>
+					  <tr>
+					  	<th></th>
+					    <th scope="col">Características Negativas</th>
+					    <th scope="col">Tipo</th>
+					    <th scope="col">Medición</th>
+					    <th scope="col">Cantidad</th>
+					    <th scope="col">Puntuación</th>
+					  </tr>
+					</thead>
+				<!--aca poner todo lo de la tabla-->
+					<tbody>
+					  <tr>
+					  	<td></td>
+					    <td>Solo letras</td>
+					    <td>Plana</td>
+					    <td>-n</td>
+					    <td id="cantSoloLetras">0</td>
+					    <td id="puntosSoloLetras">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Requerimientos</td>
-		    <td id=>Plana</td>
-		    <td>+(n*2)</td>
-		    <td id="cantRequerimientos">0</td>
-		    <td id="puntosRequerimientos">0</td>
-		  </tr>
-		</tbody>
-	</table>
+					  <tr>
+					  	<td></td>
+					    <td>Solo números</td>
+					    <td>Plana</td>
+					    <td>-n</td>
+					    <td id="cantSoloNumeros">0</td>
+					    <td id="puntosSoloNumeros">0</td>
+					  </tr>
 
-	<table class="table table-light">
-		<thead>
-		  <tr>
-		  	<th></th>
-		    <th scope="col">Características Negativas</th>
-		    <th scope="col">Tipo</th>
-		    <th scope="col">Medición</th>
-		    <th scope="col">Cantidad</th>
-		    <th scope="col">Puntuación</th>
-		  </tr>
-		</thead>
-	<!--aca poner todo lo de la tabla-->
-		<tbody>
-		  <tr>
-		  	<td></td>
-		    <td>Solo letras</td>
-		    <td>Plana</td>
-		    <td>-n</td>
-		    <td id="cantSoloLetras">0</td>
-		    <td id="puntosSoloLetras">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Letras mayúsculas consecutivas</td>
+					    <td>Plana</td>
+					    <td>-(n*2)</td>
+					    <td id="cantMayusculasConsecutivas">0</td>
+					    <td id="puntosMayusculasConsecutivas">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Solo números</td>
-		    <td>Plana</td>
-		    <td>-n</td>
-		    <td id="cantSoloNumeros">0</td>
-		    <td id="puntosSoloNumeros">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Letras minúsculas consecutivas</td>
+					    <td>Plana</td>
+					    <td>-(n*2)</td>
+					    <td id="cantMinusculasConsecutivas">0</td>
+					    <td id="puntosMinusculasConsecutivas">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Letras mayúsculas consecutivas</td>
-		    <td>Plana</td>
-		    <td>-(n*2)</td>
-		    <td id="cantMayusculasConsecutivas">0</td>
-		    <td id="puntosMayusculasConsecutivas">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Números consecutivos</td>
+					    <td>Plana</td>
+					    <td>-(n*2)</td>
+					    <td id="cantNumerosConsecutivos">0</td>
+					    <td id="puntosNumerosConsecutivos">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Letras minúsculas consecutivas</td>
-		    <td>Plana</td>
-		    <td>-(n*2)</td>
-		    <td id="cantMinusculasConsecutivas">0</td>
-		    <td id="puntosMinusculasConsecutivas">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Secuencia de letras (3+)</td>
+					    <td>Plana</td>
+					    <td>-(n*3)</td>
+					    <td id="cantSecuenciaLetras">0</td>
+					    <td id="puntosSecuenciaLetras">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Números consecutivos</td>
-		    <td>Plana</td>
-		    <td>-(n*2)</td>
-		    <td id="cantNumerosConsecutivos">0</td>
-		    <td id="puntosNumerosConsecutivos">0</td>
-		  </tr>
+					  <tr>
+					  	<td></td>
+					    <td>Secuencia de números (3+)</td>
+					    <td>Plana</td>
+					    <td>-(n*3)</td>
+					    <td id="cantSecuenciaNumeros">0</td>
+					    <td id="puntosSecuenciaNumeros">0</td>
+					  </tr>
 
-		  <tr>
-		  	<td></td>
-		    <td>Secuencia de letras (3+)</td>
-		    <td>Plana</td>
-		    <td>-(n*3)</td>
-		    <td id="cantSecuenciaLetras">0</td>
-		    <td id="puntosSecuenciaLetras">0</td>
-		  </tr>
-
-		  <tr>
-		  	<td></td>
-		    <td>Secuencia de números (3+)</td>
-		    <td>Plana</td>
-		    <td>-(n*3)</td>
-		    <td id="cantSecuenciaNumeros">0</td>
-		    <td id="puntosSecuenciaNumeros">0</td>
-		  </tr>
-
-		  <tr>
-		  	<td></td>
-		    <td>Secuencia de símbolos (3+)</td>
-		    <td>Plana</td>
-		    <td>-(n*3)</td>
-		    <td id="cantSecuenciaSimbolos">0</td>
-		    <td id="puntosSecuenciaSimbolos">0</td>
-		  </tr>
-		</tbody>
-	</table>
+					  <tr>
+					  	<td></td>
+					    <td>Secuencia de símbolos (3+)</td>
+					    <td>Plana</td>
+					    <td>-(n*3)</td>
+					    <td id="cantSecuenciaSimbolos">0</td>
+					    <td id="puntosSecuenciaSimbolos">0</td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
   </body>
 </html>
