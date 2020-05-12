@@ -1,10 +1,34 @@
-.w3-theme-light {color:#000 !important; background-color:#f9f9f9 !important}
-.w3-theme-dark {color:#fff !important; background-color:#f5f5f5 !important}
-.w3-theme-action {color:#fff !important; background-color:#4f4f4f !important}
+.w3-theme-dark {
+    color:#fff !important;
+    background-color:#f5f5f5 !important
+}
 
-.w3-theme-header {color: #262626  !important; background-color: #f0f0f0 }
-.w3-theme-sidebar {color: #3f3f3f !important; background-color: #f0f0f0 }
+.w3-theme-header {
+    color: #262626  !important; 
+    background-color: #f0f0f0 
+}
 
-.w3-theme {color:#fff !important; background-color:#9e9e9e !important}
-.w3-text-theme {color:#9e9e9e !important}
-.w3-border-theme {border-color:#9e9e9e !important}
+.w3-theme-sidebar {
+    color: #3f3f3f !important; 
+    background-color: #f0f0f0 
+}
+
+.btn-main { 
+    color: #3f3f3f; 
+    background: #feda6a; 
+    border-color: #3f3f3f 
+}
+
+.btn-main:focus { 
+    color: #262626; 
+    background-color: #f7c122; 
+    border-color: #f7c122; 
+    box-shadow: 0 0 0 0.2rem #f7c222ad; 
+}
+
+.btn-main:hover {
+    color: #262626;
+    background-color: #f7c122;
+    border-color: #262626;
+}
+

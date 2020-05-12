@@ -32,10 +32,10 @@
             <input
               class="slider"
               id="layersSlider"
-              oninput="setNumberOfLayers(this.value)"
               type="range"
               min="1"
               max="7"
+              step="1"
               value="1"
             />
             <div id="layersNumber">1</div>
@@ -43,16 +43,16 @@
           <div class="element-group border-top">
             <div>Shapes per layer</div>
             <input
+              class="input-number"
               id="minShapesPerLayerInput"
-              oninput="setShapesPerLayer()"
               type="number"
               min="1"
               max="3"
               value="1"
             />
             <input
+              class="input-number"
               id="maxShapesPerLayerInput"
-              oninput="setShapesPerLayer()"
               type="number"
               min="1"
               max="3"
@@ -107,7 +107,7 @@
           </div>
 
           <div class="element-group border-top">
-            <button id="generate-button" type="button" class="btn btn-primary">
+            <button id="generate-button" type="button" class="btn btn-main">
               Generate
             </button>
           </div>
@@ -115,7 +115,7 @@
             <div>Animation speed</div>
             <input
               class="slider"
-              oninput="setAnimationSpeed(this.value)"
+              id="animationSpeedSlider"
               type="range"
               min="0"
               max="50"
@@ -125,16 +125,16 @@
           </div>
           <div class="element-group border-top">
             <button
-              onclick="changeTheme('css/lightTheme.css')"
+              id="lightThemeButton"
               type="button"
-              class="btn btn-primary"
+              class="btn btn-main"
             >
               Light
             </button>
             <button
-              onclick="changeTheme('css/darkTheme.css')"
+              id="darkThemeButton"
               type="button"
-              class="btn btn-primary"
+              class="btn btn-main"
             >
               Dark
             </button>
@@ -143,7 +143,7 @@
             <a
               id="exportButton"
               type="button"
-              class="btn btn-primary"
+              class="btn btn-main"
               download="shapes.png" 
               href="#"
             >
@@ -152,8 +152,8 @@
           </div>
         </div>
       </div>
-      <div id="twoWrapper"></div>
     </ul>
+    <div id="twoWrapper"></div>
 
     <!-- JavaScript -->
     <script src="js/app.js"></script>
