@@ -71,14 +71,15 @@ function enable_handlers() {
 }
 
 function disable_handlers() {
-  $(".simon_btn").off("click");
+  $(".simon_btn").off("click",btn_press);
   $("#end_turn").css("display","none");
-
-
 }
 
-function btn_press() {
+function btn_press(event) {
   disable_handlers();
+  event.stopPropagation();
+  event.preventDefault();
+  console.log($(this));
   let btn = $(this).attr('id');
   console.log(btn);
   p.next_step($("#"+btn).val());
