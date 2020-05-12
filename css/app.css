@@ -5,8 +5,20 @@
   display: flex;
   align-items: center;
 }
-
-button {
+.simon_ctrl{
+  font-size: 1.1rem;
+}
+.simon_ctrl:hover{
+  cursor: pointer;
+}
+#controls{
+  margin-top: 5px;
+  min-height: 70px;
+}
+#end_turn{
+  display: none;
+}
+.simon_btn {
   height: 100px;
   width: 100px;
 }
@@ -37,8 +49,4 @@ background-color: #6494AA
 }
 .color_white{
 background-color: #FFFCF2
-}
-
-#new_game:hover{
-  cursor: pointer;
 }
