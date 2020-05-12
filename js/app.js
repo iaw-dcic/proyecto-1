@@ -3,18 +3,28 @@ var s = new Simon();
 var p = new Player();
 var sequence_display = [];
 
+
 $(document).ready(function() {
   $("#new_game").on("click",new_game);
+  $("#end_turn").on("click",end_player_turn);
+
 });
 
 function new_game() {
+  $("#new_game").css("display","None");
   g = new Game(5);
   s.reset();
   p.reset();
   console.log("New Game...");
-  check_game_status();
+  simon_turn();
 }
 
+function simon_turn() {
+  let new_sequence = s.next_step();
+  sequence_display = [...new_sequence];
+  //setTimeout(show_sequence(),1000);
+  show_sequence();
+}
 function check_game_status() {
   //game still playing?
   console.log("Game status? "+g.get_game_status());
@@ -36,46 +46,43 @@ function check_game_status() {
 function show_game_status() {
   console.log("show_game_status");
   alert(g.get_game_status());
+  $("#new_game").css("display","block");
+
 }
 
-function simon_turn() {
-  let new_sequence = s.next_step();
-  for (var i = 0; i < new_sequence.length; i++) {
-    sequence_display.push(new_sequence[i]);
-  }
-  setTimeout(show_sequence(),1000);
-}
+
 
 function player_turn() {
   enable_handlers();
 }
 function end_player_turn() {
-  console.log("still player's turn? "+s.get_sequence()+" "+p.get_sequence());
-  // turn ended?
-  if (s.get_sequence().length == p.get_sequence().length) {
-    g.next_turn();
+    //hide end turn button
+    $("#end_turn").css("display","none");
     g.set_game_status(s.get_sequence(),p.get_sequence());
-    //restart player sequence for next turn
     p.reset();
+    g.next_turn();
     check_game_status();
-  }else {
-    enable_handlers();
-  }
+
 }
 function enable_handlers() {
-  $(".simon_btn").on("click",btn_press);
+  $(".simon_btn").off("click",btn_press).on("click",btn_press);
+  $("#end_turn").css("display","block");
+
 }
 
 function disable_handlers() {
-  $(".simon_btn").off("click",btn_press);
+  $(".simon_btn").off("click");
+  $("#end_turn").css("display","none");
+
 
 }
 
 function btn_press() {
   disable_handlers();
   let btn = $(this).attr('id');
-  p.next_step($(this).val());
-  animateCSS("#"+btn,"pulse",end_player_turn);
+  console.log(btn);
+  p.next_step($("#"+btn).val());
+  animateCSS("#"+btn,"pulse",enable_handlers);
 }
 
 function animateCSS(element, animationName, callback) {
@@ -94,7 +101,7 @@ function animateCSS(element, animationName, callback) {
 
 function show_sequence() {
   console.log("-r sequencia: "+sequence_display);
-  log_all();
+  //log_all();
 
   if(sequence_display.length != 0){
 
