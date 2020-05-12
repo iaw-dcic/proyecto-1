@@ -1,3 +1,8 @@
+Tema 3
+El proyecto que elegí hacer es sobre una pagina para desplegar información sobre el coronavirus en los países sudamericanos en donde cada usuario tendrá la posibilidad de filtrar la información solo de un país en especifico, información como numero de casos, la estadística de muertos y recuperados con respecto a cada mes desde el inicio de la pandemia
+
+
+
 # Proyecto 1:  HTML - CSS - Javascript - DOM
 
 **Fecha de entrega:** 14 de Mayo de 2020 (inclusive).
