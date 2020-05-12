@@ -17,63 +17,7 @@ html {
         padding: 0;
     }
 }
-#back2Top {
-    width: 40px;
-    line-height: 40px;
-    overflow: hidden;
-    z-index: 999;
-    display: none;
-    cursor: pointer;
-    -moz-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
-    position: fixed;
-    bottom: 50px;
-    right: 0;
-    background-color: #FFF;
-    color: #337AB7;
-    text-align: center;
-    font-size: 30px;
-    text-decoration: none;
-}
 
-#back2Top:hover {
-    background-color: #337AB7;
-    color: #FFF;
-}
-.quienessomos-section {
-    height: 100%;
-    padding-top: 100px;
-    text-align: center;
-    background: #fff;
-    color: #337ab7;
-}
-
-.analizador-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #EBFAFF;
-    display:block;
-    color: #337ab7;
-}
-.repeticiones-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #fff;
-    color: #337ab7;
-}
-
-.proporciones-section {
-    height: 100%;
-    padding-top: 70px;
-    text-align: center;
-    background: #EBFAFF;
-    color: #337ab7;
-}
 .navbar-default .navbar-nav > li > a:hover {
 	color: #333;
 	background-color: #F0F0F0;
@@ -85,6 +29,58 @@ html {
 .navbar-default .navbar-nav > li > a {
     color: #337ab7;
     font-size: 15px;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:100px;
+    color: #333;
+}
+			
+.nav li:hover > ul {
+    display:block;
+    color: #333;
+}
+
+.nav li a {
+    color:#333;
+    text-decoration:none;
+    padding:5px 12px;
+    display:block;
+}
+
+
+.quienessomos-section {
+    height: 100%;
+    padding-top: 80px;
+    text-align: center;
+    background: #fff;
+    color: #337ab7;
+}
+
+.analizador-section {
+    height: 100%;
+    padding-top: 80px;
+    text-align: center;
+    background: #EBFAFF;
+    display:block;
+    color: #337ab7;
+}
+.repeticiones-section {
+    height: 100%;
+    padding-top: 80px;
+    text-align: center;
+    background: #fff;
+    color: #337ab7;
+}
+
+.proporciones-section {
+    height: 100%;
+    padding-top: 80px;
+    text-align: center;
+    background: #EBFAFF;
+    color: #337ab7;
 }
 
 rojo{

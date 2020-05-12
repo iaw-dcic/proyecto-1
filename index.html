@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/sticky-menu.css" rel="stylesheet">
+    <link  rel="icon"   href="fotos/edit.gif" type="image/gif" />  
+    <link href="css/estructura-general.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Galada" rel="stylesheet">
 
     <title>Lemon Pie</title>
@@ -20,6 +20,18 @@
                     <li>
                         <img src="fotos/edit.gif" height="40px" width="40px" onclick="estilo()">
                     </li>
+                    
+                    <li>
+                        <a>Textos Almacenados</a>
+                        <ul>
+				            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('uno')">Texto 1</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('dos')">Texto 2</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('tres')">Texto 3</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('cuatro')">Texto 4</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('cinco')">Texto 5</a></li>
+				        </ul>
+                    </li>
+                    
                     <li>
                         <a class="page-scroll" href="#analizador">Analizador</a>
                     </li>
@@ -40,12 +52,13 @@
     <section id="analizador" class="analizador-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div>
                     <h1>Analizador:</h1> 
-                    <textarea id="texto" placeholder="Escribe aquí el texto..."   autocomplete="on" cols="80" rows="10"></textarea>
-                   <!-- <p>&nbsp;</p>-->
+                     <p font-size="7px">Puede guardar hasta cinco textos. De querer guardar una mayor cantidad, se procederá a reemplazar al texto más antiguo que esté almacenado.</p>
+                    <textarea id="texto" placeholder="Escribe aquí el texto..."  maxlength="1000" cols="80" rows="10"></textarea>
                     <p>
-                    <a class="btn btn-primary page-scroll" onclick="analizar()">Analizar!</a>
+                    <a class="btn btn-primary" onclick="analizar()">Analizar</a>
+                    <a class="btn btn-primary" onclick="guardar()">Guardar</a>
                     </p>
                     <p id="Cantidad parrafos"></p>
                     <p id="Cantidad oraciones"></p>
@@ -59,12 +72,12 @@
     <section id="repeticiones" class="repeticiones-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div>
                     <h1>Contador de repeticiones:</h1>
                     <p>Ingrese palabra a buscar:</p>
-                    <input type="text" size="15" maxlength="30" id="palabra" autocomplete="on">
+                    <input type="text" size="15" maxlength="30" id="palabra">
                     <p>
-                        <a class="btn btn-primary page-scroll" onclick="buscar()">Buscar</a>
+                        <a class="btn btn-primary" onclick="buscar()">Buscar</a>
                     </p>
                     <p id="Resaltado"></p>
                     <p>&nbsp;</p>
@@ -77,22 +90,22 @@
     <section id="proporciones" class="proporciones-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div>
                     <h1>Proporción de oraciones:</h1>
-                    <p>
-                        <a class="btn btn-primary page-scroll" onclick="proporciones()">Proporciones:</a>
+		          <p>
+                        <img src="fotos/caja.png" height="20px" width="20px">
+                        <p1><verde>Cantidad de palabras correcta en la oración</verde></p1>
                     </p>
-		    <p>
-                    <img src="fotos/caja.png" height="20px" width="20px">
-                            <p1><verde>Cantidad de palabras correcta en la oración</verde></p1>
-                        </p>
-                        <p>
-                    <img src="fotos/bombilla.png" height="20px" width="20px">
-                            <p1><amarillo>Cantidad de palabras al límite</amarillo></p1>
+                    <p>
+                        <img src="fotos/bombilla.png" height="20px" width="20px">
+                        <p1><amarillo>Cantidad de palabras al límite</amarillo></p1>
                     </p>
                     <p >
-                    <img src="fotos/cancelar.png" height="20px" width="20px">
+                        <img src="fotos/cancelar.png" height="20px" width="20px">
                         <p1><rojo>Demasiada cantidad de palabras en la oración</rojo></p1>
+                    </p>
+                    <p>
+                        <a class="btn btn-primary" onclick="proporciones()">Proporciones</a>
                     </p>
                     <p id="Proporciones"></p>
                 </div>
@@ -103,23 +116,25 @@
     <section id="quienessomos" class="quienessomos-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <img src="fotos/edit.gif" height="150px" width="150px" href="#page-top">
-		<h1>Lemon Pie</h1>
-                   <p>Somos una empresa compuesta por especialistas en diversas áreas, y nos encargamos de brindar ayuda integral a nuestros clientes en la redacción de documentos importantes para su trabajo, así como en el análisis de los resultados obtenidos y la aplicación de reglas de formato concretas. Si no estás seguro de lo que necesitas nuestros asesores te guiarán. No dudes en contactarnos. 
-                       
+                <div>
+                    <img src="fotos/edit.gif" height="150px" width="150px">
+		          <p>
+                      <img src="fotos/LemonPie.jpg" height="60px" width="150px">
+                    </p>
+                   <p>
+                       Somos una empresa compuesta por especialistas en diversas áreas, y nos encargamos de brindar ayuda integral a nuestros clientes en la redacción de documentos importantes para su trabajo, así como en el análisis de los resultados obtenidos y la aplicación de reglas de formato concretas. Si no estás seguro de lo que necesitas nuestros asesores te guiarán. No dudes en contactarnos. 
                     </p>
 					<p>&nbsp;</p>
                     <p>
-			<img src="fotos/multimedia.png" height="20px" width="20px">
+			             <img src="fotos/multimedia.png" height="20px" width="20px">
                         <p1>  contacto@lemponpieweb.com</p1>
                     </p>
                     <p>
-			<img src="fotos/mapa.png" height="20px" width="20px">
+			             <img src="fotos/mapa.png" height="20px" width="20px">
                         <p1>  Av. Siempre Viva 742</p1>
                     </p>
                     <p>
-			<img src="fotos/redes.png" height="20px" width="20px">
+			             <img src="fotos/redes.png" height="20px" width="20px">
                         <p1>  @lemonPie</p1>
                     </p>
                     <p>
@@ -131,7 +146,9 @@
         </div>
     </section>
 
-<script src="js/app.js"></script>
+<script src="js/funciones.js"></script>
+<script src="js/almacenamiento.js"></script>
+<script src="js/estilo.js"></script>
 </body>
 
 </html>
