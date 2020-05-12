@@ -3,21 +3,69 @@ var s = new Simon();
 var p = new Player();
 var sequence_display = [];
 var last_btn = 0;
+var darkmode = 1;
+var sequence_length = 5;
 
 
 $(document).ready(function() {
+  load_settings();
+  handlers();
+});
+function handlers() {
   $("#new_game").on("click",new_game);
   $("#end_turn").on("click",end_player_turn);
+  //settings menu
+  $("#settings").on("click",change_settings);
+  $("#settings_modal").on("hide.bs.modal",save_settings)
 
-});
-
+  $("#darkmode").on("change",change_darkmode);
+  $("#sequence_length").on("change",change_sequence_length);
+}
 function new_game() {
+  $("#settings").css("display","None");
   $("#new_game").css("display","None");
-  g = new Game(5);
+  g = new Game(sequence_length);
   s.reset();
   p.reset();
   console.log("New Game...");
   simon_turn();
+}
+function change_settings() {
+  $("#settings_modal").modal();
+}
+
+function change_darkmode() {
+  darkmode = ($("#darkmode").is(':checked'))? 1 : 0;
+  if (darkmode == 1) {
+    $('body').removeClass("color_white").addClass("color_black");
+    $("settings").removeClass("color_black").addClass("color_white");
+    $("new_game").removeClass("color_black").addClass("color_white");
+    $("end_turn").removeClass("color_black").addClass("color_white");
+  }else{
+    $('body').removeClass("color_black").addClass("color_white");
+    $("settings").removeClass("color_white").addClass("color_black");
+    $("new_game").removeClass("color_white").addClass("color_black");
+    $("end_turn").removeClass("color_white").addClass("color_black");
+  }
+}
+
+function change_sequence_length() {
+  sequence_length = $("#sequence_length :selected").val();
+  console.log(sequence_length);
+}
+
+function save_settings() {
+  console.log("Saving settings...");
+  window.localStorage.setItem('darkmode', darkmode);
+  window.localStorage.setItem('sequence_length', sequence_length);
+}
+function load_settings(){
+  darkmode = window.localStorage.getItem('darkmode');
+  $("#darkmode").prop('checked', (darkmode == 1 ? true : false ));
+  change_darkmode();
+  sequence_length = window.localStorage.getItem('sequence_length');
+  $("#sequence_length").val(sequence_length);
+  console.log("Loaded: darkmode "+darkmode+" sequence_length "+sequence_length);
 }
 
 function simon_turn() {
@@ -51,8 +99,8 @@ function show_game_status() {
     $("#game_status_modal_text").text("you lost...");
   }
   $("#game_status_modal").modal();
-  $("#new_game").css("display","block");
-
+  $("#new_game").css("display","inline-block");
+  $("#settings").css("display","inline-block");
 }
 
 
@@ -71,7 +119,7 @@ function end_player_turn() {
 }
 function enable_handlers() {
   $(".simon_btn").off("click",btn_press).on("click",btn_press);
-  $("#end_turn").css("display","block");
+  $("#end_turn").css("display","inline-block");
 
 }
 
@@ -126,6 +174,5 @@ function show_sequence() {
     g.next_turn();
     check_game_status();
   }
-
 
 }

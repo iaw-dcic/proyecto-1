@@ -1,12 +1,14 @@
 .vertical-center {
-  min-height: 90%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 90vh; /* These two lines are counted as one :-)       */
-
+  min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 80vh; /* These two lines are counted as one :-)       */
   display: flex;
   align-items: center;
 }
 .simon_ctrl{
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  width: 2rem;
+  align-items: center;
+  display: contents;
 }
 .simon_ctrl:hover{
   cursor: pointer;
@@ -33,7 +35,8 @@
 }
 
 .color_black{
-background-color: #151515
+background-color: #151515;
+color : #FFFCF2;
 }
 .color_red{
 background-color: #A63D40
@@ -48,9 +51,20 @@ background-color: #90A959
 background-color: #6494AA
 }
 .color_white{
-background-color: #FFFCF2
+background-color: #FFFCF2;
+color : #151515;
 }
 #game_status_modal_text{
   text-align: center;
-  
+}
+label{
+  font-weight:bold;
+}
+
+.modal-cfg{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
 }

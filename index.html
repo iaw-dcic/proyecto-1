@@ -7,17 +7,19 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="lib/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body class="color_black">
       <div class="container" id="controls">
         <div class="row justify-content-center">
-            <div class="col-sm-auto">
-
-              <span id="new_game" class="badge simon_ctrl color_white">Simon</span>
-              <span id="end_turn" class="badge simon_ctrl color_white">End Turn</span>
-
+          <div class="col-sm-auto">
+            <div class="simon_ctrl">
+                <span id="settings" title="Change settings..."><i class="fas fa-cog"></i></span>
+                <span id="new_game" title="New game"><i class="far fa-play-circle"></i></span>
+                <span id="end_turn" title="End turn"><i class="far fa-check-circle"></i></span>
             </div>
+          </div>
         </div>
       </div>
       <div class="container vertical-center" id="game_panel">
@@ -40,12 +42,46 @@
             </div>
             </div>
       </div>
+      <!-- Modals -->
       <div id="game_status_modal"class="modal fade " tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
+        <div class="modal-dialog modal-sm vertical-center">
+          <div class="modal-content modal-cfg color_white">
             <div class="row justify-content-center">
               <div class="col">
                 <h1 id="game_status_modal_text"></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="settings_modal" class="modal fade " tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm vertical-center">
+          <div class="modal-content modal-cfg color_white">
+            <div class="row">
+              <div class="col-sm-auto">
+                <div class="form-group">
+                  <label for="sequence_length">Sequence length</label>
+                  <select class="form-control custom-select" id="sequence_length">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-auto">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="darkmode">
+                  <label class="custom-control-label" for="darkmode">Dark mode</label>
+                </div>
               </div>
             </div>
           </div>
