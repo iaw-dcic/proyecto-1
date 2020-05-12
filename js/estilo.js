@@ -18,7 +18,7 @@ var tema=localStorage.getItem('tema');
         document.getElementById("analizador").style.backgroundColor="#375386";
         document.getElementById("analizador").style.color="#EBFAFF";
         document.getElementById("page-top").style.fontFamily="Cuprum";
-        document.getElementById("repeticiones").style.color="#737E91";
+        document.getElementById("quienessomos").style.color="#737E91";
     }
 
 function estilo(){
@@ -40,7 +40,7 @@ function estilo(){
         document.getElementById("analizador").style.backgroundColor="#375386";
         document.getElementById("analizador").style.color="#EBFAFF";
         document.getElementById("page-top").style.fontFamily="Cuprum";
-        document.getElementById("repeticiones").style.color="#737E91";
+        document.getElementById("quienessomos").style.color="#737E91";
         localStorage.setItem("tema","dos");
     }
 }

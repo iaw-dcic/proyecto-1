@@ -75,7 +75,12 @@ function buscar(){
         while ( posicion != -1 ) {
             numero++;
             posicion = valor.indexOf(palabra,posicion+1);
-            var re=re.replace(palabra,"<rojo>"+"°"+"</rojo>");
+            var re=re.replace(palabra,"<rojo>"+"°°°"+"</rojo>");
+        }
+        posicion=re.indexOf("°°°")        
+         while ( posicion != -1 ) {
+            posicion = re.indexOf("°°°",posicion+1);
+            var re=re.replace("°°°","<rojo>"+palabra+"</rojo>");
         }
         document.getElementById("Repeticiones").innerHTML="Cantidad de repeticiones: "+numero;
         document.getElementById("Resaltado").innerHTML=re;

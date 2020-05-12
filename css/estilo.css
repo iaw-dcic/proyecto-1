@@ -6,17 +6,7 @@ html {
     width: 100%;
     height: 100%;
 }
-@media(min-width:767px) {
-    .navbar {
-        padding: 20px 0;
-        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        transition: background .5s ease-in-out,padding .5s ease-in-out;
-    }
-    .top-nav-collapse {
-        padding: 0;
-    }
-}
+
 
 .navbar-default .navbar-nav > li > a:hover {
 	color: #333;
@@ -62,7 +52,7 @@ html {
 
 .analizador-section {
     height: 100%;
-    padding-top: 80px;
+    padding-top: 90px;
     text-align: center;
     background: #EBFAFF;
     display:block;
@@ -70,7 +60,7 @@ html {
 }
 .repeticiones-section {
     height: 100%;
-    padding-top: 80px;
+    padding-top: 70px;
     text-align: center;
     background: #fff;
     color: #337ab7;
@@ -78,7 +68,7 @@ html {
 
 .proporciones-section {
     height: 100%;
-    padding-top: 80px;
+    padding-top: 70px;
     text-align: center;
     background: #EBFAFF;
     color: #337ab7;
@@ -89,10 +79,67 @@ rojo{
 }
 
 verde{
-    color:chartreuse;
+    color:#9FF103;
 }
 
 amarillo{
-    color:yellow;
+    color:#F1C503;
+}
+
+
+.lista {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.lista-desplegable {
+  color: #333;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
 }
 

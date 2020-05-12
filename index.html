@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <img src="fotos/edit.gif" height="40px" width="40px" onclick="estilo()">
+                        <img src="fotos/edit.gif" height="40px" width="40px" onclick="estilo()" style="cursor: pointer;">
                     </li>
                     
                     <li>
@@ -33,20 +33,20 @@
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="#analizador">Analizador</a>
+                        <a href="#analizador">Analizador</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#repeticiones">Contador</a>
+                        <a href="#repeticiones">Contador</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#proporciones">Proporciones</a>
+                        <a href="#proporciones">Proporciones</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#quienessomos">¿Quienes somos?</a>
+                        <a href="#quienessomos">¿Quienes somos?</a>
                     </li>
                 </ul>
             </div>	
-        </div>		
+        </div>	
     </nav>
 
     <section id="analizador" class="analizador-section">
@@ -54,8 +54,9 @@
             <div class="row">
                 <div>
                     <h1>Analizador:</h1> 
-                     <p font-size="7px">Puede guardar hasta cinco textos. De querer guardar una mayor cantidad, se procederá a reemplazar al texto más antiguo que esté almacenado.</p>
-                    <textarea id="texto" placeholder="Escribe aquí el texto..."  maxlength="1000" cols="80" rows="10"></textarea>
+                     <p font-size="7px" >Puede guardar hasta 5 textos.</p>
+                     <p font-size="7px" >De querer guardar una mayor cantidad, se procederá a reemplazar el texto más antiguo que esté almacenado.</p>
+                    <textarea id="texto" placeholder="Escribe aquí el texto..." style="width:80%;" rows="10"></textarea>
                     <p>
                     <a class="btn btn-primary" onclick="analizar()">Analizar</a>
                     <a class="btn btn-primary" onclick="guardar()">Guardar</a>
@@ -90,7 +91,6 @@
     <section id="proporciones" class="proporciones-section">
         <div class="container">
             <div class="row">
-                <div>
                     <h1>Proporción de oraciones:</h1>
 		          <p>
                         <img src="fotos/caja.png" height="20px" width="20px">
@@ -110,13 +110,11 @@
                     <p id="Proporciones"></p>
                 </div>
             </div>
-        </div>
     </section>
     
     <section id="quienessomos" class="quienessomos-section">
         <div class="container">
             <div class="row">
-                <div>
                     <img src="fotos/edit.gif" height="150px" width="150px">
 		          <p>
                       <img src="fotos/LemonPie.jpg" height="60px" width="150px">
@@ -143,7 +141,6 @@
                     
                 </div>
             </div>
-        </div>
     </section>
 
 <script src="js/funciones.js"></script>
