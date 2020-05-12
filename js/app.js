@@ -61,9 +61,16 @@ function save_settings() {
 }
 function load_settings(){
   darkmode = window.localStorage.getItem('darkmode');
+  //need default value?
+  if (darkmode === null) {
+    darkmode = 1;
+  }
   $("#darkmode").prop('checked', (darkmode == 1 ? true : false ));
   change_darkmode();
   sequence_length = window.localStorage.getItem('sequence_length');
+  if (sequence_length === null) {
+    sequence_length = 5;
+  }
   $("#sequence_length").val(sequence_length);
   console.log("Loaded: darkmode "+darkmode+" sequence_length "+sequence_length);
 }
