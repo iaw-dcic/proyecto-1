@@ -1,5 +1,6 @@
 function analizar(){
     var valor = document.getElementById("texto").value;
+    localStorage.setItem('valor1',valor);
     var numeroCaracteres = valor.length;
    document.getElementById("Cantidad caracteres").innerHTML="Cantidad de caracteres: "+numeroCaracteres;
     if(numeroCaracteres==0){
@@ -15,6 +16,7 @@ function analizar(){
         variosEnters = /[\r?\n]+/g
         texto1 = valor.replace(variosPuntos,".");
         texto1 = texto1.replace (primerPunto,"");
+        texto1= texto1.replace(variosEnters,"\r?\n");
         texto1 = texto1.replace(primerEnter,"")
         texto1 = texto1.replace(enterFinal,"")
         textoParrafos = texto1.split(/\r?\n/);
