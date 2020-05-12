@@ -2,6 +2,7 @@ var g = null;
 var s = new Simon();
 var p = new Player();
 var sequence_display = [];
+var last_btn = 0;
 
 
 $(document).ready(function() {
@@ -44,8 +45,12 @@ function check_game_status() {
 
 
 function show_game_status() {
-  console.log("show_game_status");
-  alert(g.get_game_status());
+  if (g.get_game_status() == 1) {
+    $("#game_status_modal_text").text("you win!");
+  } else {
+    $("#game_status_modal_text").text("you lost...");
+  }
+  $("#game_status_modal").modal();
   $("#new_game").css("display","block");
 
 }
@@ -77,11 +82,9 @@ function disable_handlers() {
 
 function btn_press(event) {
   disable_handlers();
-  event.stopPropagation();
-  event.preventDefault();
-  console.log($(this));
+  //console.log($(this));
   let btn = $(this).attr('id');
-  console.log(btn);
+
   p.next_step($("#"+btn).val());
   animateCSS("#"+btn,"pulse",enable_handlers);
 }
@@ -104,22 +107,25 @@ function show_sequence() {
   console.log("-r sequencia: "+sequence_display);
   //log_all();
 
-  if(sequence_display.length != 0){
+  if(sequence_display.length > 0){
 
     //show first element and then the rest of the sequence
     let btn_num = sequence_display.shift();
-    //sequence_display = sequence_display.slice(1,sequence_display.length);
-    animateCSS("#btn_"+btn_num,"pulse",show_sequence);
+
+    if (btn_num != last_btn) {
+      last_btn = btn_num
+      animateCSS("#btn_"+btn_num,"pulse", show_sequence);
+    } else {
+
+      setTimeout(function () {
+        animateCSS("#btn_"+btn_num,"pulse", show_sequence);
+      },1);
+    }
 
   }else{
     g.next_turn();
     check_game_status();
   }
-}
-function log_all() {
-  console.log(g );
-  console.log(s );
-  console.log(p );
-  console.log(sequence_display );
-  console.log(sequence_display.length);
+
+
 }

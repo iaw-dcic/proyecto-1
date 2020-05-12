@@ -50,3 +50,7 @@ background-color: #6494AA
 .color_white{
 background-color: #FFFCF2
 }
+#game_status_modal_text{
+  text-align: center;
+  
+}
