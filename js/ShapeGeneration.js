@@ -1,7 +1,7 @@
 //Generation constants: 
 
 var NUMBER_OF_LAYERS;
-var LAYER_RADIUS = 50;
+var LAYER_RADIUS = 30;
 var MIN_SHAPES_PER_LAYER;
 var MAX_SHAPES_PER_LAYER;
 var ORBIT_SHAPE_PROBABILITY = .2;

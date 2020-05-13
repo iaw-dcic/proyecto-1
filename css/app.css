@@ -12,6 +12,8 @@ h1 {
   padding-top: 10px;
   letter-spacing: 12px;
   color: grey;
+  position: relative; 
+  z-index: 2;
 }
 
 .container {
@@ -21,15 +23,17 @@ h1 {
   align-items: stretch;
   margin: 0;
   padding: 0;
+  position: relative; 
+  z-index: 1;
 }
 
 .element-group {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   vertical-align: middle;
-  padding: 10px;
+  padding: 20px;
   height: 50px;
 }
 
@@ -45,6 +49,11 @@ h1 {
 
 .list-group {
   width: 20rem;
+}
+
+div[class^="col"] {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .slider {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -20,56 +20,62 @@
     <title>Shapes</title>
   </head>
   <body class="w3-theme-dark">
-    <h1 class="w3-theme-header m-0 border-bottom shadow" style="position: relative; z-index: 2;">Shapes</h1>
-    <ul class="container" style="position: relative; z-index: 1;">
-      <div class="w3-theme-sidebar rounded shadow border-right border-bottom" id="sidebar-wrapper">
+    <h1 class="w3-theme-header m-0 border-bottom shadow">Shapes</h1>
+    <ul class="container">
+      <li
+        class="w3-theme-sidebar rounded shadow border-right border-bottom"
+        id="sidebar-wrapper"
+      >
         <div class="sidebar-heading border-bottom mt-4">
-          Attributes
+          <a data-toggle="collapse" href="#attributes-wrapper" class="w3-theme-dark">
+            Attributes
+          </a>
         </div>
-        <div class="list-group">
+        <div id="attributes-wrapper" class="list-group collapse">
           <div class="element-group border-top">
-            <div>Layers</div>
-            <input
-              class="slider"
-              id="layersSlider"
-              type="range"
-              min="1"
-              max="7"
-              step="1"
-              value="1"
-            />
-            <div id="layersNumber">1</div>
+            <div class="col">Layers</div>
+            <div class="col">
+              <input
+                class="slider"
+                id="layersSlider"
+                type="range"
+                min="1"
+                max="10"
+                step="1"
+                value="1"
+              />
+            </div>
+            <div class="col" id="layersNumber">1</div>
           </div>
           <div class="element-group border-top">
-            <div>Shapes per layer</div>
-            <input
-              class="input-number"
-              id="minShapesPerLayerInput"
-              type="number"
-              min="1"
-              max="3"
-              value="1"
-            />
-            <input
-              class="input-number"
-              id="maxShapesPerLayerInput"
-              type="number"
-              min="1"
-              max="3"
-              value="2"
-            />
+            <div class="col-6">Shapes per layer</div>
+            <div class="col">
+              <input
+                class="input-number"
+                id="minShapesPerLayerInput"
+                type="number"
+                min="1"
+                max="5"
+                value="1"
+              />
+            </div>
+            <div class="col">
+              <input
+                class="input-number"
+                id="maxShapesPerLayerInput"
+                type="number"
+                min="1"
+                max="5"
+                value="2"
+              />
+            </div>
           </div>
-          <div class="element-group border-top">
-            <a
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-            >
-              <div>Generation numbers</div>
+          <div class="element-group border-top dropdown-toggle">
+            <a data-toggle="collapse" href="#generation-numbers-wrapper" class="w3-theme-dark">
+              Generation numbers
             </a>
           </div>
-          <div id="collapseTwo" class="collapse">
+          <div id="generation-numbers-wrapper" class="collapse">
             <div class="py-2 collapse-inner rounded">
               <div class="custom-control custom-checkbox">
                 <input
@@ -105,53 +111,57 @@
               </div>
             </div>
           </div>
-
           <div class="element-group border-top">
-            <button id="generate-button" type="button" class="btn btn-main">
-              Generate
-            </button>
+            <div class="col">
+              <button id="generate-button" type="button" class="btn btn-main">
+                Generate
+              </button>
+            </div>
           </div>
           <div class="element-group border-top">
-            <div>Animation speed</div>
-            <input
-              class="slider"
-              id="animationSpeedSlider"
-              type="range"
-              min="0"
-              max="50"
-              value="0"
-            />
-            <div id="animationSpeedNumber">0</div>
+            <div class="col-6">
+              <div>Animation speed</div>
+            </div>
+            <div class="col">
+              <input
+                class="slider"
+                id="animationSpeedSlider"
+                type="range"
+                min="0"
+                max="50"
+                value="0"
+              />
+            </div>
+            <div class="col">
+              <div id="animationSpeedNumber">0</div>
+            </div>
           </div>
           <div class="element-group border-top">
-            <button
-              id="lightThemeButton"
-              type="button"
-              class="btn btn-main"
-            >
-              Light
-            </button>
-            <button
-              id="darkThemeButton"
-              type="button"
-              class="btn btn-main"
-            >
-              Dark
-            </button>
+            <div class="col">
+              <button id="lightThemeButton" type="button" class="btn btn-main">
+                Light
+              </button>
+            </div>
+            <div class="col">
+              <button id="darkThemeButton" type="button" class="btn btn-main">
+                Dark
+              </button>
+            </div>
           </div>
           <div class="element-group border-top">
-            <a
-              id="exportButton"
-              type="button"
-              class="btn btn-main"
-              download="shapes.png" 
-              href="#"
-            >
-              Export
-            </a>  
+            <div class="col">
+              <a
+                id="exportButton"
+                class="btn btn-main"
+                download="shapes.png"
+                href="#"
+              >
+                Export
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </li>
     </ul>
     <div id="twoWrapper"></div>
 
