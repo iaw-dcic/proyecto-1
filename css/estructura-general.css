@@ -91,11 +91,9 @@ a:focus {
     .nav{
         position: absolute;
         background: #fff;
-        width: 15%;
+        width: 17%;
         margin-left: 0;
         transition:0.5s;
-        font-size: 1.5vw;
-
     }
     
     .nav navbar-nav ul{
@@ -110,7 +108,7 @@ a:focus {
         height: 100%;
     }
     
-    p {
+  p {
         font-size: 1.5vw; 
     }
 
