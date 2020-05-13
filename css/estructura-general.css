@@ -91,9 +91,10 @@ a:focus {
     .nav{
         position: absolute;
         background: #fff;
-        width: 25%;
+        width: 10%;
         margin-left: 0;
         transition:0.5s;
+
     }
     
     .nav navbar-nav ul{
@@ -109,8 +110,9 @@ a:focus {
     }
     
     p {
-        font-size: 2vw; 
+        font-size: 1.5vw; 
     }
+
 }
 
 @media (min-width: 768px) {
