@@ -91,9 +91,10 @@ a:focus {
     .nav{
         position: absolute;
         background: #fff;
-        width: 10%;
+        width: 15%;
         margin-left: 0;
         transition:0.5s;
+        font-size: 1.5vw;
 
     }
     
