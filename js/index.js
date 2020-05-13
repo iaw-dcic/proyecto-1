@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(".finish").hide();
+  checkFinish();
   //Si no existe arreglo con las posiciones más altas lo creo
   if (!localStorage.getItem("array"))
     localStorage.setItem("array", JSON.stringify(new Array()));
@@ -48,8 +48,6 @@ $(document).ready(function() {
 
     let clicked = $(this).attr("id");
 
-    console.log("El arreglo de elementos eliminados es : ", deletedArray);
-    console.log("el id seleccionado es :", clicked);
     if (clicked != selectedId && !deletedArray.includes(clicked)) {
       showSelected(clicked);
       setTimeout(function() {}, 500); //delay is in milliseconds
@@ -61,7 +59,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#goback").click(() => location.reload());
+  $("#goback").click(() => {
+    setFinish(false);
+    location.reload();
+  });
 
   function setDarkStyle() {
     $("head").append(
@@ -71,11 +72,8 @@ $(document).ready(function() {
   }
 
   function setInitialState() {
-    console.log("Hola estoy cargando el estado inicial...");
     let aux = JSON.parse(localStorage.getItem("style"));
-    console.log("El estado inicial es : ", aux);
     if (aux === true) {
-      console.log("Entonces no tengo que entrar aqui");
       //Tengo que remover el css que estoy trayendo por defecto
       $("#cSel").remove();
       //Tengo que insertar el nuevo css
@@ -110,7 +108,6 @@ $(document).ready(function() {
   }
 
   function check(id1, id2) {
-    console.log("Estoy aqui borracho y loco");
     const x = generateImage(id1);
     const y = generateImage(id2);
     setTimeout(function() {}, 500); //delay is in milliseconds
@@ -161,11 +158,10 @@ $(document).ready(function() {
 
   //Que hago cuando termino un nuevo juego...
   function winGame() {
+    setFinish(true);
     winGame = true;
-    console.log("Bienvenido a la función win game ");
     $(".game").hide();
     let arrayAux = JSON.parse(localStorage.getItem("array"));
-    console.log("El array del localStorage es : ", arrayAux);
     if (arrayAux.length < 10) {
       insertInLocalStorate(arrayAux);
     } else {
@@ -173,15 +169,19 @@ $(document).ready(function() {
       //Entonces chequeo que este dentro de las mejores posicones
       if (checkArrayAux(arrayAux)) insertInLocalStorate(arrayAux);
     }
-    console.log("El arrayAux ordenado es  : ", arrayAux);
+    insterInPositionsTable();
+
+    $(".finish").show();
+  }
+
+  function insterInPositionsTable() {
     let i;
+    let arrayAux = JSON.parse(localStorage.getItem("array"));
     for (i = 0; i < arrayAux.length; i++) {
       $("#scores").append(
         `<tr> <td>${arrayAux[i].name}</td> <td>${arrayAux[i].time}</td><td>${arrayAux[i].errors}</td> </tr>`
       );
     }
-
-    $(".finish").show();
   }
 
   $("#reset").click(function restartGame() {
@@ -199,10 +199,8 @@ $(document).ready(function() {
   function checkArrayAux(arrayAux) {
     let toR = false;
     const element = arrayAux[9];
-    console.log("El elemento seleccionado es : ", element);
     if (element.time == seconds) if (element.errors > _errores) toR = true;
     if (element.time > seconds) toR = true;
-    console.log("Estoy retornado : ", toR);
     return toR;
   }
 
@@ -213,13 +211,10 @@ $(document).ready(function() {
     let posiciones = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     let toR = new Array();
 
-    console.log("Testeando el arreglo de posiciones");
     let aux = getPosicion(posiciones);
-    console.log("La posicion seleccionada es : " + aux);
     //esto se podría hacer tranquilamente con un for
     arrayToIns.forEach(element => {
       //obteno la posicion a insertar
-      console.log("El arreglo de posiciones ahora es  ", posiciones);
       let pos = getPosicion(posiciones);
       //ahora tengo que eliminar pos del arreglo de posiciones
       posiciones = posiciones.filter(element => element !== pos);
@@ -243,11 +238,9 @@ $(document).ready(function() {
   //Genera la posicion en base a un arreglo que le es pasado por parametros
   function getPosicion(array) {
     let x = Math.floor(Math.random() * array.length);
-    //console.log("x es : " + x);
     let min = array[0];
     array.forEach(element => {
       if (Math.abs(element - x) < Math.abs(min - x)) min = element;
-      //console.log("Ahora min es : " + min);
     });
 
     return min;
@@ -273,17 +266,21 @@ $(document).ready(function() {
   //A veces hay que castear el elemento a int, aunque ya sea de tipo int...
   function generateImage(element) {
     //Modulo 8 así le asigna la misma imagen a dos posiciones
-    console.log("-------------------------------------");
-    console.log("el array es : ", array);
-    console.log(
-      "El array leido del local storage es : ",
-      localStorage.getItem("array")
-    );
-    console.log("el elemento tiene id : " + element);
-    console.log("el indice es : ", array.indexOf(parseInt(element, 10)));
     x = array.indexOf(parseInt(element, 10)) % 8;
-    console.log("el x que estoy calculando es : " + x);
-    console.log("-------------------------------------");
     return x;
+  }
+
+  function setFinish(finish) {
+    localStorage.setItem("finish", finish);
+  }
+
+  function checkFinish() {
+    let aux = JSON.parse(localStorage.getItem("finish"));
+
+    if (aux === true) {
+      insterInPositionsTable();
+      $(".game").hide();
+      $(".finish").show();
+    } else $(".finish").hide();
   }
 });
