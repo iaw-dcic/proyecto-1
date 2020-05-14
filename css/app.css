@@ -4,6 +4,22 @@ img {
   height: 120px;
   background-size: cover;
 }
+#shareBtn {
+  background-color: #0000ff;
+  color: #ffffff;
+  float: right;
+}
+
+.footer {
+  margin-right: 5%;
+  text-align: right;
+  margin-top: 15%;
+  margin-bottom: -5%;
+}
+
+.margin {
+  margin-top: 5%;
+}
 
 .light {
   background: rgb(1, 0, 1);

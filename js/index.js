@@ -91,22 +91,6 @@ $(document).ready(function() {
     if (contFinish === 8) location.reload();
   }
 
-  function avoidStyle() {
-    localStorage.removeItem("style");
-  }
-
-  function checkImageArray() {
-    console.log(
-      "el valor leido en el local storage es : ",
-      localStorage.getItem("imgArray")
-    );
-    console.log(JSON.parse(localStorage.getItem("imgArray")));
-    let toR = JSON.parse(localStorage.getItem("imgArray"));
-    if (toR) toR.forEach(element => element.hide());
-    else toR = [];
-    return toR;
-  }
-
   function check(id1, id2) {
     const x = generateImage(id1);
     const y = generateImage(id2);

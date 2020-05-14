@@ -215,7 +215,6 @@
         
       </div>
       <a id="reset" class="waves-effect waves-light btn-small"><i class="material-icons left">cloud</i>Reiniciar</a>
-      <a id="win" class="waves-effect waves-light btn-small"><i class="material-icons left">cloud</i>Win Game</a>
 
     <!--<a id="win" class="waves-effect waves-light btn-small"><i class="material-icons left">cloud</i>Win Test</a> !-->
 
@@ -233,16 +232,14 @@
           <th>Errores</th>
         </tr>
   </table>
-  <!-- Load Facebook SDK for JavaScript -->
-  <h1>Sharing using FB.ui() Dialogs</h1>
+<div class="margin">
+<a id="goback" class="waves-effect waves-light btn-small"><i class="material-icons left ">arrow_back</i>Volver Atras</a>
 
-<p>Below are some simple examples of how to use UI dialogs in a web page.</p>
 
-<h3>Sharing Links</h3>
+<div id="shareBtn" class="btn btn-success clearfix">
+    <i class="material-icons left ">share</i>Comparte tus resultados en facebook</div>
+  </div>
 
-<div id="shareBtn" class="btn btn-success clearfix">Share Dialog</div>
-
-<p>The Share Dialog enables you to share links to a person's profile without them having to use Facebook Login. <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Read our Share Dialog guide</a> to learn more about how it works.</p>
 
 <script>
 document.getElementById('shareBtn').onclick = function() {
@@ -261,11 +258,18 @@ document.getElementById('shareBtn').onclick = function() {
 
 
 
-  <a id="goback" class="waves-effect waves-light btn-small"><i class="material-icons left">cloud</i>Volver Atras</a>
 
   
 </div>
 </div>
+
+<footer>
+  <div class="footer">
+    <p> NetToys  <i class="tiny material-icons">copyright</i> es una marca Registrada</p>
+    <p>Autor: Javier Amorosi</p>
+    <p>Librerias utilizadas : <a href="https://jquery.com/">Jquery</a>  <a href="https://materializecss.com/">  Materialize</a></p>
+  </div>
+  </footer>
 
     <!--JavaScript at end of body for optimized loading-->
     <script  src="js/materialize.min.js"></script>

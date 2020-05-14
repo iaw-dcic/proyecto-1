@@ -20,6 +20,23 @@ img {
 .centered {
   text-align: center;
 }
+#shareBtn {
+  background-color: blue;
+  color: white;
+  float: right;
+}
+
+.margin {
+  margin-top: 5%;
+}
+
+.footer {
+  color: whitesmoke;
+  margin-right: 5%;
+  text-align: right;
+  margin-top: 15%;
+  margin-bottom: 0%;
+}
 
 .timer {
   font-size: 22px;
