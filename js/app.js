@@ -1,6 +1,6 @@
 
 function visibilidad() {
-  var x = document.getElementById("password");
+  var x = document.getElementById('password');
   mostrar(x);
 }
 
@@ -20,9 +20,9 @@ function guardarDatos(){
 	const storage = localStorage.getItem('GUARDADAS');
 
 	var guardar = {
-		pass : document.getElementById("password").value,
-		puntaje : document.getElementById("resultados").rows[1].cells[0].innerHTML,
-    complejidad : document.getElementById("resultados").rows[1].cells[1].innerHTML
+		pass : document.getElementById('password').value,
+		puntaje : document.getElementById('resultados').rows[1].cells[0].innerHTML,
+    complejidad : document.getElementById('resultados').rows[1].cells[1].innerHTML
 	};
 
   if(guardar.pass.length > 0 ){
@@ -63,7 +63,7 @@ function cargarDatos() {
             tabla.innerHTML += trOpen + celdas + trClose;            
         }
     } else {
-        const trOpen = '<tr>' + "No hay contraseñas guardadas";
+        const trOpen = '<tr>' + 'No hay contraseñas guardadas';
         const fCell = '<td>-</td>';
         const verCell = '<td>-</td>';
         const sCell = '<td>-</td>';
