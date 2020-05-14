@@ -225,7 +225,7 @@
 </div>
 <div class="container">
 <div class="finish">
-  <h4>Posiciones : </h4>
+  <h1>Posiciones : </h1>
   <table class="positions" id="scores">
       <tr>
           <th>Nombre</th>
@@ -249,52 +249,14 @@ document.getElementById('shareBtn').onclick = function() {
   FB.ui({
     display: 'popup',
     method: 'share',
-    href: 'https://developers.facebook.com/docs/',
+    quote : `Termine el juego en segundos y errores`,
+    href: 'https://ajavieralejandro.github.io/proyecto-1/',
   }, function(response){});
 }
 </script>
 
-<h3>Publishing Open Graph Stories</h3>
 
-<p>The Share Dialog can also be used to publish Open Graph stories without using Facebook Login or the Graph API. <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Read our Share Dialog guide</a> to learn more about how it works.</p>
 
-<div id="ogBtn" class="btn btn-success clearfix">Simple OG Dialog</div>
-
-<script>
-document.getElementById('ogBtn').onclick = function() {
-  FB.ui({
-    display: 'popup',
-    method: 'share_open_graph',
-    action_type: 'og.likes',
-    action_properties: JSON.stringify({
-        object:'https://developers.facebook.com/docs/',
-    })
-  }, function(response){});
-}
-</script>
-
-<h3>Sending App Requests</h3>
-
-<p><a href="https://developers.facebook.com/docs/games/requests/">Requests</a> can be sent by any Facebook Apps that are categorised as Games and have a Canvas, iOS, or Android implementation. The JavaScript SDK enables web Canvas games to send requests. <a href="https://developers.facebook.com/docs/games/requests/">Read our guide to Requests</a> to learn more and see more complex examples that you could use.</p>
-
-<div id="requestsBtn" class="btn btn-success clearfix">Basic Request Dialog</div>
-
-<script>
-document.getElementById('requestsBtn').onclick = function() {
-  FB.ui({method: 'apprequests',
-      message: 'This is a test message for the requests dialog.'
-  }, function(data) {
-    Log.info('App Requests Response', data);
-  });
-}
-</script>
-  <!-- Load Facebook SDK for JavaScript -->
-  <div class="fb-share-button" data-href="https://ajavieralejandro.github.io/proyecto-1" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-
-      <a class="twitter-share-button"
-      href="https://twitter.com/share">
-    Tweet
-    </a>
   <a id="goback" class="waves-effect waves-light btn-small"><i class="material-icons left">cloud</i>Volver Atras</a>
 
   
