@@ -1,6 +1,14 @@
+google.charts.load('current', {'packages':['corechart']});
+var input = document.querySelector('input');
+input.addEventListener('input', analizar);
+
+function interactivo(){
+    analizar();
+    proporciones();
+}
+
 function analizar(){
     var valor = document.getElementById("texto").value;
-    localStorage.setItem('valor1',valor);
     var numeroCaracteres = valor.length;
    document.getElementById("Cantidad caracteres").innerHTML="Cantidad de caracteres: "+numeroCaracteres;
     if(numeroCaracteres==0){
@@ -14,12 +22,12 @@ function analizar(){
         enterFinal = /\r?\n$/
         primerEnter = /^\r?\n/
         variosEnters = /[\r?\n]+/g
-        texto1 = valor.replace(variosPuntos,".");
-        texto1 = texto1.replace (primerPunto,"");
-        texto1= texto1.replace(variosEnters,"\r?\n");
-        texto1 = texto1.replace(primerEnter,"")
-        texto1 = texto1.replace(enterFinal,"")
-        textoParrafos = texto1.split(/\r?\n/);
+        textoAcomodado = valor.replace(variosPuntos,".");
+        textoAcomodado = textoAcomodado.replace (primerPunto,"");
+        textoAcomodado= textoAcomodado.replace(variosEnters,"\r?\n");
+        textoAcomodado= textoAcomodado.replace(primerEnter,"")
+        textoAcomodado = textoAcomodado.replace(enterFinal,"")
+        textoParrafos = textoAcomodado.split(/\r?\n/);
         document.getElementById("Cantidad parrafos").innerHTML="Cantidad de párrafos: "+textoParrafos.length;
 
 
@@ -45,16 +53,16 @@ function analizar(){
         primerBlanco = /^ /
         ultimoBlanco = / $/
         variosBlancos = /[ ]+/g
-        texto2 = texto1.replace (variosBlancos," ");
-        texto2 = texto2.replace (primerBlanco,"");
-        texto2 = texto2.replace (ultimoBlanco,"");
-        textoParrafos2 = texto2.split(/\r?\n/);
+        textoSinBlancos = textoAcomodado.replace (variosBlancos," ");
+        textoSinBlancos = textoSinBlancos.replace (primerBlanco,"");
+        textoSinBlancos = textoSinBlancos.replace (ultimoBlanco,"");
+        textoPalabras = textoSinBlancos.split(/\r?\n/);
         cantPalabras = 0;
         i=0;
-        while (i<textoParrafos2.length){
-            miCadena=textoParrafos2[i];  
-            m=miCadena.split(" ");
-            cantPalabras=cantPalabras+m.length;
+        while (i<textoPalabras.length){
+            miCadena=textoPalabras[i];  
+            palabras=miCadena.split(" ");
+            cantPalabras=cantPalabras+palabras.length;
             i++;
         }  
         document.getElementById("Cantidad palabras").innerHTML="Cantidad de palabras: "+cantPalabras;
@@ -68,19 +76,19 @@ function buscar(){
     if(valor.lenght==0 || palabra=="")
         document.getElementById("Repeticiones").innerHTML="Cantidad de repeticiones: 0";
     else{
-        var re=valor;
+        var reemplazado=valor;
         numero = 0;
         j=0;
         posicion = valor.indexOf(palabra);
         while ( posicion != -1 ) {
             numero++;
             posicion = valor.indexOf(palabra,posicion+1);
-            var re=re.replace(palabra,"<rojo>"+"°°°"+"</rojo>");
+            var reemplazado=reemplazado.replace(palabra,"<rojo>"+"°°°"+"</rojo>");
         }
-        posicion=re.indexOf("°°°")        
+        posicion=reemplazado.indexOf("°°°")        
          while ( posicion != -1 ) {
-            posicion = re.indexOf("°°°",posicion+1);
-            var re=re.replace("°°°","<rojo>"+palabra+"</rojo>");
+            posicion = reemplazado.indexOf("°°°",posicion+1);
+            var reemplazado=reemplazado.replace("°°°","<rojo>"+palabra+"</rojo>");
         }
         document.getElementById("Repeticiones").innerHTML="Cantidad de repeticiones: "+numero;
         document.getElementById("Resaltado").innerHTML=re;
@@ -90,33 +98,71 @@ function buscar(){
 function proporciones(){
     var valor = document.getElementById("texto").value;
     var numeroCaracteres = valor.length;
+     var oracionesRojo=0;
+    var oracionesVerde=0;
+    var oracionesAmarillo=0;
     if(numeroCaracteres==0){
             document.getElementById("Proporciones").innerHTML="No hay oraciones";
     }
     else{
-        miCadena = valor.split(/\r?\n/);
-        j=0;
+        puntoYenter=/\r?\n/
+        variosEnters = /[\r?\n]+/g
+        textoAcomodado = valor.replace(puntoYenter,"");
+        textoAcomodado = textoAcomodado.replace(". ",".");
+        textoAcomodado = textoAcomodado.replace(" .",".");
+        textoAcomodado = textoAcomodado.replace("..",".");
+        miC1 = textoAcomodado.split(".");
         k=0;
-        while (j<miCadena.length){
-            k=0;
-            miC1=miCadena[j].split(".");
             while(k<miC1.length){
                 var palabras=miC1[k].split(" ");
-                if(palabras.length <8){
+                if(palabras.length <11){
                     valor=valor.replace(miC1[k],"<verde>"+miC1[k]+"</verde>");
+                    oracionesVerde++;
                 }
                 else{
-                    if(palabras.length>15){
+                    if(palabras.length>25){
                         valor=valor.replace(miC1[k],"<rojo>"+miC1[k]+"</rojo>");
+                        oracionesRojo++;
                     }
                     else{
                         valor=valor.replace(miC1[k],"<amarillo>"+miC1[k]+"</amarillo>");
+                        oracionesAmarillo++;
                     }
                 }
                 k++;
             }
-            j++;
-        }
-        document.getElementById("Proporciones").innerHTML=valor;
+    caracteres=textoAcomodado.split("");
+    if(caracteres[(caracteres.length-1)]==".")
+           oracionesVerdes--;
+  
+    document.getElementById("Proporciones").innerHTML=valor;
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Mala proporción', oracionesRojo],
+        ['Se recomienda revisar las oraciones', oracionesAmarillo],
+        ['Buena proporción', oracionesVerde],
+    ]);
+
+    var options = {
+    chartArea: {
+        height: 0,
+        width: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    },
+    height: 150,
+    width: 150,
+    backgroundColor: 'transparent',
+    fontName: 'Lemonada',
+    fontSize: '10',
+    legend: {'position': 'none'},
+    colors: ['red', '#F1C503', '#9FF103'],
+    is3D: true
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('chart'));
+    chart.draw(data, options);
     }
 }

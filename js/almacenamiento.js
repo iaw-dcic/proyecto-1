@@ -30,7 +30,7 @@ function guardar(){
 }
 
 function mostrar(numero){
-    var ultimo=localStorage.getItem('ultimoAlmacenado');
+  
     switch (numero) {
     case "uno":
         var guardado=localStorage.getItem("valor1");
@@ -53,5 +53,6 @@ function mostrar(numero){
         document.getElementById("texto").value=guardado;
         break;
     }
+    interactivo();
     
 }
