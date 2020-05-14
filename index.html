@@ -1,21 +1,4 @@
-<!-- <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<
-<link rel="stylesheet" href="css/app.css">
-
-<title>Page Name</title>
-</head>
-<body>
-<h1>Información Actualizada del coronavirus</h1>
-
-
-<script src="js/app.js"></script>
-</body>
-</html> -->
 
 <!doctype html>
 <html lang="en">
@@ -30,6 +13,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="search.css">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -40,6 +24,8 @@
   <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
   <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#563d7c">
+
+
 
 
   <style>
@@ -64,186 +50,130 @@
 <body>
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Covid- 19 Page</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Iniciar Sesion</a>
-      </li>
-    </ul>
-  </nav>
+    <!-- <input class="form-control form-control-dark w-50 type="text" placeholder="Buscar" aria-label="Search"> -->
+    <!-- <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+    <a class="nav-link" href="#">Iniciar Sesion</a>
+  </li>
+</ul> -->
+</nav>
 
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
 
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Informes</span>
-            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle"></span>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Informes</span>
+          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Mes actual
             </a>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Mes actual
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Último mes
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Casos totales
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Casos activos
-              </a>
-            </li>
-          </ul>
-
-          <!-- <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">
-                <span data-feather="home"></span>
-                Dashboard <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file"></span>
-                Orders
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="shopping-cart"></span>
-                Products
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Customers
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="bar-chart-2"></span>
-                Reports
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Integrations
-              </a>
-            </li>
-          </ul> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Último mes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Casos totales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Casos activos
+            </a>
+          </li>
+        </ul>
 
 
-        </div>
-      </nav>
 
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Sudamerica Covid-19</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
-            </div>
-            <select class="btn btn-sm btn-outline-secondary dropdown-toggle" >
-              <option value="1">
-                <span data-feather="calendar"></span>
-                Esta semana
-              </option>
-              <option value="2">
-                <span data-feather="calendar"></span>
-                Este mes
-              </option>
-              <option value="3">
-                <span data-feather="calendar"></span>
-                Mes pasado
-              </option>
+      </div>
+    </nav>
 
-            </select>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Covid-19 Argentina</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
           </div>
+          <select class="btn btn-sm btn-outline-secondary dropdown-toggle" >
+            <option value="1">
+              <span data-feather="calendar"></span>
+              Esta semana
+            </option>
+            <option value="2">
+              <span data-feather="calendar"></span>
+              Este mes
+            </option>
+            <option value="3">
+              <span data-feather="calendar"></span>
+              Mes pasado
+            </option>
+
+          </select>
         </div>
+      </div>
 
+      <!-- Load icon library -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <!-- <script>
-            fetch("https://pomber.github.io/covid19/timeseries.json")
-              .then(response => response.json())
-              .then(data => {
-                 data["Ecuador"].forEach(({ date, confirmed, recovered, deaths }) =>
-                 console.log(`${date} active cases: ${confirmed} - ${recovered} - ${deaths}`)
-              );
-          });
-      </script> -->
+      <!-- The form -->
 
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
-            <thead class="thead-dark">
-              <tr>
-                <th>Fecha</th>
-                <th>Confirmados</th>
-                <th>Muertos</th>
-                <th>Recuperados</th>
-              </tr>
-            </thead>
-            <tbody id="mostrar">
+      <!-- <form class="example" id="form">
+        <input type="text" id="search" placeholder="Buscar País" name="search">
+        <button onclick="tabla()" id="buscar" type="submit"><i class="fa fa-search"></i></button>
+      </form> -->
 
-
-            </tbody>
-          </table>
+      <div class="input-group mb-3">
+        <input type="text" id="search" class="form-control" placeholder="Buscar País" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" class="buscar" onclick="tabla()" type="button" >Buscar</button>
         </div>
+      </div>
+      <br>
 
-        <script>
-
-          fetch("https://pomber.github.io/covid19/timeseries.json")
-            .then( res => res.json())
-            .then( datos => {
-              tabla(datos)
-              // datos["Uruguay"].forEach(({ date, confirmed, recovered, deaths }) =>
-              // console.log(`${date} active cases: ${confirmed} - ${recovered} - ${deaths}`));
-            })
-
-            function tabla(datos){
-              datos["Argentina"].forEach((datos, i) => {
-                mostrar.innerHTML += `
-
-                    <tr >
-                        <td>${ datos.date }</td>
-                        <td>${ datos.confirmed}</td>
-                        <td>${ datos.recovered }</td>
-                        <td>${ datos.deaths }</td>
-                      </tr>
-                `
-              });
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th>Dia</th>
+              <th>Fecha</th>
+              <th>Confirmados</th>
+              <th>Muertos</th>
+              <th>Recuperados</th>
+            </tr>
+          </thead>
+          <tbody id="mostrar">
 
 
+          </tbody>
+        </table>
+      </div>
 
-            }
 
-        </script>
-
-      <h1 class="h2">Tablero</h1>
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-      </main>
-    </div>
+      <!-- <h1 class="h2">Tablero</h1>
+      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+    </main>
   </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-  <script src="dashboard.js"></script></body>
-  </html>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="dashboard.js"></script></body>
+<script src="datos.js" type="text/javascript"></script>
+</html>
