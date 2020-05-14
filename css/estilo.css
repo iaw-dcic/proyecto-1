@@ -52,6 +52,7 @@ html {
 
 .analizador-section {
     height: 100%;
+    height:auto;
     padding-top: 90px;
     text-align: center;
     background: #EBFAFF;
