@@ -3,15 +3,58 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- CSS -->
     <link rel="stylesheet" href="css/app.css">
-
-    <title>Proyecto 1</title>
+    <title>TIC TAC TOE</title>
   </head>
   <body>
-    <h1>Proyecto 1</h1>
+    <head>
+    	<title>TIC TAC TOE</title>
+    	<meta name="description" content="tic-tac-toe">
+    	<link rel="stylesheet" href="css/app.css">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <div id="Encabezado">
 
+              <img id="logo" src="imagenes/logo.png">
+              <div class="row">
+                <div class="column"></div>
+                <div class="column" id="player">
+                  Juega jugador X
+                </div>
+                <div class="column">
+                  <input id="dark-mode" type="checkbox" onclick="document.documentElement.classList.toggle('dark-mode')" >
+                  Dark Mode
+                </div>
+                <div class="column"></div>
+              </div>
+      </div>
+
+    	<div id="juego">
+
+    		<div class="main">
+    			<div class="tablero"></div>
+      			<button id="casilla-0" value="0" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-1" value="1" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-2" value="2" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-3" value="3" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-4" value="4" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-5" value="5" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-6" value="6" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-7" value="7" onclick="Marcar(this.value)"></button>
+      			<button id="casilla-8" value="8" onclick="Marcar(this.value)"></button>
+    		  </div>
+    		<button class="boton-css" onclick="Reiniciar()">Reiniciar</button>
+      </div>
+      <div id="pop-up">
+        <div id="mensaje">
+            <h1 id="mensaje-texto">asdasd</h1>
+            <button class="boton-css" id="mensaje-boton" onclick="CerrarMensaje()">ok</button>
+        </div>
+      </div>
+    </body>
+    </html>
     <!-- JavaScript -->
     <script src="js/app.js"></script>
   </body>
