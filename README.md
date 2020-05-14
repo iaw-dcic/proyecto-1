@@ -1,6 +1,5 @@
 # Proyecto 1:  HTML - CSS - Javascript - DOM
 
-**Fecha de entrega:** 14 de Mayo de 2020 (inclusive).
 
 ## **Introducción**
 
