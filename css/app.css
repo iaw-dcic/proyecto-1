@@ -12,10 +12,6 @@ body{
     color: white;
 }
 
-#textoLista a:hover{
-    color:orange;
-}
-
 .nav-item{
     text-align: right;
 }
@@ -23,6 +19,7 @@ body{
 .entrada{
     text-align: center;
     display: block;
+    position: absolute;
     margin-right: auto;
     margin-left: auto;
     color: #FFF;
@@ -32,17 +29,11 @@ body{
     color: orange;
 }
 
-.resultado{
+.result{
     display: inline;
-    background-color: #9fabab;
-}
 
-.verdadero{
-    color: green;
-}
-
-.falso{
-    color: red;
+    /*background-color: #9fabab;*/
+    text-align: center;
 }
 
 .switch {
@@ -52,14 +43,14 @@ body{
     height: 34px;
   }
   
-  /* Oculta Checkbox HTML */
-  .switch input {
+/* Oculta Checkbox HTML */
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
-  .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -69,9 +60,9 @@ body{
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -81,28 +72,28 @@ body{
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  input:checked + .slider {
+input:checked + .slider {
     background-color: #2196F3;
-  }
+}
   
-  input:focus + .slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-  }
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
+}
   
-  .slider.round {
+.slider.round {
     border-radius: 34px;
-  }
+}
   
-  .slider.round:before {
+.slider.round:before {
     border-radius: 50%;
-  }
+}
 
   

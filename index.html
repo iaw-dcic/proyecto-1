@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="container-fluid bg-secondary">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
+    <link id="theme" rel="stylesheet" href="css/greyTheme.css">
     
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -18,13 +19,23 @@
 
 
   </head>
-  <body>
+  <body class="w3-theme-d1" onload="loadStorage()">
 
     <!-- Navegacion -->
-    <nav class="navbar navbar-collapse bg-dark navbar-dark">
+    <nav class="navbar navbar-collapse w3-theme-dark navbar-dark">
 
-      <a class="navbar-brand" href="http://uns.edu.ar/" target="_blank"><img alt="logo" src="img/logo-uns.png" width="100px"></a>
+      <a class="navbar-brand" href="http://uns.edu.ar/" target="_blank">
+        <img alt="logo" src="img/logo-uns.png" width="100px">
+      </a>
       <h1 class="headerFont">Números primos</h1>  
+         
+    <div>
+      <br><br>
+      <label class="switch">
+        <input type="checkbox" id="themeButton">
+        <span class="slider round"></span>
+      </label>
+    </div>
       <button class="navbar-toggler"  type="button" data-toggle="collapse"
       data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,48 +43,54 @@
       <div class="collapse nav-item navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav" id="textoLista">
           <li class="nav-item active">
-            <a class="nav-link" href="#" onclick="mostrarDiv('chequear')">Chequear Primo<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" onclick="showDiv('check')">Chequear Primo<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="mostrarDiv('anterior')">Anterior Primo</a>
+            <a class="nav-link" href="#" onclick="showDiv('previous')">Anterior Primo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="mostrarDiv('siguiente')">Siguiente Primo</a>
+            <a class="nav-link" href="#" onclick="showDiv('next')">Siguiente Primo</a>
           </li>    
         </ul>
       </div>  
     </nav>
-
-    <div style="text-align:center;" class="bg-secondary" id="chequearPrimo">
+   
+    <div style="text-align:center;"  class="w3-theme-d1" id="checkPrime">
       <br>
-      <input class="bg-dark entrada" placeholder="Ingrese un entero" type="number" min="1" id="inputChequear">
-      <br>
-      <p style="text-align:center">El número ingresado</p> <b id="resultadoChequear"></b>
-      <br>
-    </div>
-
-    <div style="text-align:center; display: none;" class="bg-secondary" id="anteriorPrimo">
-      <br>
-      <input class="bg-dark entrada" placeholder="Ingrese un entero" type="number" min="1" id="inputAnterior">
-      <br>
-      <p style="text-align:center">El mayor número primo menor al ingresado es</p> <b class="resultado verdadero" id="resultadoAnterior"></b>
+      <input class="bg-secondary" style="text-align: center;" placeholder="Ingrese un entero" type="number" min="1" id="inputCheck">
+      <br><br>
+      <p style="text-align:center">El número ingresado</p> <b id="resultCheck"></b>
       <br>
     </div>
 
-    <div style="text-align:center; display: none;" class="bg-secondary" id="siguientePrimo">
+    <div style="text-align:center; display: none;" class="w3-theme-d1" id="previousPrime">
       <br>
-      <input class="bg-dark entrada" placeholder="Ingrese un entero" type="number" min="1" id="inputSiguiente">
-      <br>
-      <p style="text-align:center">El menor número primo mayor al ingresado es</p> <b class="resultado verdadero" id="resultadoSiguiente"></b>
+      <input class="bg-secondary" style="text-align: center;" placeholder="Ingrese un entero" type="number" min="3" id="inputPrevious">
+      <br><br>
+      <p style="text-align:center">El mayor número primo menor al ingresado es</p> <b class="result true" id="resultPrevious"></b>
       <br>
     </div>
 
-    <div class="bg-secondary" style="text-align:center;" id="switchTema">
-      <br><br><br><br><br>
-      <label class="switch bg-secondary">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
+    <div style="text-align:center; display: none;" class="w3-theme-d1" id="nextPrime">
+      <br>
+      <input class="bg-secondary" style="text-align: center;" placeholder="Ingrese un entero" type="number" min="1" id="inputNext">
+      <br><br>
+      <p style="text-align:center">El menor número primo mayor al ingresado es</p> <b class="result true" id="resultNext"></b>
+      <br>
+    </div>
+
+    <!-- Historial -->
+
+    <div class="w3-theme-d1" style="text-align:right;" id="histTitle"> Últimos números ingresados
+      <ul class="navbar-nav">
+        <br><li class="nav-item active" id="hist1">
+          <span class="sr-only">(current)</span>
+        </li>
+        <li class="nav-item" id="hist2"></li>
+        <li class="nav-item" id="hist3"></li>
+        <li class="nav-item" id="hist4"></li>  
+        <li class="nav-item" id="hist5"></li>      
+      </ul>    
     </div>
 
     <script src="js/app.js"></script>

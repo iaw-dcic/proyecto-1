@@ -1,46 +1,103 @@
-var inputChequear = document.getElementById("inputChequear");
-var inputAnterior = document.getElementById("inputAnterior");
-var inputSiguiente = document.getElementById("inputSiguiente");
+var inputCheck = document.getElementById("inputCheck");
+var inputPrevious = document.getElementById("inputPrevious");
+var inputNext = document.getElementById("inputNext");
 
-var textoResultadoChequear = document.getElementById("resultadoChequear");
-var textoResultadoAnterior = document.getElementById("resultadoAnterior");
-var textoResultadoSiguiente = document.getElementById("resultadoSiguiente");
+var textResultCheck = document.getElementById("resultCheck");
+var textResultPrevious = document.getElementById("resultPrevious");
+var textResultNext = document.getElementById("resultNext");
+
+var themeButton = document.getElementById("themeButton");
+
+var khakiTheme = 'css/khakiTheme.css';
+var greyTheme = 'css/greyTheme.css';
+var activeTheme;
+
 var n, resBool, resInt;
-var arrDivs = ["chequear", "anterior", "siguiente"];
+var arrDivs = ["check", "previous", "next"];
 
-inputChequear.addEventListener("keydown", function (e) {
+function setStorage(strInput){
+    var input = document.getElementById("input" + strInput);
+    var aux1, aux2;
+
+    /* Reordenar elementos en localStorage y en HTML para que aparezcan
+    con el más reciente arriba del todo y el más antiguo abajo */
+
+    for(i = 1; i <= 5; i++){
+	    if(i % 2 != 0){
+		    aux1 = localStorage.getItem(i.toString());
+		    if(i == 1)
+                localStorage.setItem(i.toString(), input.value.toString());
+		    else
+                localStorage.setItem(i.toString(), aux2.toString());
+        }
+	    else{
+		    aux2 = localStorage.getItem(i.toString());
+            localStorage.setItem(i.toString(), aux1.toString());
+        }
+        document.getElementById("hist" + i.toString()).innerHTML = localStorage.getItem(i.toString());
+    }
+}
+
+function loadStorage(){
+    for(i = 1; i <= 5; i++)
+        document.getElementById("hist" + i.toString()).innerHTML = localStorage.getItem(i.toString());
+
+    if (localStorage.getItem("theme") != null){
+        document.getElementById("theme").href = localStorage.getItem("theme");
+        activeTheme = localStorage.getItem("theme");
+    }
+    else{
+        document.getElementById("theme").href = greyTheme;
+        activeTheme = greyTheme;
+    }
+}
+
+function setTheme(theme) {
+    document.getElementById("theme").href = theme;
+    localStorage.setItem("theme", theme);
+    activeTheme = theme;
+}
+
+themeButton.addEventListener("click", function(e){
+    if(activeTheme == greyTheme)
+        setTheme(khakiTheme);
+    else
+        setTheme(greyTheme);
+});
+
+inputCheck.addEventListener("keydown", function (e) {
     if (e.keyCode === 13){ //controla que la tecla presionada sea enter
-        n = inputChequear.value;
-        resBool = esPrimo(n);
-        asignarTextoResChequear(resBool);
-        colorResChequear(resBool);
+        n = inputCheck.value;
+        resBool = checkPrime(n);
+        assignTextResCheck(resBool);
+        colorResCheck(resBool);
+        setStorage("Check");
     }
 });
 
-inputAnterior.addEventListener("keydown", function (e) {
+inputPrevious.addEventListener("keydown", function (e) {
     if (e.keyCode === 13){ 
-        n = inputAnterior.value;
-        resInt = anteriorPrimo(n);
-        asignarTextoResAnt(resInt);
+        n = inputPrevious.value;
+        resInt = previousPrime(n);
+        assignTextResPrev(resInt);
+        setStorage("Previous");
     }
 });
 
-inputSiguiente.addEventListener("keydown", function (e) {
+inputNext.addEventListener("keydown", function (e) {
     if (e.keyCode === 13){ 
-        n = inputSiguiente.value;
-        resInt = siguientePrimo(n);
-        asignarTextoResSig(resInt);
+        n = inputNext.value;
+        resInt = nextPrime(n);
+        assignTextResNext(resInt);
+        setStorage("Next");
     }
 });
 
-function esPrimo(n){
+function checkPrime(n){
     if (n <= 1)  return  false;  
     if (n <= 3)  return true;  
     if (n % 2 == 0 || n % 3 == 0)
         return false;  
-
-    /* los 3 if de arriba sirven para saltear los primeros
-       5 números en el bucle de abajo*/
     
     for (var i = 5; i * i <= n; i = i + 6)  
         if (n % i == 0 || n % (i + 2) == 0)  
@@ -49,7 +106,7 @@ function esPrimo(n){
     return true;  
 } 
 
-function anteriorPrimo(n){
+function previousPrime(n){
         var i, j, winner;
         var arr = [0, 0];
 
@@ -65,48 +122,47 @@ function anteriorPrimo(n){
         return winner;
 }
 
-function siguientePrimo(n){
+function nextPrime(n){
     if (n <= 1)  
         return 2;  
       
     var aux = n;  
-    var encontre = false;  
+    var found = false;  
       
-    // Loopea continuamente hasta que esPrimo devuelve  
+    // Loopea continuamente hasta que checkPrime devuelve  
     // true para un número más grande que n
 
-    while (!encontre){  
+    while (!found){  
         aux++;
-        if (esPrimo(aux))  
-            encontre = true;  
+        if (checkPrime(aux))  
+            found = true;  
     }     
     return aux;  
 }
 
-function asignarTextoResChequear(res){
+function assignTextResCheck(res){
     if(res == true)
-        textoResultadoChequear.innerHTML = "es un número primo";
+        textResultCheck.innerHTML = "es un número primo";
     else
-        textoResultadoChequear.innerHTML = "no es un número primo";
+        textResultCheck.innerHTML = "no es un número primo";
 }
 
-function asignarTextoResAnt(res){
-    textoResultadoAnterior.innerHTML = res;
+function assignTextResPrev(res){
+    textResultPrevious.innerHTML = res;
 }
 
-function asignarTextoResSig(res){
-    textoResultadoSiguiente.innerHTML = res;
+function assignTextResNext(res){
+    textResultNext.innerHTML = res;
 }
 
-function colorResChequear(bool){
+function colorResCheck(bool){
     if(bool == true) 
-            textoResultadoChequear.className = "resultado verdadero";
+            textResultCheck.className = "result true";
         else
-            textoResultadoChequear.className = "resultado falso";
-
+            textResultCheck.className = "result false";
 }
 
-function mostrarDiv(str) {
+function showDiv(str) {
     var divMostrar = document.getElementById(str + "Primo");
     var divOcultar;
     divMostrar.style.display = "block";
