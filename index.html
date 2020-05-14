@@ -6,6 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <!-- Two library -->
     <script src="js/Two.js"></script>
     <!-- CSS -->
@@ -27,7 +30,7 @@
         id="sidebar-wrapper"
       >
         <div class="sidebar-heading border-bottom mt-4">
-          <a data-toggle="collapse" href="#attributes-wrapper" class="w3-theme-dark">
+          <a data-toggle="collapse" href="#attributes-wrapper" class="w3-theme-sidebar">
             Attributes
           </a>
         </div>
@@ -71,43 +74,58 @@
             </div>
           </div>
           <div class="element-group border-top dropdown-toggle">
-            <a data-toggle="collapse" href="#generation-numbers-wrapper" class="w3-theme-dark">
+            <a data-toggle="collapse" href="#generation-numbers-wrapper" class="w3-theme-sidebar">
               Generation numbers
             </a>
           </div>
           <div id="generation-numbers-wrapper" class="collapse">
             <div class="py-2 collapse-inner rounded">
-              <div class="custom-control custom-checkbox">
+              <div class="custom-control custom-checkbox mx-4">
                 <input
                   type="checkbox"
                   class="custom-control-input"
-                  id="customCheck1"
+                  id="generation-checkbox1"
+                  value="1"
                 />
-                <label class="custom-control-label" for="customCheck1">1</label>
+                <label class="custom-control-label" for="generation-checkbox1">1</label>
               </div>
-              <div class="custom-control custom-checkbox">
+              <div class="custom-control custom-checkbox mx-4">
                 <input
                   type="checkbox"
                   class="custom-control-input"
-                  id="customCheck2"
+                  id="generation-checkbox3"
+                  value="3"
+                  checked
                 />
-                <label class="custom-control-label" for="customCheck2">2</label>
+                <label class="custom-control-label" for="generation-checkbox3">3</label>
               </div>
-              <div class="custom-control custom-checkbox">
+              <div class="custom-control custom-checkbox mx-4">
                 <input
                   type="checkbox"
                   class="custom-control-input"
-                  id="customCheck3"
+                  id="generation-checkbox4"
+                  value="4"
                 />
-                <label class="custom-control-label" for="customCheck3">3</label>
+                <label class="custom-control-label" for="generation-checkbox4">4</label>
               </div>
-              <div class="custom-control custom-checkbox">
+              <div class="custom-control custom-checkbox mx-4">
                 <input
                   type="checkbox"
                   class="custom-control-input"
-                  id="customCheck4"
+                  id="generation-checkbox5"
+                  value="5"
                 />
-                <label class="custom-control-label" for="customCheck4">4</label>
+                <label class="custom-control-label" for="generation-checkbox5">5</label>
+              </div>
+              <div class="custom-control custom-checkbox mx-4">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="generation-checkbox6"
+                  value="6"
+                  checked
+                />
+                <label class="custom-control-label" for="generation-checkbox6">6</label>
               </div>
             </div>
           </div>

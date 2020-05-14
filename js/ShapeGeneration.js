@@ -22,6 +22,9 @@ var groupsGenerated = false;
 var centerX = 0;
 var centerY = 0;
 
+//Numbers used for generation, define types of shape used
+var generationNumbers = [3,6];
+
 //-------------------------------------
 
 //Initialization code
@@ -73,6 +76,19 @@ function startAnimationGroups() {
   }
 }
 
+function addGenerationNumber(number) {
+  if (!generationNumbers.includes(number)) {
+    generationNumbers.push(number);
+  }
+}
+
+function removeGenerationNumber(number) {
+  var index = generationNumbers.indexOf(number);
+  if (index > -1) {
+    generationNumbers.splice(index, 1);
+  }
+}
+
 function createLayer(xValue, yValue, referenceRadius) {
   var shapesPerLayer = randomInRange(MIN_SHAPES_PER_LAYER, MAX_SHAPES_PER_LAYER);
   for (let i = 0; i < shapesPerLayer; i++) {
@@ -84,19 +100,16 @@ function createLayer(xValue, yValue, referenceRadius) {
 }
 
 function createShape(xValue, yValue, referenceRadius) {
-  var shapeType = randomInRange(1,4);
-  switch (shapeType) {
-    case 1:
-      createCircle(xValue, yValue, referenceRadius);
-      break;
-    case 2:
-      createPolygon(xValue, yValue, referenceRadius, 3);
-      break;
-    case 3:
-      createPolygon(xValue, yValue, referenceRadius, 6);
-      break;
-    default:
-      break;
+  if (generationNumbers.length > 0) {
+    var shapeType = generationNumbers[randomInRange(0, generationNumbers.length)];
+    switch (shapeType) {
+      case 1:
+        createCircle(xValue, yValue, referenceRadius);
+        break;
+      default:
+        createPolygon(xValue, yValue, referenceRadius, shapeType);
+        break;
+    }
   }
 }
 
@@ -167,9 +180,10 @@ function createInsideLines(xValue, yValue, referenceRadius, sides) {
 }
 
 function createOrbitShapes(orbitRadius) {
-  var numberOfShapes;
-  numberOfShapes = Math.random() > 0.5 ? 3 : 6;
-  createCircles(numberOfShapes, orbitRadius);
+  if (generationNumbers.length > 0) {
+    var numberOfShapes = generationNumbers[randomInRange(0, generationNumbers.length)];
+    createCircles(numberOfShapes, orbitRadius);
+  }
 }
 
 function createCircles(n, radius) {

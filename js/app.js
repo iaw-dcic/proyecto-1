@@ -25,6 +25,10 @@ function setListeners() {
   animationSpeedSlider.oninput = setAnimationSpeed;
   lightThemeButton.onclick = function() { changeTheme(lightTheme); }
   darkThemeButton.onclick = function() { changeTheme(darkTheme); }
+  var checkboxes = document.querySelectorAll('[id^=generation-checkbox]');
+  for (let i in checkboxes) {
+    checkboxes[i].onchange = generationCheckboxChange;
+  }
 }
 
 function generateShapes() {
@@ -54,6 +58,14 @@ function setShapesPerLayer() {
   MAX_SHAPES_PER_LAYER = +maxShapesPerLayerInput.value;
   localStorage.setItem("minShapesPerLayer", minShapesPerLayerInput.value);
   localStorage.setItem("maxShapesPerLayer", maxShapesPerLayerInput.value);
+}
+
+function generationCheckboxChange() {
+  if (this.checked) {
+    addGenerationNumber(+this.value);
+  } else {
+    removeGenerationNumber(+this.value);
+  }
 }
 
 function loadData() {
