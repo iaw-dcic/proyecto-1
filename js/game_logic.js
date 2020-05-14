@@ -8,13 +8,10 @@ let gameState = {
 	board: null,
 	nextBoard: null,
 	updatedRows: null,
-	nextUpdatedRows: null,
-
-	savedBoard: null,
-	savedRows: null
+	nextUpdatedRows: null
 }
 
-function initGame(rows, cols) {
+function initState(rows, cols) {
 	gameState.rows = rows
 	gameState.cols = cols
 
@@ -144,43 +141,34 @@ function updateState() {
 	}
 }
 
-function saveState() {
-	const rows = gameState.rows
-	const cols = gameState.cols
-	const board = gameState.board
-	const updatedRows = gameState.updatedRows
-	const savedBoard = gameState.savedBoard
-	const savedRows = gameState.savedRows
-
-	for (let i = 0; i < rows; i++) {
-		savedRows[i] = updatedRows[i]
-		for (let j = 0; j < cols; j++) {
-			 savedBoard[i][j] = board[i][j]
-		}
+function minState() {
+	let min_state = {
+		board: gameState.board,
+		generation: gameState.generation
 	}
+
+	return min_state
 }
 
-function loadState() {
-	const rows = gameState.rows
-	const cols = gameState.cols
-	const board = gameState.board
-	const updatedRows = gameState.updatedRows
-	const savedRows = gameState.savedRows
-	const savedBoard = gameState.savedBoard
-	let count = 0
-	let cellState
+function loadState(min_state) {
+	const board = min_state.board
+	const rows = board.length
+	const cols = board[0].length
+	const gens = min_state.generation
 
+	initState(rows, cols)
+
+	let count = 0
 	for (let i = 0; i < rows; i++) {
-		updatedRows[i] = true
 		for (let j = 0; j < cols; j++) {
-			state = savedBoard[i][j]
-			board[i][j] = state
+			cellState = board[i][j]
+			gameState.board[i][j] = cellState
 			if (cellState) count++
 		}
 	}
 
 	gameState.cellCount = count
-	gameState.generation = 0
+	gameState.generation = gens
 }
 
 function clearState() {
@@ -225,7 +213,7 @@ function resizeBoard(newRows, newCols) {
 	const oldBoard = gameState.board
 	const oldUpdated = gameState.updatedRows
 
-	initGame(newRows, newCols)
+	initState(newRows, newCols)
 	const newBoard = gameState.board
 	const newUpdated = gameState.updatedRows
 

@@ -56,10 +56,10 @@ function setUpButtons() {
 	let runningGame
 	let testRuns = 0
 
-
 	$("#reloadButton").click(function() {
 		pauseGame()
-		loadState()
+		loadState(retrieveLocalStorage())
+		initGrid()
 		drawGrid()
 		updateScores()
 		this.blur()
@@ -90,7 +90,7 @@ function setUpButtons() {
 
 	$("#saveButton").click(function() {
 		pauseGame()
-		saveState()
+		saveToLocalStorage(minState())
 		this.blur()
 	})
 
@@ -102,6 +102,7 @@ function setUpButtons() {
 		updateScores()
 		this.blur()
 	})
+
 
 
 	function startGame() {
@@ -138,11 +139,23 @@ function setUpButtons() {
 	}
 }
 
+
+const KEY = "SAVED_STATE"
+
+function saveToLocalStorage(state) {
+	let stringState = JSON.stringify(state)
+	window.localStorage.setItem(KEY, stringState)
+}
+
+function retrieveLocalStorage() {
+	let stringState = window.localStorage.getItem(KEY)
+	return JSON.parse(stringState)
+}
+
 function setUpSlider() {
 	$("#sizeSlider").attr('min', minSide)
 	$("#sizeSlider").attr('max', maxSide)
 	$("#sizeSlider").attr('step', 2)
-	$("#sizeSlider").attr('value', startingSize)
 
 	$("#sizeSlider").on('input', function() {
 		configBoardSize(parseInt(this.value))
@@ -157,7 +170,6 @@ function updateScores() {
 	$("#gensTxt").text("Gen: "+gameState.generation)
 	$("#cellsTxt").text("Cells: "+gameState.cellCount)
 }
-
 
 let boardRows
 let boardCols
@@ -194,7 +206,7 @@ $(function () {
 
 configBoardSize(startingSize)
 
-initGame(boardRows, boardCols)
+initState(boardRows, boardCols)
 randomize()
 
 initGrid()
