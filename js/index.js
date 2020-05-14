@@ -110,43 +110,46 @@ $(document).ready(function() {
   function check(id1, id2) {
     const x = generateImage(id1);
     const y = generateImage(id2);
-    setTimeout(function() {}, 500); //delay is in milliseconds
-    if (x !== y) {
-      backToDefault(id1);
-      backToDefault(id2);
-      _errores++;
-    } else {
-      //deberia aumentar un contador
-      deletedArray.push(id1);
-      deletedArray.push(id2);
-      contFinish++;
-      imgArray.push($(`#m${id1}`));
-      imgArray.push($(`#m${id2}`));
-      $(`#${id1}`).css("background-color", "transparent !important");
-      $(`#${id2}`).css("background-color", "transparent !important");
-      $(`#m${id1} `)
-        .parent()
-        .append('<div class="imgAux"/></div>');
-      $(`#m${id2} `)
-        .parent()
-        .append('<div class="imgAux"/></div>');
-      $(`#m${id1} `).hide();
-      $(`#m${id2}`).hide();
-      if (contFinish === 8) {
-        clearInterval(myVar);
-        winGame();
-        //$(".card").hide();
-        //document.getElementById("demo").innerHTML = "";
-        alert(
-          "terminaste el juego en : " +
-            (seconds - 1) +
-            " segundos y :" +
-            _errores +
-            " errores"
-        );
+    setTimeout(function() {
+      if (x !== y) {
+        backToDefault(id1);
+        backToDefault(id2);
+        _errores++;
+      } else {
+        //deberia aumentar un contador
+        deletedArray.push(id1);
+        deletedArray.push(id2);
+        contFinish++;
+        imgArray.push($(`#m${id1}`));
+        imgArray.push($(`#m${id2}`));
+        $(`#${id1}`).css("background-color", "transparent !important");
+        $(`#${id2}`).css("background-color", "transparent !important");
+        $(`#m${id1} `)
+          .parent()
+          .append('<div class="imgAux"/></div>');
+        $(`#m${id2} `)
+          .parent()
+          .append('<div class="imgAux"/></div>');
+        $(`#m${id1} `).hide();
+        $(`#m${id2}`).hide();
+        if (contFinish === 8) {
+          clearInterval(myVar);
+          winGame();
+          localStorage.setItem("seconds", seconds);
+          localStorage.setItem("errores", _errores);
+          //$(".card").hide();
+          //document.getElementById("demo").innerHTML = "";
+          alert(
+            "terminaste el juego en : " +
+              (seconds - 1) +
+              " segundos y :" +
+              _errores +
+              " errores"
+          );
+        }
+        //tengo que actualizar el local storage
       }
-      //tengo que actualizar el local storage
-    }
+    }, 200); //delay is in milliseconds
   }
 
   //vuelve a los valores por defecto

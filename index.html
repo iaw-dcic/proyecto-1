@@ -246,10 +246,14 @@
 
 <script>
 document.getElementById('shareBtn').onclick = function() {
+ let seconds = JSON.parse(localStorage.getItem("seconds"));
+ let errors = JSON.parse(localStorage.getItem("errores"));
+
+
   FB.ui({
     display: 'popup',
     method: 'share',
-    quote : `Termine el juego en segundos y errores`,
+    quote : `Termine el juego en ${seconds} segundos y ${errors} errores`,
     href: 'https://ajavieralejandro.github.io/proyecto-1/',
   }, function(response){});
 }
