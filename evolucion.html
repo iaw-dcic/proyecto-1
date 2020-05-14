@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Covid-19 Argentina</title>
+    <meta charset="UTF-8" />
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="logo">COVID-19 ARGENTINA</h1>
+      <ul class="nav">
+        <li class="navlink"><a href="index.html">MAPA</a></li>
+        <li class="navlink"><a href="evolucion.html">EVOLUCION</a></li>
+        <li class="navlink"><a href="#">RECOMENDACIONES</a></li>
+        <li class="navlink"><a href="#">SINTOMAS</a></li>
+        <li class="navlink"><a href="#">Nº DE CONTACTO</a></li>
+      </ul>
+      <div class="burger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+    <div id="container">
+      <div id="center">
+        <div id="timelapse-chart-div-wrapper">
+          <div id="filters-div-container" class="hidden">
+            <fieldset id="provinces-picker-div-container">
+              <legend id="provinces-picker-title">
+                Filtrar por provincias:
+              </legend>
+            </fieldset>
+            <fieldset id="date-picker-div-container">
+              <legend id="provinces-picker-title">Filtrar por fecha:</legend>
+              <label for="startdate" class="dateInputLabel">
+                Fecha de inicio:
+              </label>
+              <input id="startdate" type="text" class="date"/>
+              <br />
+              <br />
+              <label for="enddate" class="dateInputLabel">
+                Fecha de finalización:
+              </label>
+              <input id="enddate" type="text" class="date"/>
+            </fieldset>
+            <div id="filter-buttons-div-container">
+              <button id="pause-button" class="button">Pausar</button>
+              <button id="apply-filters-and-restart-button" class="button">
+                Aplicar
+              </button>
+            </div>
+          </div>
+          <div id="timelapse-chart-div-container"></div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="/js/evolucion.js" type="text/javascript"></script>
+  </body>
+</html>
