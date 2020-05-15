@@ -1,18 +1,107 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
 
-    <title>Proyecto 1</title>
-  </head>
-  <body>
-    <h1>Proyecto 1</h1>
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- JavaScript -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet"> 
+
+    <title>Conway's Game of Life</title>
+  </head>
+  
+  <body class="dark-theme">
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1>Conway's Game of Life</h1>
+    </div>
+
+    
+      <div class="container">
+
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group toolbar-element" role="group">
+              <button type="button" class="btn btn-icon" id="reloadButton" data-toggle="tooltip" data-placement="top" title="Reload">
+                <span class="material-icons">refresh</span>
+              </button>
+              <button type="button" class="btn btn-icon" id="stepButton" data-toggle="tooltip" data-placement="top" title="Step">
+                <span class="material-icons">last_page</span>
+              </button>
+              <button type="button" class="btn btn-icon" id="startButton" data-toggle="tooltip" data-placement="top" title="Start">
+                <span class="material-icons">play_arrow</span>
+              </button>
+              <button type="button" class="btn btn-icon" id="stopButton" data-toggle="tooltip" data-placement="top" title="Pause">
+                <span class="material-icons">pause</span>
+              </button>
+            </div>
+            
+            <div class="slider-container toolbar-element">
+              <input type="range" class="slider" id="sizeSlider">
+            </div>
+
+            <div class="btn-group toolbar-element" role="group">
+              <button type="button" class="btn btn-icon" id="clearButton" data-toggle="tooltip" data-placement="top" title="Clear">
+                <span class="material-icons">delete_outline</span>
+              </button>
+              <button type="button" class="btn btn-icon" id="saveButton" data-toggle="tooltip" data-placement="top" title="Save">
+                <span class="material-icons">save</span>
+              </button>
+              <button type="button" class="btn btn-icon" id="randomizeButton" data-toggle="tooltip" data-placement="top" title="Randomize">
+                <span class="material-icons">shuffle</span>
+              </button>
+            </div>
+
+            <div class="text-container toolbar-element">
+              <div class="text-item border-right" id="gensTxt">Gen: 0</div>
+              <div class="text-item" id="cellsTxt">Cells: 0</div>
+            </div>
+
+            <button type="button" class="btn btn-icon toolbar-element right" id="themeButton" data-toggle="tooltip" data-placement="top" title="Theme">
+              <span class="material-icons">brightness_6</span>
+            </button>
+        </div>
+
+      <div>
+        <canvas class="grid-canvas" id="grid"></canvas>
+      </div>
+
+      <div class="mt-5 pt-5">
+        <div class="jumbotron pl-3">
+          <h3>About</h3>
+          <p>
+            El juego de la vida es un autómata celular diseñado por el matemático John Conway.<br>
+            Consiste en una grilla en la que el estado de cada celda depende de las ocho celdas aledañas. <br>En cada paso de la simulación se determina el estado que tendran todas las células en el paso siguiente.<br>
+            Una célula estará viva en el siguiente paso si: <br>
+             - Esta viva en el paso actual y tiene 2 o 3 vecinos vivos. <br>
+             - Esta muerta en el paso actual y tiene 3 vecinos vivos. <br>
+            En cualquier otro caso, la célula estará muerta. <br> <br>
+            En esta implementación en particular la grilla se comporta como un toro, es decir, las células pueden atravezar un extremo y aparecer por el opuesto.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- App -->
+    <script src="js/game_logic.js"></script>
+    <script src="js/game_view.js"></script>
     <script src="js/app.js"></script>
+    
   </body>
 </html>
