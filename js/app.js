@@ -54,7 +54,6 @@ function setUpDrawing() {
 function setUpButtons() {
 	let running = false
 	let runningGame
-	let testRuns = 0
 
 	$("#reloadButton").click(function() {
 		pauseGame()
@@ -103,6 +102,12 @@ function setUpButtons() {
 		this.blur()
 	})
 
+	$("#themeButton").click(function() {
+		darkTheme = !darkTheme
+		setTheme()
+		this.blur()
+	})
+
 
 
 	function startGame() {
@@ -124,31 +129,18 @@ function setUpButtons() {
 		drawGrid()
 		updateScores()
 	}
-
-	function testStep() {
-		console.log("Inicia test: "+ ++testRuns)
-		console.time('Total time')
-		console.time('Compute time')
-		updateState()
-		console.timeEnd('Compute time')
-		console.time('Draw time')
-		drawGrid()
-		console.timeEnd('Draw time')
-		console.timeEnd('Total time')
-		console.log("\n")	
-	}
 }
 
 
-const KEY = "SAVED_STATE"
+const STATE_KEY = "SAVED_STATE"
 
 function saveToLocalStorage(state) {
 	let stringState = JSON.stringify(state)
-	window.localStorage.setItem(KEY, stringState)
+	window.localStorage.setItem(STATE_KEY, stringState)
 }
 
 function retrieveLocalStorage() {
-	let stringState = window.localStorage.getItem(KEY)
+	let stringState = window.localStorage.getItem(STATE_KEY)
 	return JSON.parse(stringState)
 }
 
@@ -192,6 +184,32 @@ function configBoardSize(side) {
 }
 
 
+let darkTheme = false
+const THEME_KEY = "THEME_KEY"
+
+function configTheme() {
+	let value = window.localStorage.getItem(THEME_KEY)
+	if (value !== null) {
+		value = (value === "true")? true : false
+		console.log(value)
+		darkTheme = value
+		if (value) setTheme()
+	}
+}
+
+function setTheme() {
+	if (darkTheme) {
+		document.body.classList.remove("light-theme")
+    	document.body.classList.add("dark-theme")
+	}
+	else {
+		document.body.classList.remove("dark-theme")
+    	document.body.classList.add("light-theme")
+	}
+	updateGridColors()
+	window.localStorage.setItem(THEME_KEY, darkTheme)
+}
+
 // Tooltips
 $(function () {
   $('[data-toggle="tooltip"]').tooltip({
@@ -216,3 +234,4 @@ updateScores()
 setUpDrawing()
 setUpButtons()
 setUpSlider()
+configTheme()

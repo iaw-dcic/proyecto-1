@@ -12,28 +12,32 @@
     <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet"> 
+
     <title>Conway's Game of Life</title>
   </head>
   
-  <body>
+  <body class="light-theme">
     <div class="jumbotron jumbotron-fluid text-center">
       <h1>Conway's Game of Life</h1>
     </div>
 
     
       <div class="container">
+
         <div class="btn-toolbar" role="toolbar">
           <div class="btn-group toolbar-element" role="group">
-              <button type="button" class="btn btn-secondary btn-icon" id="reloadButton" data-toggle="tooltip" data-placement="top" title="Reload">
+              <button type="button" class="btn btn-icon" id="reloadButton" data-toggle="tooltip" data-placement="top" title="Reload">
                 <span class="material-icons">refresh</span>
               </button>
-              <button type="button" class="btn btn-secondary btn-icon" id="stepButton" data-toggle="tooltip" data-placement="top" title="Step">
+              <button type="button" class="btn btn-icon" id="stepButton" data-toggle="tooltip" data-placement="top" title="Step">
                 <span class="material-icons">last_page</span>
               </button>
-              <button type="button" class="btn btn-secondary btn-icon" id="startButton" data-toggle="tooltip" data-placement="top" title="Start">
+              <button type="button" class="btn btn-icon" id="startButton" data-toggle="tooltip" data-placement="top" title="Start">
                 <span class="material-icons">play_arrow</span>
               </button>
-              <button type="button" class="btn btn-secondary btn-icon" id="stopButton" data-toggle="tooltip" data-placement="top" title="Pause">
+              <button type="button" class="btn btn-icon" id="stopButton" data-toggle="tooltip" data-placement="top" title="Pause">
                 <span class="material-icons">pause</span>
               </button>
             </div>
@@ -43,13 +47,13 @@
             </div>
 
             <div class="btn-group toolbar-element" role="group">
-              <button type="button" class="btn btn-secondary btn-icon" id="clearButton" data-toggle="tooltip" data-placement="top" title="Clear">
+              <button type="button" class="btn btn-icon" id="clearButton" data-toggle="tooltip" data-placement="top" title="Clear">
                 <span class="material-icons">delete_outline</span>
               </button>
-              <button type="button" class="btn btn-secondary btn-icon" id="saveButton" data-toggle="tooltip" data-placement="top" title="Save">
+              <button type="button" class="btn btn-icon" id="saveButton" data-toggle="tooltip" data-placement="top" title="Save">
                 <span class="material-icons">save</span>
               </button>
-              <button type="button" class="btn btn-secondary btn-icon" id="randomizeButton" data-toggle="tooltip" data-placement="top" title="Randomize">
+              <button type="button" class="btn btn-icon" id="randomizeButton" data-toggle="tooltip" data-placement="top" title="Randomize">
                 <span class="material-icons">shuffle</span>
               </button>
             </div>
@@ -58,14 +62,30 @@
               <div class="text-item border-right" id="gensTxt">Gen: 0</div>
               <div class="text-item" id="cellsTxt">Cells: 0</div>
             </div>
+
+            <button type="button" class="btn btn-icon toolbar-element right" id="themeButton" data-toggle="tooltip" data-placement="top" title="Theme">
+              <span class="material-icons">brightness_6</span>
+            </button>
         </div>
 
       <div>
         <canvas class="grid-canvas" id="grid"></canvas>
       </div>
+
+      <div class="mt-5 pt-5">
+        <div class="jumbotron pl-3">
+          <h3>About</h3>
+          <div>
+            El juego de la vida de Conway
+          </div>
+        </div>
+      </div>
+
     </div>
 
 
+
+    
 
     <!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

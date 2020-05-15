@@ -41,15 +41,15 @@ function randomize() {
 	const updatedRows = gameState.updatedRows
 	const random_factor = gameState.random_factor
 
-	const hq = Math.round(rows/4)
-	const lq = Math.round(cols/4)
-	const rad = Math.min(hq, lq) *0.8
+	const hs = Math.round(rows/6)
+	const ls = Math.round(cols/6)
+	const rad = Math.min(hs, ls) *0.8
 
-	const c1 = {x: 3*lq, y: hq, r: rad}
-	const c2 = {x: lq, y: hq, r: rad}
-	const c3 = {x: lq, y: 3*hq, r: rad}
-	const c4 = {x: 3*lq, y: 3*hq, r: rad}
-	const c5 = {x: 2*lq, y: 2*hq, r: 2*rad}
+	const c1 = {x: 5*ls, y: 2*hs, r: rad}
+	const c2 = {x: ls, y: 2*hs, r: rad}
+	const c3 = {x: ls, y: 4*hs, r: rad}
+	const c4 = {x: 5*ls, y: 4*hs, r: rad}
+	const c5 = {x: 3*ls, y: 3*hs, r: 2*rad}
 
 	const circles = [c1, c2, c3, c4, c5]
 	let liveCell
@@ -72,7 +72,7 @@ function randomize() {
 		const xDist = Math.abs(circle.x - point.x)
 		const yDist = Math.abs(circle.y - point.y)
 		
-		return Math.sqrt(xDist*xDist + yDist*yDist) <= circle.r + Math.random()*circle.r/2
+		return Math.sqrt(xDist*xDist + yDist*yDist) <= circle.r + Math.random()*circle.r/3
 	}
 }
 
