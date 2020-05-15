@@ -1,18 +1,449 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Brigada Comidita - Proyecto 1 </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/icon.png">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/app.css">
+		<!-- CSS here -->
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="assets/css/slicknav.css">
+            <link rel="stylesheet" href="assets/css/animate.min.css">
+            <link rel="stylesheet" href="assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/css/themify-icons.css">
+            <link rel="stylesheet" href="assets/css/slick.css">
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+            <link rel="stylesheet" href="assets/css/style.css">
+   </head>
 
-    <title>Proyecto 1</title>
-  </head>
-  <body>
-    <h1>Proyecto 1</h1>
+   <body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loader.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area">
+            <div class="main-header ">
+                <div class="header-top top-bg d-none d-lg-block">
+                   <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-8">
+                            <div class="header-info-left">
+                                <ul>                          
+                                    <li>enriqueviola2014@gmail.com</li>
+                                    <li>1-786-519-3708</li>
+                                    <li>Avenida Alem 1253 Bahía Blanca</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="header-info-right f-right">
+                                <ul class="header-social">    
+                                    <li><a href="https://github.com/EnriqueViolaGomez"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/enrique-viola-g%C3%B3mez-854883195/"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.youtube.com/watch?v=9Yu5qeVEKFo"><i class="fab fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                       </div>
+                   </div>
+                </div>
+               <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                  <a href="index.html"><img src="assets/img/logo/logo1.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>               
+                                        <ul id="navigation">                                                                                                                                     
+                                            <li><a href="#Principal">Buscar</a></li>
+                                            <li><a href="#Recomendaciones">Recomendaciones</a></li>
+                                            <li><a href="#About">Acerca de nosotros</a></li>
+                                            <li><a href="#Reseñas">Reseñas</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
 
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
-  </body>
+    <main>
+
+        <!-- slider Area Start-->
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <h1 id="Principal"></h1>
+            <div class="slider-active">
+                <div class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="assets/img/hero/background.png">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <div class="hero__caption">
+                                    <h1>Bienvenido a la <span>Brigada Comidita</span> </h1>
+                                    <p>¿Qué deseas cocinar?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Search Box -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <!-- form -->
+                                <form action="#" class="search-box">
+                                    <div class="input-form mb-30">
+                                        <input id="searchBar" type="text" disabled></div>
+                                    <div class="select-form mb-30">
+                                        <div class="select-itms">
+                                            <select id="selectBar" onchange="changeSearchText()">
+                                                <option value="random" selected>Aleatorio</option>
+                                                <option value="search">Receta</option>
+                                                <option value="findByIngredients">Ingredientes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="search-form mb-30">
+                                        <a href="#Receta" id="btnBuscar" onclick="buscarReceta()">Buscar</a>
+                                    </div>	
+                                </form>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!-- Recipe Area Start-->
+        <h1 id="Receta"></h1>
+        <section class="blog_area section-padding">
+            <div id="divRecipe" class="container">
+                <div class="row">
+                    <div class="col-lg-8 mb-5 mb-lg-0">
+                        <div class="blog_left_sidebar">
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img id="recipeImage" class="card-img rounded-0" alt="">
+                                    <a class="blog_item_date">
+                                        <h3 id="recipeTitle"></h3>
+                                    </a>
+                                </div>
+    
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="single-blog.html">
+                                        <h2 id="recipeIngredients"></h2>
+                                    </a>
+                                    <p id="recipeText"></p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Recipe Area End-->
+        <!-- Favourite Recipes Start -->
+        <h1 id="Recomendaciones"></h1>
+        <div class="favourite-place place-padding">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>Éstas son recetas que hemos disfrutado siguiendo, ¡y esperamos que tú también!</span>
+                            <h2>Recetas recomendadas</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/recomendaciones/recommended0.png" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>6.5 riki y simple</span> </span>
+                                    <h3><a href="#Receta" onclick="showRecommended(0)">Budinazo con dulce de leche</a></h3>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/recomendaciones/recommended1.png" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>8.0 un clásico</span> </span>
+                                    <h3><a href="#Receta" onclick="showRecommended(1)">Pancito casero tradicional</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/recomendaciones/recommended2.png" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>6.0 no incluye salchicha</span> </span>
+                                    <h3><a href="#Receta" onclick="showRecommended(2)">Pancito 'e pancho para el antojo</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/recomendaciones/recommended3.png" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>9.0 para cuando no hay con que tomar la leche</span> </span>
+                                    <h3><a href="#Receta" onclick="showRecommended(3)">La gaieta con shokolat </a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/recomendaciones/recommended4.png" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>8.0 el clásico americano de las películas</span> </span>
+                                    <h3><a href="#Receta" onclick="showRecommended(4)">Fromage grillé</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/recomendaciones/recommended5.png" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>7.0 molto bene</span> </span>
+                                    <h3><a href="#Receta" onclick="showRecommended(5)">Fideitos caseros bambini</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Favourite Recipes End -->
+        <!-- Support Company Start-->
+        <h1 id="About"></h1>
+        <div class="support-company-area support-padding fix">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="support-location-img mb-50">
+                            <img src="assets/img/hero/About.png" alt="">
+                            <div class="support-img-cap">
+                                <span>Failing since 1997</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="right-caption">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle section-tittle2">
+                                <span>Acerca de nuestra compañía</span>
+                                <h2>Somos la Brigada Comidita <br>y comprendemos tus problemas en la cocina!</h2>
+                            </div>
+                            <div class="support-caption">
+                                <p>No todos tienen miles de horas en la cocina en su haber o las habilidades y la confianza de un chef profesional, ¡es por eso que decidimos proporcionar un servicio para aquellos como nosotros! 
+                                    Algunas pesonas simplemente se sienten más cómodas siguiendo una receta, es por ello que esta plataforma provee una forma simple de buscar diversas recetas para que puedas expandir tus horizontes culinarios.</p>
+                                <div class="select-suport-items">
+                                    <label class="single-items">Búsqueda de recetas de acuerdo a los ingredientes disponibles
+                                        <input type="checkbox" checked="checked active" disabled>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="single-items">Buscar recetas específicas que quieras intentar
+                                        <input type="checkbox" checked="checked active" disabled>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="single-items">Búsqueda aleatoria para los más aventureros
+                                        <input type="checkbox" checked="checked active" disabled>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Support Company End-->
+        <!-- Testimonial Start -->
+        <!-- Testimonial Start -->
+        <h1 id="Reseñas"></h1>
+        <div class="testimonial-area testimonial-padding" data-background="assets/img/testmonial/test.png">
+            <div class="container ">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-11 col-lg-11 col-md-9">
+                        <div class="h1-testimonial-active">
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                <!-- Testimonial Content -->
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <img src="assets/img/icon/testimonial.png" alt="">
+                                        <p>Oh la verdad que yo era un pelele en la cocina, tu sabes? Solía vivir a fideos y pizzas congeladas de Grido como un pobre diablo.
+                                            Pero desde que me recomendaron la página de la Brigada Comidita he estado cocinando sin parar, oh si sin parar! He aprendido tantas recetas que me paso todo mi
+                                            tiempo libre en la cocina, ahora cada vez que me dirijo a la cocina mi hermano me mira y me dice "no, de nuevo no", oh si no de nuevo decía.  </p>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                        <div class="founder-img">
+                                            <img src="assets/img/hero/elbilan.png" alt="">
+                                        </div>
+                                        <div class="founder-text">
+                                            <span>El Bylan</span>
+                                            <p>Sujeto de prueba</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+        
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-padding footer-bg" data-background="assets/img/service/footer_bg.jpg">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                         <div class="single-footer-caption mb-30">
+                              <!-- logo -->
+                             <div class="footer-logo">
+                                 <a href="index.html"><img src="assets/img/logo/loader2.png" alt=""></a>
+                             </div>
+                         </div>
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <div class="footer-pera">
+                                    <p>El template para el diseño de ésta página fue descargado de https://colorlib.com/wp/template/gotrip/</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <div class="footer-pera">
+                                    <p>Esta página es un trabajo parcial creado con el fin de completar los objetivos propuestos en el 
+                                        primer proyecto de la materia Ingeniería de Aplicaciones Web de la Universidad Nacional del Sur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer bottom -->
+                <div class="row pt-padding">
+                 <div class="col-xl-7 col-lg-7 col-md-7">
+                    <div class="footer-copy-right">
+                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                 </div>
+             </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+    <!-- JS here -->
+        
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+
+	    <!-- Jquery Mobile Menu -->
+        <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+
+		<!-- One Page, Animated-HeadLin -->
+        <script src="./assets/js/wow.min.js"></script>
+		<script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="./assets/js/jquery.scrollUp.min.js"></script>
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+        <script src="./assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
+
+        <!-- Recomended recipes -->
+        <script src="./assets/js/recomendedRecipes.js"></script>
+
+        <!-- Acción botones-->
+        <script src="./assets/js/btnAction.js"></script>
+
+        <!-- Buscar receta js-->
+        <script src="./assets/js/buscarReceta.js"></script>
+
+        <!-- Cambiar texto de búsqueda -->
+        <script src="./assets/js/changeSearchText.js"></script>
+        
+    </body>
 </html>
