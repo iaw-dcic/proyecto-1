@@ -34,3 +34,7 @@
 #textoLista a:hover{
     color:orange;
 }
+
+#linkGithub:hover{
+    color: orange;
+}
