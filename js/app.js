@@ -163,13 +163,13 @@ function colorResCheck(bool){
 }
 
 function showDiv(str) {
-    var divMostrar = document.getElementById(str + "Primo");
+    var divMostrar = document.getElementById(str + "Prime");
     var divOcultar;
     divMostrar.style.display = "block";
     
     for(i = 0; i < 3; i++){
         if(arrDivs[i] != str){
-            divOcultar = document.getElementById(arrDivs[i] + "Primo");
+            divOcultar = document.getElementById(arrDivs[i] + "Prime");
             divOcultar.style.display = "none";
         }
 

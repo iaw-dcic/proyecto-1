@@ -100,8 +100,4 @@ input:checked + .slider:before {
     color: black;
 }
 
-#linkGithub:hover{
-    color:orange;
-}
-
   
