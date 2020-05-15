@@ -18,7 +18,7 @@
     <title>Conway's Game of Life</title>
   </head>
   
-  <body class="light-theme">
+  <body class="dark-theme">
     <div class="jumbotron jumbotron-fluid text-center">
       <h1>Conway's Game of Life</h1>
     </div>
@@ -75,9 +75,15 @@
       <div class="mt-5 pt-5">
         <div class="jumbotron pl-3">
           <h3>About</h3>
-          <div>
-            El juego de la vida de Conway
-          </div>
+          <p>
+            El juego de la vida es un autómata celular diseñado por el matemático John Conway.<br>
+            Consiste en una grilla en la que el estado de cada celda depende de las ocho celdas aledañas. <br>En cada paso de la simulación se determina el estado que tendran todas las células en el paso siguiente.<br>
+            Una célula estará viva en el siguiente paso si: <br>
+             - Esta viva en el paso actual y tiene 2 o 3 vecinos vivos. <br>
+             - Esta muerta en el paso actual y tiene 3 vecinos vivos. <br>
+            En cualquier otro caso, la célula estará muerta. <br> <br>
+            En esta implementación en particular la grilla se comporta como un toro, es decir, las células pueden atravezar un extremo y aparecer por el opuesto.
+          </p>
         </div>
       </div>
 

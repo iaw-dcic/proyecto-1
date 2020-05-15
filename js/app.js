@@ -184,7 +184,7 @@ function configBoardSize(side) {
 }
 
 
-let darkTheme = false
+let darkTheme = true
 const THEME_KEY = "THEME_KEY"
 
 function configTheme() {
@@ -193,7 +193,7 @@ function configTheme() {
 		value = (value === "true")? true : false
 		console.log(value)
 		darkTheme = value
-		if (value) setTheme()
+		if (!value) setTheme()
 	}
 }
 
