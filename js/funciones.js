@@ -91,7 +91,7 @@ function buscar(){
             var reemplazado=reemplazado.replace("°°°","<rojo>"+palabra+"</rojo>");
         }
         document.getElementById("Repeticiones").innerHTML="Cantidad de repeticiones: "+numero;
-        document.getElementById("Resaltado").innerHTML=re;
+        document.getElementById("Resaltado").innerHTML=reemplazado;
     }
 }
 
