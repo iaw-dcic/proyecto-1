@@ -2,17 +2,143 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <link rel="icon"   href="fotos/edit.gif" type="image/gif" />  
+    <link href="css/estructura-general.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Galada&family=Lemonada" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/app.css">
+    <title>Lemon Pie</title>
 
-    <title>Proyecto 1</title>
-  </head>
-  <body>
-    <h1>Proyecto 1</h1>
+</head>
 
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
-  </body>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <img src="fotos/edit.gif" height="40px" width="40px" style="cursor: pointer;">
+                        <ul>
+				            <li><a class="lista lista-desplegable" href="#analizador" onclick="estilo()">CAMBIAR TEMA</a></li>
+				        </ul>
+                    </li>
+                    
+                    <li>
+                        <a>Textos Almacenados</a>
+                        <ul>
+				            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('uno')">Texto 1</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('dos')">Texto 2</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('tres')">Texto 3</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('cuatro')">Texto 4</a></li>
+                            <li><a class="lista lista-desplegable" href="#analizador" onclick="mostrar('cinco')">Texto 5</a></li>
+				        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#analizador">Analizador</a>
+                    </li>
+                    <li>
+                        <a href="#repeticiones">Contador</a>
+                    </li>
+                    <li>
+                        <a href="#proporciones">Proporciones</a>
+                    </li>
+                    <li>
+                        <a href="#quienessomos">¿Quienes somos?</a>
+                    </li>
+                </ul>
+            </div>	
+        </div>	
+    </nav>
+
+    <section id="analizador" class="analizador-section">
+        <div class="container">
+                <div>
+                    <h1>Analizador:</h1> 
+                     <p font-size="7px" >Puede guardar hasta 5 textos.</p>
+                     <p font-size="7px" >De querer guardar una mayor cantidad, se procederá a reemplazar el texto más antiguo que esté almacenado.</p>
+                    <textarea id="texto" placeholder="Escribe aquí el texto..." style="width:70%;" rows="10" oninput="interactivo()"></textarea>
+                    <p>
+                    <a class="btn btn-primary" onclick="guardar()">Guardar</a>
+                    </p>
+                    <p id="Cantidad parrafos"></p>
+                    <p id="Cantidad oraciones"></p>
+                    <p id="Cantidad palabras"></p>
+                    <p id="Cantidad caracteres"></p>
+                </div>
+            </div>
+    </section>
+
+    <section id="repeticiones" class="repeticiones-section">
+        <div class="container">
+                <div>
+                    <h1>Contador de repeticiones:</h1>
+                    <p>Ingrese palabra a buscar:</p>
+                    <input type="text" size="15" maxlength="30" id="palabra">
+                    <p>
+                        <a class="btn btn-primary" onclick="buscar()">Buscar</a>
+                    </p>
+                    <p id="Resaltado"></p>
+                    <p>&nbsp;</p>
+                    <p id="Repeticiones"></p>
+                </div>
+            </div>
+    </section>
+
+    <section id="proporciones" class="proporciones-section">
+        <div class="container">
+                    <h1>Proporción de oraciones:</h1>
+                    <p>Si una oración tiene demasiadas palabras, es recomendable separarla en dos mediante un punto "."</p>
+		          <p>
+                        <img src="fotos/caja.png" height="20px" width="20px">
+                        <p1><verde>Cantidad de palabras correcta en la oración</verde></p1>
+                    </p>
+                    <p>
+                        <img src="fotos/bombilla.png" height="20px" width="20px">
+                        <p1><amarillo>Cantidad de palabras al límite</amarillo></p1>
+                    </p>
+                    <p >
+                        <img src="fotos/cancelar.png" height="20px" width="20px">
+                        <p1><rojo>Demasiada cantidad de palabras en la oración</rojo></p1>
+                    </p>
+                    <p id="Proporciones"></p>
+                   <p id="chart" align='center'></p>
+                </div>
+    </section>
+    
+    <section id="quienessomos" class="quienessomos-section">
+        <div class="container">
+            
+                    <img src="fotos/edit.gif" height="150px" width="150px">
+		              <p>
+                      <img src="fotos/LemonPie.jpg" height="60px" width="150px">
+                    </p>
+                   <p>
+                       Somos una empresa compuesta por especialistas en diversas áreas, y nos encargamos de brindar ayuda integral a nuestros clientes en la redacción de documentos importantes para su trabajo, así como en el análisis de los resultados obtenidos y la aplicación de reglas de formato concretas. Si no estás seguro de lo que necesitas nuestros asesores te guiarán. No dudes en contactarnos. 
+                    </p>
+					<p>&nbsp;</p>
+                    <p>
+			             <img src="fotos/multimedia.png" height="20px" width="20px">
+                        <p1>  contacto@lemponpieweb.com</p1>
+                    </p>
+                    <p>
+			             <img src="fotos/mapa.png" height="20px" width="20px">
+                        <p1>  Av. Siempre Viva 742</p1>
+                    </p>
+                    <p>
+			             <img src="fotos/redes.png" height="20px" width="20px">
+                        <p1>  @lemonPie</p1>
+                    </p>
+                    <p>
+                        © 2020 LemonPie Inc. Powered by Yasmin Pie.
+                    </p>   
+                </div>
+    </section>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="js/funciones.js"></script>
+<script src="js/almacenamiento.js"></script>
+<script src="js/estilo.js"></script>
+</body>
+
 </html>

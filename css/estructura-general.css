@@ -1,0 +1,127 @@
+html {
+  font-family: 'Galada';
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+.fixed {
+    position: fixed;
+    width: 70px;
+    margin-left:Auto;
+    margin-right:Auto;
+}
+
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* --------- NAVBAR --------- */
+
+a:hover,
+a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav > li.disabled > a {
+  color: #333;
+}
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+
+.navbar-nav {
+  margin: 7.5px -15px;
+}
+
+/* --------- @MEDIA --------- */
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: black;
+  }
+}
+
+@media (max-width:768px){
+    .nav{
+        position: absolute;
+        background: #fff;
+        width: 17%;
+        margin-left: 0;
+        transition:0.5s;
+    }
+    
+    .nav navbar-nav ul{
+        flex-direction: column;
+    }
+    
+    .nav navbar-nav li{
+        border-top: 1px solid #fff;
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+    
+  p {
+        font-size: 1.5vw; 
+    }
+
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
