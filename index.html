@@ -1,18 +1,100 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <title>Simon</title>
+    <link rel="shortcut icon" type="image/png" href="image/logo.png"/>
     <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="lib/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/app.css">
-
-    <title>Proyecto 1</title>
   </head>
-  <body>
-    <h1>Proyecto 1</h1>
+  <body class="color_black">
+      <div class="container" id="controls">
+        <div class="row justify-content-center">
+          <div class="col-sm-auto">
+            <div class="simon_ctrl">
+                <span id="settings" title="Change settings..."><i class="fas fa-cog"></i></span>
+                <span id="new_game" title="New game"><i class="far fa-play-circle"></i></span>
+                <span id="end_turn" title="End turn"><i class="far fa-check-circle"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container vertical-center" id="game_panel">
+        <div class="mx-auto">
+            <div class="row justify-content-center">
+              <div class="col-sm-auto  col_custom_padding">
+                <button id="btn_1" type="button" value=1 class="btn simon_btn color_green"></button>
+              </div>
+              <div class="col-sm-auto col_custom_padding">
+                <button id="btn_2" type="button" value=2 class="btn simon_btn color_red"></button>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-auto col_custom_padding">
+                <button id="btn_3" type="button" value=3 class="btn simon_btn color_yellow"></button>
+              </div>
+              <div class="col-sm-auto col_custom_padding">
+                <button id="btn_4" type="button" value=4 class="btn simon_btn color_blue"></button>
+              </div>
+            </div>
+            </div>
+      </div>
+      <!-- Modals -->
+      <div id="game_status_modal" class="modal fade " tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm vertical-center">
+          <div class="modal-content modal-cfg color_white">
+            <div class="row justify-content-center">
+              <div class="col">
+                <h1 id="game_status_modal_text"></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="settings_modal" class="modal fade " tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm vertical-center">
+          <div class="modal-content modal-cfg color_white">
+            <div class="row">
+              <div class="col-sm-auto">
+                <div class="form-group">
+                  <label for="sequence_length">Sequence length</label>
+                  <select class="form-control custom-select" id="sequence_length">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-auto">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="darkmode">
+                  <label class="custom-control-label" for="darkmode">Dark mode</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="js/logic.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
