@@ -6,13 +6,12 @@ var marcadorLocal = 0;
 var rivales = 12;
 var cartel;
 var cartel2;
-var velocidad = 200;
+var velocidad = 50;
 var goles = 0;
 var arcoLibre;
 var partidoFutbol = new Phaser.Game(405, 526, Phaser.AUTO, 'cancha');
 
-var playing = false;
-var startButton;
+
 
 
 
@@ -31,7 +30,7 @@ var estadoPrincipal = {
     },
     //Mostrar los recursos cargados por patalla
     create: function() {
-
+        partidoFutbol.paused = true;
         fondoJuego = partidoFutbol.add.tileSprite(0, 0, 405, 529, 'cesped');
         pelota = partidoFutbol.add.sprite(200, 250, 'pelota');
         pie = partidoFutbol.add.sprite(160, 480, 'pie');
@@ -55,10 +54,11 @@ var estadoPrincipal = {
         partidoFutbol.physics.arcade.checkCollision.down = false;
         pelota.body.bounce.set(1);
         pelota.checkWorldBounds = true;
-        partidoFutbol.paused = true;
+
         pelota.events.onOutOfBounds.add(function() {
             marcadorLocal += 1;
             agregarresultado();
+            velocidad = 50;
             btnInicio.disabled = false;
             partidoFutbol.state.start('partido');
 
@@ -137,8 +137,13 @@ function gambeta(pelota, rival) {
 
     rival.kill();
     rivales -= 1;
-    velocidad += 10;
-    pelota.body.velocity.set(velocidad, velocidad + 20);
+    if (nivel == 'acosta') {
+        velocidad += 40;
+    } else {
+        velocidad += 20;
+    }
+    //velocidad += 30;
+    pelota.body.velocity.set(velocidad, velocidad + 30);
     if (rivales == 0) {
 
         cerrarArco();
@@ -162,20 +167,16 @@ function gambetaArquero(pelota, rival) {
 
 }
 
-function startGame() {
-    startButton.destroy();
-    pelota.body.velocity.set(150, -150);
-    playing = true;
-}
+
 
 function setValores() {
     marcadorLocal = 0;
     rivales = 12;
     goles = 0;
     if (nivel == 'acosta') {
-        velocidad = 300;
+        velocidad = 100;
     } else {
-        velocidad = 150;
+        velocidad = 50;
     }
 }
 

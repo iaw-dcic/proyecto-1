@@ -61,6 +61,7 @@ btnInicio.addEventListener('click', () => {
     btnInicio.disabled = true;
     setValores();
     partidoFutbol.paused = false;
+
 });
 
 
