@@ -13,10 +13,21 @@ El proyecto es individual y se debe elegir uno de los 3 temas mencionados a cont
 
 ## **Descripción Tema 2 - Juego Online**
 
-El proyecto consiste en la creación de un juego de futbol, donde se tendrá que tratar de hacer la máxima cantidad de goles, el manejo consiste en chocar la pelota con la barra que aparece debajo de la cancha, esta barra se maneja con flecha izquierda y derecha del teclado. Cuando se eliminan los rivales aparece una especie de arquero, cada vez que se le pega cuenta como gol. Pero cada vez que se hace un gol aumenta la velocidad de la pelota.
-Para juagar hay que estar registrado con el nombre(me quedo mal que cada vez que se quiere jugar hay que registrase).
-Al juego le falta muchas mejoras visuales como de lógica(se me complico con el juego más de lo que tenía pensado)
-Se uso la libreia Phaser para el juego y boostrap para la visualización de la página(no muy linda).
+El proyecto consiste en la creación de un juego de futbol relacionado con el club de Futbol Lanus, donde se tendrá que tratar de hacer la máxima cantidad de goles, el manejo consiste en chocar la pelota con la barra que aparece debajo de la cancha, esta barra se maneja con flecha izquierda y derecha del teclado. Cuando se eliminan los rivales aparece una especie de arquero, cada vez que se le pega a este arquero cuenta como gol. Pero cada vez que se hace un gol aumenta la velocidad de la pelota.
+Para jugar hay que estar registrado o se le asocia el nombre de anonimo. 
+Tenemos dos opciones de juego 
+          1)nivel Acosta (Avanzado)- Es un nivel donde la pelota va mas rápido
+          2)nivel Juvenil (Junior)- Es un nivel donde la pelota va velocidad normal
+La pagina cuenata con dos temas visuales para elegir
+          1)Visual 1 - Emula color de camiseta titular
+          2)Visual 2 - Emula color de camiseta suplente
+   
+Las caracteristicas que guardaria la pagina cuando un usario la sale serian:
+          1)Estilo visual
+          2)El nivel de juego elegido
+
+En el local storage se guardara las ultimas 5 partidas.
+
 
 
 
