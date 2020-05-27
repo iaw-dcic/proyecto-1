@@ -1,11 +1,12 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-console.log("Inicializando...");
 // Comienza siempre el jugador X
 var player = "X";
-console.log(player);
+
 // Tablero en 0
 var tablero = ["0","0","0","0","0","0","0","0","0"];
-console.log(tablero);
+
+// Dark mode
+var dark_mode = false;
 
 // Las posibles conbinaciones ganadoras
 var combGanadoras = [[1,2,3], [4,5,6], [7,8,9],		//Horizontales
@@ -92,17 +93,12 @@ function Reiniciar(){
 	player = "X";																				//por defecto X siempre inicia el juego
 	localStorage.setItem("tablero", tablero);						//guardo tablero
 	localStorage.setItem("player", player);							//guardo jugador
-	console.log("Reiniciar tablero");
-	console.log(tablero);
-	console.log(player);
 
 }
 
 
 // Guardar estado
 function CargarTablero(tableroAux) {
-	console.log("CargarTablero con ");
-	console.log(tableroAux);
 	for (var i = 0; i < tableroAux.length; i++) {
 		if (tableroAux[i] == "1") {
 			document.getElementById("casilla-"+i).style.backgroundColor = "red";
@@ -113,17 +109,29 @@ function CargarTablero(tableroAux) {
 		}
 	}
 }
+function Dark(){
+	aux = localStorage.getItem("dark_mode");
+	if (aux == "true"){
+		dark_mode = false;
+		document.getElementById("dark-mode").innerHTML = "Activar Dark Mode";
+	}else {
+		dark_mode = true;
+		document.getElementById("dark-mode").innerHTML = "Desactivar Dark Mode";
+	}
+	localStorage.setItem("dark_mode", dark_mode);
+}
 
 window.onload=function(){			//funcion al cargar la pagina
-
-				console.log("Arranca el juego");
-				console.log(localStorage.getItem("tablero"));
-				console.log(localStorage.getItem("player"));
 				if(localStorage.getItem("tablero")!=null){																	//checkeo si hay algo guardado previamente
 					tablero = localStorage.getItem("tablero").split(",");											//convierto el tablero
 					CargarTablero(tablero);																										//inicializa con el tablero antes guardado
 					player = localStorage.getItem("player");																	//inicializo el player antes guardado
-					document.getElementById("player").innerHTML = "Juega Jugador " + player;	//cambio el cartel de quien juega	
+					dark_mode = localStorage.getItem("dark_mode");
+					if (dark_mode == "true"){
+							document.documentElement.classList.toggle('dark-mode')
+							document.getElementById("dark-mode").innerHTML = "Desactivar Dark Mode";
+					}
+					document.getElementById("player").innerHTML = "Juega Jugador " + player;	//cambio el cartel de quien juega
 				}
 
 }

@@ -12,10 +12,11 @@
 #logo {
 	width: 300px;
 }
-
+.dark-mode-button{
+	margin: 1vh 0 1vh 0; 
+}
 html.dark-mode{
 	filter: invert(100%);
-
 }
 .row {
   display: flex;
