@@ -1,18 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/estilos.css">
 
-    <title>Proyecto 1</title>
-  </head>
-  <body>
-    <h1>Proyecto 1</h1>
+    <title>Futbol Granate</title>
+
+</head>
+
+<body>
+    <div class="contenedor">
+        <nav>
+            <a class="escudo" id="escudo" href="#">
+                <img src="img/escudo.png">
+            </a>
+            <p>
+                <h1> El Grana Gol</h1>
+            </p>
+            <div class="enlaces">
+                <form class="registro" id="registro" name="registro">
+                    <p>Ingrese su nombre</p>
+                    <input type="text" id="nombre" name="nombre" maxlength="12" required>
+
+                    <input type="button" class="botonnombre" value="Registrar" id="botonnombre">
+
+                </form>
+
+
+                <button class="estilo" id="estilo">
+					<span><i class="fas fa-tshirt"></i></span>
+					<span><i class="fas fa-tshirt"></i></span>
+				</button>
+            </div>
+
+        </nav>
+
+        <section>
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <table class="table table-striped">
+                        <thead class="titulotabla">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Goles</th>
+                            </tr>
+                        </thead>
+                        <tbody id="res">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-4">
+                    <aside class="caracteristicas">
+                        <div class="configuracion">
+                            <img src="img/acosta.jpg" alt="Jugador Futbol" id="nivelimagen">
+                            <div class="botones">
+                                <button class="boton acosta" id="acosta">Nivel Acosta</button>
+                                <button class="boton juvenil" id="juvenil">Nivel Juvenil</button>
+                            </div>
+                        </div>
+
+                        <div class="botones">
+                            <button class="comenzar" id="comenzar">Jugar</button>
+                        </div>
+
+                    </aside>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="cancha" id="cancha"></div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <footer class="footer-estandard">
+            <p>© 2020 Copyright: <a href="https://phaser.io/"> phaser.io</a></p>
+            <p>© Club Atletico Lanus 2020: <a href="http://clublanus.com/"> clublanus.com</a></p>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
-    <script src="js/app.js"></script>
-  </body>
+    <script src="js/phaser.js"></script>
+    <script src="js/principal.js"></script>
+    <script src="js/juego.js"></script>
+
+</body>
+
 </html>
