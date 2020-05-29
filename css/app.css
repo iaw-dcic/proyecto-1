@@ -1,0 +1,9 @@
+* {
+    padding: 5;
+    margin: 5;
+}
+
+#cancha {
+    width: 600px;
+    height: 500px;
+}

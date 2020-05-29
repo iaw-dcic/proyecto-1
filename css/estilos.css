@@ -1,0 +1,342 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #22090B;
+    font-family: 'Roboto Slab', sans-serif;
+    -webkit-transition: .3s ease all;
+    transition: .3s;
+}
+
+body.grana {
+    background: #FEFEFE;
+}
+
+a {
+    color: #222222;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contenedor {
+    max-width: 1024px;
+    width: 90%;
+    margin: auto;
+    padding: 20px 20px 5px 0;
+}
+
+nav {
+    background: #FEFEFE;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 3px 15px;
+    border-radius: 5px;
+    -webkit-transition: .3s ease all;
+    transition: .3s;
+    -webkit-box-shadow: 10px 10px 10px rgba(185, 175, 175, 0.473);
+    box-shadow: 8px 8px 10px rgba(185, 175, 175, 0.473);
+}
+
+nav p {
+    margin: 0 0 2px;
+}
+
+nav .escudo {
+    position: relative;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav .enlaces {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+nav .enlaces a {
+    margin-right: 40px;
+}
+
+nav .escudo img {
+    height: 80px;
+}
+
+nav .enlaces a:hover {
+    color: #707070;
+    text-decoration: none;
+}
+
+.estilo {
+    background: rgb(63, 29, 29);
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+}
+
+.registro a {
+    cursor: pointer;
+}
+
+.estilo::after {
+    position: absolute;
+    background: rgb(252, 252, 252);
+    height: 40px;
+    width: 40px;
+    content: "";
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s;
+    display: block;
+}
+
+.estilo.activo {
+    background: rgb(252, 252, 252);
+}
+
+.estilo.activo span {
+    color: rgb(63, 29, 29);
+}
+
+body.grana nav {
+    background: rgb(63, 29, 29);
+    color: #FEFEFE;
+}
+
+body.grana a {
+    color: #FEFEFE;
+}
+
+.estilo.activo::after {
+    position: absolute;
+    background: rgb(63, 29, 29);
+    height: 40px;
+    width: 40px;
+    content: "";
+    top: 0;
+    left: unset;
+    right: 0;
+    border-radius: 100px;
+    transition: .3s;
+    display: block;
+}
+
+.estilo span {
+    color: rgb(252, 252, 252);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: none;
+    display: block;
+}
+
+.cancha {
+    padding: 20px;
+}
+
+.caracteristicas {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 40px 20px;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px 0 60px;
+}
+
+.caracteristicas .comenzar {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 15px;
+    padding: 5px 15px;
+    position: absolute;
+    background: rgb(52, 245, 4);
+    border-radius: 5px;
+    bottom: 0px;
+    left: 75px;
+}
+
+.caracteristicas .configuracion {
+    background: #FEFEFE;
+    padding: 20px;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+    box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    position: relative;
+    min-height: 200px;
+    margin-top: 50px;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+}
+
+body.grana .caracteristicas .configuracion {
+    -webkit-box-shadow: 10px 10px 20px rgba(63, 29, 29, 0.80);
+    box-shadow: 10px 10px 20px rgba(63, 29, 29, 0.80);
+}
+
+.caracteristicas .configuracion img {
+    vertical-align: top;
+    border-radius: 7px;
+    position: absolute;
+    top: -50px;
+    width: calc(100% - 40px);
+    max-height: 250px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.caracteristicas .configuracion .botones {
+    width: 100%;
+    margin-top: 20px;
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 20px;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.caracteristicas .configuracion .botones .boton {
+    padding: 5px;
+    color: #fff;
+    width: 100%;
+    display: block;
+    background: #111111;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 15px
+}
+
+.caracteristicas .configuracion .botones .boton.acosta {
+    background: rgb(63, 29, 29);
+}
+
+.caracteristicas .configuracion .botones .boton.acosta:hover {
+    background: rgb(58, 50, 50);
+}
+
+.caracteristicas .configuracion .botones .boton.juvenil {
+    background: rgb(63, 29, 29);
+}
+
+.caracteristicas .configuracion .botones .boton.juvenil:hover {
+    background: rgb(58, 50, 50);
+}
+
+.caracteristicas .configuracion .botones .boton.secundario {
+    background: #C8C8C8;
+}
+
+.caracteristicas .configuracion .botones .boton.secundario:hover {
+    background: #ACABAB;
+}
+
+body.grana table {
+    padding: 20px;
+    box-shadow: 10px 10px 10px rgba(63, 29, 29, 0.80);
+}
+
+table {
+    box-shadow: 10px 10px 10px rgba(216, 189, 189, 0.4);
+}
+
+.titulotabla {
+    color: #FEFEFE;
+    padding: 0px 0px;
+}
+
+body.grana .titulotabla {
+    color: #111111;
+}
+
+.footer-estandard {
+    position: relative;
+    text-align: center;
+    padding: 0px auto;
+    margin-top: 10px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 11px
+}
+
+footer.footer-estandard p {
+    color: #FEFEFE;
+}
+
+footer.footer-estandard a {
+    color: #FEFEFE;
+}
+
+body.grana footer.footer-estandard p {
+    color: rgb(63, 29, 29);
+}
+
+body.grana footer.footer-estandard a {
+    color: rgb(63, 29, 29);
+}
+
+.registro {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.botonnombre {
+    padding: 4px;
+    border-radius: 7px;
+    background: rgb(63, 29, 29);
+    color: #FEFEFE;
+}
+
+.botonnombre:hover {
+    background: rgb(58, 50, 50);
+}
+
+body.grana .botonnombre {
+    background: #FEFEFE;
+    color: rgb(63, 29, 29);
+}
+
+body.grana .botonnombre:hover {
+    background: rgb(233, 229, 229);
+}
+
+input[type=text] {
+    border-radius: 7px;
+    max-width: 120px;
+    margin: 4px 0;
+    padding: 4px 4px;
+    background-color: #FEFEFE;
+    color: rgb(12, 8, 8);
+}
+
+input[type=text]:focus {
+    background-color: rgb(231, 224, 231);
+}
